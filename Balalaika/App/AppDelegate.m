@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "LoginViewModel.h"
+#import "BarService.h"
+#import "ConnectionService.h"
+#import "LoginView.h"
 
 @interface AppDelegate ()
 
@@ -19,9 +22,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    ConnectionService *connectionService = [ConnectionService new];
+    BarService *barService = [[BarService alloc]initWithService:connectionService];
+    
+    
+    
     self.window = 	[UIWindow new];
-    ViewController *vc = [ViewController new];
-    self.window.rootViewController = vc;
+    LoginViewModel *vm = [[LoginViewModel alloc]initWithProtocol:barService];
+    
+    LoginView *loginView = [LoginView new];
+    loginView.viewModel = vm;
+    
+    self.window.rootViewController = loginView;
     [self.window makeKeyAndVisible];
     
     return YES;
