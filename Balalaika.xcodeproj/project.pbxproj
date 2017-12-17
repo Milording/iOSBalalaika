@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0C615F1FE5C5A700E7434D /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C615E1FE5C5A700E7434D /* LoginView.m */; };
+		5D0DF8751FE44F0500B20417 /* BarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF8741FE44F0500B20417 /* BarService.m */; };
+		5D0DF8781FE4506800B20417 /* ConnectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF8771FE4506800B20417 /* ConnectionService.m */; };
+		5D0DF87C1FE5AE4600B20417 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF87B1FE5AE4600B20417 /* Song.m */; };
+		5D0DF87F1FE5AE8D00B20417 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF87E1FE5AE8D00B20417 /* Playlist.m */; };
 		5DB585501FE1909200E674B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5854F1FE1909200E674B9 /* AppDelegate.m */; };
-		5DB585531FE1909200E674B9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB585521FE1909200E674B9 /* ViewController.m */; };
+		5DB585531FE1909200E674B9 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB585521FE1909200E674B9 /* LoginViewModel.m */; };
 		5DB585561FE1909200E674B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DB585541FE1909200E674B9 /* Main.storyboard */; };
 		5DB585591FE1909200E674B9 /* Balalaika.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DB585571FE1909200E674B9 /* Balalaika.xcdatamodeld */; };
 		5DB5855B1FE1909200E674B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DB5855A1FE1909200E674B9 /* Assets.xcassets */; };
@@ -18,11 +23,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D0C615B1FE5B10400E7434D /* BarServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarServiceProtocol.h; sourceTree = "<group>"; };
+		5D0C615D1FE5C5A700E7434D /* LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		5D0C615E1FE5C5A700E7434D /* LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		5D0DF8731FE44F0500B20417 /* BarService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarService.h; sourceTree = "<group>"; };
+		5D0DF8741FE44F0500B20417 /* BarService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarService.m; sourceTree = "<group>"; };
+		5D0DF8761FE4506800B20417 /* ConnectionService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectionService.h; sourceTree = "<group>"; };
+		5D0DF8771FE4506800B20417 /* ConnectionService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectionService.m; sourceTree = "<group>"; };
+		5D0DF8791FE4513500B20417 /* ConnectionServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectionServiceProtocol.h; sourceTree = "<group>"; };
+		5D0DF87A1FE5AE4600B20417 /* Song.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
+		5D0DF87B1FE5AE4600B20417 /* Song.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
+		5D0DF87D1FE5AE8D00B20417 /* Playlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
+		5D0DF87E1FE5AE8D00B20417 /* Playlist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
 		5DB5854B1FE1909200E674B9 /* Balalaika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Balalaika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DB5854E1FE1909200E674B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5DB5854F1FE1909200E674B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5DB585511FE1909200E674B9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5DB585521FE1909200E674B9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5DB585511FE1909200E674B9 /* LoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
+		5DB585521FE1909200E674B9 /* LoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
 		5DB585551FE1909200E674B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DB585581FE1909200E674B9 /* Balalaika.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Balalaika.xcdatamodel; sourceTree = "<group>"; };
 		5DB5855A1FE1909200E674B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,9 +80,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5D0C615C1FE5BE8900E7434D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5DB5854E1FE1909200E674B9 /* AppDelegate.h */,
+				5DB5854F1FE1909200E674B9 /* AppDelegate.m */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		5D0DF86F1FE4499200B20417 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5D0DF8731FE44F0500B20417 /* BarService.h */,
+				5D0DF8741FE44F0500B20417 /* BarService.m */,
+				5D0C615B1FE5B10400E7434D /* BarServiceProtocol.h */,
+				5D0DF8761FE4506800B20417 /* ConnectionService.h */,
+				5D0DF8771FE4506800B20417 /* ConnectionService.m */,
+				5D0DF8791FE4513500B20417 /* ConnectionServiceProtocol.h */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -73,6 +105,10 @@
 		5D0DF8701FE4499F00B20417 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5D0DF87A1FE5AE4600B20417 /* Song.h */,
+				5D0DF87B1FE5AE4600B20417 /* Song.m */,
+				5D0DF87D1FE5AE8D00B20417 /* Playlist.h */,
+				5D0DF87E1FE5AE8D00B20417 /* Playlist.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -80,6 +116,8 @@
 		5D0DF8711FE449AE00B20417 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				5DB585511FE1909200E674B9 /* LoginViewModel.h */,
+				5DB585521FE1909200E674B9 /* LoginViewModel.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -87,6 +125,8 @@
 		5D0DF8721FE449B300B20417 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5D0C615D1FE5C5A700E7434D /* LoginView.h */,
+				5D0C615E1FE5C5A700E7434D /* LoginView.m */,
 			);
 			name = Views;
 			path = "New Group";
@@ -113,14 +153,11 @@
 		5DB5854D1FE1909200E674B9 /* Balalaika */ = {
 			isa = PBXGroup;
 			children = (
+				5D0C615C1FE5BE8900E7434D /* App */,
 				5D0DF8721FE449B300B20417 /* Views */,
 				5D0DF8711FE449AE00B20417 /* ViewModels */,
-				5D0DF8701FE4499F00B20417 /* Models */,
 				5D0DF86F1FE4499200B20417 /* Services */,
-				5DB5854E1FE1909200E674B9 /* AppDelegate.h */,
-				5DB5854F1FE1909200E674B9 /* AppDelegate.m */,
-				5DB585511FE1909200E674B9 /* ViewController.h */,
-				5DB585521FE1909200E674B9 /* ViewController.m */,
+				5D0DF8701FE4499F00B20417 /* Models */,
 				5DB585541FE1909200E674B9 /* Main.storyboard */,
 				5DB5855A1FE1909200E674B9 /* Assets.xcassets */,
 				5DB5855C1FE1909200E674B9 /* LaunchScreen.storyboard */,
@@ -256,10 +293,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DB585531FE1909200E674B9 /* ViewController.m in Sources */,
+				5D0DF87C1FE5AE4600B20417 /* Song.m in Sources */,
+				5DB585531FE1909200E674B9 /* LoginViewModel.m in Sources */,
+				5D0DF8781FE4506800B20417 /* ConnectionService.m in Sources */,
+				5D0C615F1FE5C5A700E7434D /* LoginView.m in Sources */,
 				5DB585591FE1909200E674B9 /* Balalaika.xcdatamodeld in Sources */,
 				5DB585611FE1909200E674B9 /* main.m in Sources */,
 				5DB585501FE1909200E674B9 /* AppDelegate.m in Sources */,
+				5D0DF8751FE44F0500B20417 /* BarService.m in Sources */,
+				5D0DF87F1FE5AE8D00B20417 /* Playlist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
