@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LoginViewModel.h";
+#import "LoginViewModel.h"
 
 @interface LoginView : UIViewController
 

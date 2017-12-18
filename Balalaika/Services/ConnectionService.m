@@ -8,10 +8,11 @@
 
 #import "ConnectionService.h"
 
+
 @interface ConnectionService()
 
-@property (nonatomic,strong) SRHubConnection *hub;
-@property (nonatomic,strong) SRHubProxy *chat;
+@property (nonatomic, strong) SRHubConnection *hub;
+@property (nonatomic, strong) SRHubProxy *chat;
 
 @end
 
@@ -41,7 +42,7 @@
 {
     [self.chat invoke:@"AddPremiumSong" withArgs:@[songId] completionHandler:nil];
 }
-
+              
 -(void)getActualPlaylist
 {
     [self.chat invoke:@"GetActualPlaylist" withArgs:[NSArray new] completionHandler:^(id response, NSError *error) {
