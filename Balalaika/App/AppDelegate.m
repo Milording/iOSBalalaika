@@ -11,6 +11,7 @@
 #import "BarService.h"
 #import "ConnectionService.h"
 #import "LoginView.h"
+#import "LocationService.h"
 
 @interface AppDelegate ()
 
@@ -24,11 +25,11 @@
     
     ConnectionService *connectionService = [ConnectionService new];
     BarService *barService = [[BarService alloc]initWithService:connectionService];
-    
+    LocationService *locationService = [LocationService new];
     
     
     self.window = 	[UIWindow new];
-    LoginViewModel *vm = [[LoginViewModel alloc]initWithProtocol:barService];
+    LoginViewModel *vm = [[LoginViewModel alloc]initWithProtocol:barService locationService:locationService];
     
     LoginView *loginView = [LoginView new];
     loginView.viewModel = vm;

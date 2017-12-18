@@ -12,6 +12,7 @@
 		5D0DF8781FE4506800B20417 /* ConnectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF8771FE4506800B20417 /* ConnectionService.m */; };
 		5D0DF87C1FE5AE4600B20417 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF87B1FE5AE4600B20417 /* Song.m */; };
 		5D0DF87F1FE5AE8D00B20417 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF87E1FE5AE8D00B20417 /* Playlist.m */; };
+		5D2EEF711FE84C92007F28F7 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF701FE84C92007F28F7 /* LocationService.m */; };
 		5DB585501FE1909200E674B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5854F1FE1909200E674B9 /* AppDelegate.m */; };
 		5DB585531FE1909200E674B9 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB585521FE1909200E674B9 /* LoginViewModel.m */; };
 		5DB585561FE1909200E674B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DB585541FE1909200E674B9 /* Main.storyboard */; };
@@ -35,6 +36,9 @@
 		5D0DF87B1FE5AE4600B20417 /* Song.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
 		5D0DF87D1FE5AE8D00B20417 /* Playlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
 		5D0DF87E1FE5AE8D00B20417 /* Playlist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
+		5D2EEF6F1FE84C92007F28F7 /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
+		5D2EEF701FE84C92007F28F7 /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
+		5D2EEF721FE86384007F28F7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5DB5854B1FE1909200E674B9 /* Balalaika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Balalaika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DB5854E1FE1909200E674B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5DB5854F1FE1909200E674B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 		207D55C298E56B5A5F25621A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D2EEF721FE86384007F28F7 /* CoreLocation.framework */,
 				7E4C3A6BB9F445CE6A3E0D0B /* libPods-Balalaika.a */,
 			);
 			name = Frameworks;
@@ -98,6 +103,8 @@
 				5D0DF8761FE4506800B20417 /* ConnectionService.h */,
 				5D0DF8771FE4506800B20417 /* ConnectionService.m */,
 				5D0DF8791FE4513500B20417 /* ConnectionServiceProtocol.h */,
+				5D2EEF6F1FE84C92007F28F7 /* LocationService.h */,
+				5D2EEF701FE84C92007F28F7 /* LocationService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -299,6 +306,7 @@
 				5D0C615F1FE5C5A700E7434D /* LoginView.m in Sources */,
 				5DB585591FE1909200E674B9 /* Balalaika.xcdatamodeld in Sources */,
 				5DB585611FE1909200E674B9 /* main.m in Sources */,
+				5D2EEF711FE84C92007F28F7 /* LocationService.m in Sources */,
 				5DB585501FE1909200E674B9 /* AppDelegate.m in Sources */,
 				5D0DF8751FE44F0500B20417 /* BarService.m in Sources */,
 				5D0DF87F1FE5AE8D00B20417 /* Playlist.m in Sources */,
