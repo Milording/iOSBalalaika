@@ -26,7 +26,6 @@
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         [_locationManager requestWhenInUseAuthorization];
 
-        [_locationManager startUpdatingLocation];
     }
     return self;
 }
@@ -38,13 +37,20 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
-    CLLocation *currentLocation = [locations lastObject];
+    CLLocation *currentLocation = [locations firstObject];
+    [self.delegate didLocationGet:currentLocation];
     
     NSLog(@"Lat: %f Long: %f", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude);
 }
 
 -(void)startLocating
 {
+    [self.locationManager startUpdatingLocation];
+}
+
+-(void)stopLocating
+{
+    [self.locationManager stopUpdatingLocation];
 }
 
 @end

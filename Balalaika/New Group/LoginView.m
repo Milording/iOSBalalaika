@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UIActivityIndicatorView *locationLoadingView;
 
 @property (nonatomic, strong) UILabel *welcomeLabel;
+@property (nonatomic, strong) UIButton *nextPageButton;
 
 @end
 
@@ -42,7 +43,6 @@
     self.connectionStatus.textAlignment =NSTextAlignmentCenter;
     self.connectionStatus.textColor = [UIColor darkGrayColor];
     
-    
     self.locationLoadingView = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-50,self.view.frame.size.height/2+150,50,50)];
     self.locationLoadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self.locationLoadingView startAnimating];
@@ -57,11 +57,17 @@
     [self.getActualPlaylistButton setTitleColor:[UIColor redColor] forState:(UIControlState)UIControlStateNormal];
     [self.getActualPlaylistButton addTarget:self action:@selector(getActualPlaylist) forControlEvents:UIControlEventTouchDown];
     
+    self.nextPageButton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-50, 110, 80, 30)];
+    [self.nextPageButton setTitle:@"Дальше" forState:UIControlStateNormal];
+    [self.nextPageButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    
     self.actualPlaylist = [[UILabel alloc]initWithFrame:CGRectMake(40, 220, 180, 60)];
     
     [self.view addSubview:self.locationIcon];
     [self.view addSubview:self.connectionStatus];
     [self.view addSubview:self.locationLoadingView];
+    [self.view addSubview:self.nextPageButton];
+    
 }
 
 -(void)bindUI
