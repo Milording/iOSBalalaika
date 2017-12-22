@@ -9,28 +9,31 @@
 #import "LoginViewModel.h"
 #import "BarService.h"
 #import <SignalR.h>
-#import "LocationService.h"
+#import "BarLocationService.h"
 
 @interface LoginViewModel ()
 
 @property (nonatomic, strong)BarService *barService;
-@property (nonatomic, strong)LocationService *locationService;
+@property (nonatomic, strong)BarLocationService *barLocationService;
+
 
 @end
 
 @implementation LoginViewModel
 
--(instancetype)initWithProtocol:(BarService *)barService locationService:(LocationService *)locationService
+-(instancetype)initWithProtocol:(BarService *)barService locationService:(BarLocationService *)barLocationService
 {
     if(self = [super init])
     {
         _barService = barService;
-        _locationService = locationService;
+        _barLocationService = barLocationService;
         _connectionStatus = @"Checking location...";
         
         _barService.delegate = self;
         
-        [self startLocationService];
+        [self.barLocationService checkCurrentBarLocation:^(NSString *barTitle) {
+            NSLog(@"%@",barTitle);
+        }];
         //[self.barService setDefaultPlaylist];
     }
     return self;
@@ -41,15 +44,9 @@
     [self.barService setDefaultPlaylist];
 }
 
--(void)startLocationService
+-(void)getCurrentBar
 {
     self.isLoading = YES;
-    [self.locationService startLocating];
-}
-
--(void)locationFound
-{
-    self.isLoading = NO;
 }
 
 -(void)addPremiumSong:(NSString *)songId
@@ -59,6 +56,10 @@
 
 - (void)currentPlaylistDidChange:(NSString *)actualPlaylist { 
     self.currentPlaylist = actualPlaylist;
+}
+
+- (void)didLocationGet:(CLLocation *)location { 
+    self.isLoading = NO;
 }
 
 @end
