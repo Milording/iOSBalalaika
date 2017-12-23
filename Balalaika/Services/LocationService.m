@@ -51,6 +51,7 @@
 -(void)stopLocating
 {
     [self.locationManager stopUpdatingLocation];
+    self.locationManager = nil;
 }
 
 @end

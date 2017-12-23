@@ -13,53 +13,33 @@
 
 @interface LoginViewModel ()
 
-@property (nonatomic, strong)BarService *barService;
 @property (nonatomic, strong)BarLocationService *barLocationService;
-
 
 @end
 
 @implementation LoginViewModel
 
--(instancetype)initWithProtocol:(BarService *)barService locationService:(BarLocationService *)barLocationService
+-(instancetype)initWithProtocol:(BarLocationService *)barLocationService
 {
     if(self = [super init])
     {
-        _barService = barService;
         _barLocationService = barLocationService;
-        _connectionStatus = @"Checking location...";
         
-        _barService.delegate = self;
-        
-        [self.barLocationService checkCurrentBarLocation:^(NSString *barTitle) {
-            NSLog(@"%@",barTitle);
-        }];
-        //[self.barService setDefaultPlaylist];
+        [self getCurrentBar];
     }
     return self;
 }
 
--(void)startDefaultPlaylist
-{
-    [self.barService setDefaultPlaylist];
-}
-
 -(void)getCurrentBar
 {
+    self.connectionStatus = @"Checking location...";
     self.isLoading = YES;
-}
-
--(void)addPremiumSong:(NSString *)songId
-{
-    [self.barService addPremiumSong:songId];
-}
-
-- (void)currentPlaylistDidChange:(NSString *)actualPlaylist { 
-    self.currentPlaylist = actualPlaylist;
-}
-
-- (void)didLocationGet:(CLLocation *)location { 
-    self.isLoading = NO;
+    
+    [self.barLocationService getCurrentBarTitle:^(Bar *bar) {
+        //self.connectionStatus = @"";
+        self.barTitle = bar.title;
+        self.isLoading=NO;
+    }];
 }
 
 @end
