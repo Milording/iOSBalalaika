@@ -15,6 +15,8 @@
 		5D2EEF711FE84C92007F28F7 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF701FE84C92007F28F7 /* LocationService.m */; };
 		5D2EEF761FE9A34D007F28F7 /* BarLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */; };
 		5D742DED1FEE6E2E00E88E7F /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DEC1FEE6E2E00E88E7F /* Bar.m */; };
+		5D742DF11FEE90AC00E88E7F /* PlaylistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DF01FEE90AC00E88E7F /* PlaylistView.m */; };
+		5D742DF41FEE90F000E88E7F /* PlaylistViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DF31FEE90F000E88E7F /* PlaylistViewModel.m */; };
 		5DB585501FE1909200E674B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5854F1FE1909200E674B9 /* AppDelegate.m */; };
 		5DB585531FE1909200E674B9 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB585521FE1909200E674B9 /* LoginViewModel.m */; };
 		5DB585561FE1909200E674B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DB585541FE1909200E674B9 /* Main.storyboard */; };
@@ -46,6 +48,10 @@
 		5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarLocationService.m; sourceTree = "<group>"; };
 		5D742DEB1FEE6E2E00E88E7F /* Bar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bar.h; sourceTree = "<group>"; };
 		5D742DEC1FEE6E2E00E88E7F /* Bar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
+		5D742DEF1FEE90AC00E88E7F /* PlaylistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistView.h; sourceTree = "<group>"; };
+		5D742DF01FEE90AC00E88E7F /* PlaylistView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaylistView.m; sourceTree = "<group>"; };
+		5D742DF21FEE90F000E88E7F /* PlaylistViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistViewModel.h; sourceTree = "<group>"; };
+		5D742DF31FEE90F000E88E7F /* PlaylistViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaylistViewModel.m; sourceTree = "<group>"; };
 		5DB5854B1FE1909200E674B9 /* Balalaika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Balalaika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DB5854E1FE1909200E674B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5DB5854F1FE1909200E674B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -137,6 +143,8 @@
 			children = (
 				5DB585511FE1909200E674B9 /* LoginViewModel.h */,
 				5DB585521FE1909200E674B9 /* LoginViewModel.m */,
+				5D742DF21FEE90F000E88E7F /* PlaylistViewModel.h */,
+				5D742DF31FEE90F000E88E7F /* PlaylistViewModel.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -146,6 +154,8 @@
 			children = (
 				5D0C615D1FE5C5A700E7434D /* LoginView.h */,
 				5D0C615E1FE5C5A700E7434D /* LoginView.m */,
+				5D742DEF1FEE90AC00E88E7F /* PlaylistView.h */,
+				5D742DF01FEE90AC00E88E7F /* PlaylistView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,8 +181,8 @@
 		5DB5854D1FE1909200E674B9 /* Balalaika */ = {
 			isa = PBXGroup;
 			children = (
-				5D742DEE1FEE8DB700E88E7F /* Views */,
 				5D0C615C1FE5BE8900E7434D /* App */,
+				5D742DEE1FEE8DB700E88E7F /* Views */,
 				5D0DF8711FE449AE00B20417 /* ViewModels */,
 				5D0DF86F1FE4499200B20417 /* Services */,
 				5D0DF8701FE4499F00B20417 /* Models */,
@@ -316,12 +326,14 @@
 				5D0DF8781FE4506800B20417 /* ConnectionService.m in Sources */,
 				5D0C615F1FE5C5A700E7434D /* LoginView.m in Sources */,
 				5DB585591FE1909200E674B9 /* Balalaika.xcdatamodeld in Sources */,
+				5D742DF11FEE90AC00E88E7F /* PlaylistView.m in Sources */,
 				5DB585611FE1909200E674B9 /* main.m in Sources */,
 				5D2EEF711FE84C92007F28F7 /* LocationService.m in Sources */,
 				5DB585501FE1909200E674B9 /* AppDelegate.m in Sources */,
 				5D0DF8751FE44F0500B20417 /* BarService.m in Sources */,
 				5D742DED1FEE6E2E00E88E7F /* Bar.m in Sources */,
 				5D0DF87F1FE5AE8D00B20417 /* Playlist.m in Sources */,
+				5D742DF41FEE90F000E88E7F /* PlaylistViewModel.m in Sources */,
 				5D2EEF761FE9A34D007F28F7 /* BarLocationService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

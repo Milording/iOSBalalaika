@@ -24,7 +24,7 @@
     if(self = [super init])
     {
         _barLocationService = barLocationService;
-        
+
         [self getCurrentBar];
     }
     return self;

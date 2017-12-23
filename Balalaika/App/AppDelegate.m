@@ -13,6 +13,8 @@
 #import "LoginView.h"
 #import "LocationService.h"
 #import "BarLocationService.h"
+#import "PlaylistViewModel.h"
+#import "PlaylistView.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +25,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    
     // Base services initialization
     ConnectionService *connectionService = [ConnectionService new];
     LocationService *locationService = [LocationService new];
@@ -32,18 +35,27 @@
     BarLocationService *barLocationService = [[BarLocationService alloc]initWithServices:locationService];
     
     self.window = 	[UIWindow new];
-    LoginViewModel *vm = [[LoginViewModel alloc]initWithProtocol:barLocationService];
     
+    LoginViewModel *loginVm = [[LoginViewModel alloc]initWithProtocol:barLocationService];
     LoginView *loginView = [LoginView new];
-    loginView.viewModel = vm;
+    loginView.viewModel = loginVm;
+    loginView.title=@"Finding";
     
-    self.window.rootViewController = loginView;
+    PlaylistViewModel *playlistVm = [[PlaylistViewModel alloc]init];
+    PlaylistView *playlistView = [[PlaylistView alloc]init];
+    playlistView.viewModel = playlistVm;
+    
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:loginView];
+    //[nav addChildViewController:playlistView];
+    //[nav pushViewController:playlistView animated:YES];
+    
+    
+    
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
     return YES;
 }
-
-
 
 #pragma mark - Core Data stack
 
