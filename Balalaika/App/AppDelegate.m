@@ -15,6 +15,8 @@
 #import "BarLocationService.h"
 #import "PlaylistViewModel.h"
 #import "PlaylistView.h"
+#import <Objection.h>
+#import "ObjectionModule.h"
 
 @interface AppDelegate ()
 
@@ -25,18 +27,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    
-    // Base services initialization
-    ConnectionService *connectionService = [ConnectionService new];
-    LocationService *locationService = [LocationService new];
-    
-    // High level services initiailization
-    BarService *barService = [[BarService alloc]initWithService:connectionService];
-    BarLocationService *barLocationService = [[BarLocationService alloc]initWithServices:locationService];
+    // Objection configuration
+    JSObjectionInjector *injector = [JSObjection createInjector:[[ObjectionModule alloc]init]];
+    [JSObjection setDefaultInjector:injector];
+
     
     self.window = 	[UIWindow new];
     
-    LoginViewModel *loginVm = [[LoginViewModel alloc]initWithProtocol:barLocationService];
+    LoginViewModel *loginVm = [LoginViewModel new];
     LoginView *loginView = [LoginView new];
     loginView.viewModel = loginVm;
     loginView.title=@"Finding";

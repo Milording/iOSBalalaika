@@ -10,21 +10,23 @@
 #import "BarService.h"
 #import <SignalR.h>
 #import "BarLocationService.h"
+#import <Objection.h>
 
 @interface LoginViewModel ()
 
-@property (nonatomic, strong)BarLocationService *barLocationService;
+@property id<BarLocationServiceProtocol> barLocationService;
 
 @end
 
 @implementation LoginViewModel
+objection_requires(@"barLocationService")
 
--(instancetype)initWithProtocol:(BarLocationService *)barLocationService
+-(instancetype)init
 {
     if(self = [super init])
     {
-        _barLocationService = barLocationService;
-
+        [[JSObjection defaultInjector]injectDependencies:self];
+        
         [self getCurrentBar];
     }
     return self;

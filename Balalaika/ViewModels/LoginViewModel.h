@@ -13,7 +13,7 @@
 
 @interface LoginViewModel : NSObject
 
--(instancetype)initWithProtocol:(BarLocationService *)barLocationService;
+//-(instancetype)initWithProtocol:(BarLocationService *)barLocationService;
 
 @property (nonatomic, copy) NSString *barTitle;
 @property (nonatomic, copy) NSString *currentPlaylist;
