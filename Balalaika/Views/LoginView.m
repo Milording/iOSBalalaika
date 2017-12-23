@@ -8,6 +8,7 @@
 
 #import "LoginView.h"
 #import <ReactiveObjC.h>
+#import "PlaylistView.h"
 
 @interface LoginView ()
 
@@ -20,7 +21,7 @@
 @property (nonatomic, strong) UIActivityIndicatorView *locationLoadingView;
 
 @property (nonatomic, strong) UILabel *welcomeLabel;
-@property (nonatomic, strong) UIButton *nextPageButton;
+@property (nonatomic, strong) UIButton *adminButton;
 
 @end
 
@@ -35,6 +36,7 @@
 
 -(void)initUI
 {
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.locationIcon = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/2, 50, 50)];
@@ -44,7 +46,7 @@
     self.connectionStatus.textColor = [UIColor darkGrayColor];
     self.connectionStatus.text = @"Test";
     
-    self.welcomeLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-150, self.view.frame.size.height/2+100, 300, 30)];
+    self.welcomeLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-150, self.view.frame.size.height/2+70, 300, 30)];
     self.welcomeLabel.textAlignment =NSTextAlignmentCenter;
     self.welcomeLabel.textColor = [UIColor blueColor];
     self.welcomeLabel.text = @"Test";
@@ -53,9 +55,10 @@
     self.locationLoadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self.locationLoadingView startAnimating];
     
-    self.nextPageButton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-50, 110, 80, 30)];
-    [self.nextPageButton setTitle:@"Дальше" forState:UIControlStateNormal];
-    [self.nextPageButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    self.adminButton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-150, self.view.frame.size.height/2+140, 300, 30)];
+    [self.adminButton setTitle:@"Admin" forState:UIControlStateNormal];
+    [self.adminButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [self.adminButton addTarget:self action:@selector(goAsAdmin) forControlEvents:UIControlEventTouchDown];
     
     self.actualPlaylist = [[UILabel alloc]initWithFrame:CGRectMake(40, 220, 180, 60)];
     
@@ -63,7 +66,12 @@
     [self.view addSubview:self.welcomeLabel];
     [self.view addSubview:self.connectionStatus];
     [self.view addSubview:self.locationLoadingView];
-    [self.view addSubview:self.nextPageButton];
+    [self.view addSubview:self.adminButton];
+    
+}
+
+-(void)goAsAdmin
+{
     
 }
 

@@ -10,11 +10,6 @@
 #import <CoreLocation/CoreLocation.h>
 #import "LocationServiceProtocol.h"
 
-@interface LocationService : NSObject <CLLocationManagerDelegate>
-
-@property (nonatomic, strong) id<LocationServiceProtocol> delegate;
-
--(void)startLocating;
--(void)stopLocating;
+@interface LocationService : NSObject <CLLocationManagerDelegate, LocationServiceProtocol>
 
 @end

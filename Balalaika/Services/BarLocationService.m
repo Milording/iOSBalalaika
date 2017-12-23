@@ -9,11 +9,11 @@
 #import "BarLocationService.h"
 #import "LocationService.h"
 #import "Bar.h"
+#import <Objection.h>
 
 @interface BarLocationService()
 
 @property (nonatomic, strong) NSMutableSet *barSet;
-@property (nonatomic, strong) CLLocation *lastLocation;
 @property (nonatomic, strong) LocationService *locationService;
 
 @property (nonatomic, copy) void (^completionHandler)(Bar *);
@@ -21,13 +21,13 @@
 @end
 
 @implementation BarLocationService
+objection_requires(@"locationService")
 
--(instancetype)initWithServices:(LocationService *)locationService
+-(instancetype)init
 {
     if(self == [super init])
     {
-        self.locationService = locationService;
-        self.locationService.delegate = self;
+        [[JSObjection defaultInjector]injectDependencies:self];
         
         [self initBarLocations];
     }
@@ -42,12 +42,11 @@
     CLLocation *sbergileLocation =  [[CLLocation alloc]initWithLatitude:latitude longitude:longitude];
     
     self.barSet = [[NSMutableSet alloc]initWithCapacity:10];
-    Bar *sbergile = [[Bar alloc]init];
+    Bar *sbergile = [Bar new];
     sbergile.title =@"Дорогая, я попал в Sbergile";
     sbergile.exactLocation = sbergileLocation;
     
     [self.barSet addObject:sbergile];
-    
 }
 
 -(Bar *)checkBarFor:(CLLocation *)userLocation
@@ -74,14 +73,10 @@
 {
     self.completionHandler = completionHandler;
     
-    [self.locationService startLocating];
-}
-
-- (void)didLocationGet:(CLLocation *)location {
-    Bar *bar = [self checkBarFor:location];
-    self.completionHandler(bar);
-    
-    [self.locationService stopLocating];
+    [self.locationService getCurrentLocation:^(CLLocation *location) {
+        Bar *bar = [self checkBarFor:location];
+        self.completionHandler(bar);
+    }];
 }
 
 @end

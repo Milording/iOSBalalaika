@@ -13,6 +13,10 @@
 #import "LoginView.h"
 #import "LocationService.h"
 #import "BarLocationService.h"
+#import "PlaylistViewModel.h"
+#import "PlaylistView.h"
+#import <Objection.h>
+#import "ObjectionModule.h"
 
 @interface AppDelegate ()
 
@@ -23,27 +27,33 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    // Base services initialization
-    ConnectionService *connectionService = [ConnectionService new];
-    LocationService *locationService = [LocationService new];
-    
-    // High level services initiailization
-    BarService *barService = [[BarService alloc]initWithService:connectionService];
-    BarLocationService *barLocationService = [[BarLocationService alloc]initWithServices:locationService];
+    // Objection configuration
+    JSObjectionInjector *injector = [JSObjection createInjector:[[ObjectionModule alloc]init]];
+    [JSObjection setDefaultInjector:injector];
+
     
     self.window = 	[UIWindow new];
-    LoginViewModel *vm = [[LoginViewModel alloc]initWithProtocol:barLocationService];
     
+    LoginViewModel *loginVm = [LoginViewModel new];
     LoginView *loginView = [LoginView new];
-    loginView.viewModel = vm;
+    loginView.viewModel = loginVm;
+    loginView.title=@"Finding";
     
-    self.window.rootViewController = loginView;
+    PlaylistViewModel *playlistVm = [[PlaylistViewModel alloc]init];
+    PlaylistView *playlistView = [[PlaylistView alloc]init];
+    playlistView.viewModel = playlistVm;
+    
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:loginView];
+    //[nav addChildViewController:playlistView];
+    //[nav pushViewController:playlistView animated:YES];
+    
+    
+    
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
     return YES;
 }
-
-
 
 #pragma mark - Core Data stack
 

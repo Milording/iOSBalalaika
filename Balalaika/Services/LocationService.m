@@ -11,6 +11,7 @@
 @interface LocationService()
 
 @property  (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, copy) void (^completionHandler)(CLLocation *);
 
 @end
 
@@ -30,17 +31,25 @@
     return self;
 }
 
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"%@",error);
+
+- (void)getCurrentLocation:(void (^)(CLLocation *))completionHandler {
+    self.completionHandler = completionHandler;
+    [self startLocating];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
     CLLocation *currentLocation = [locations firstObject];
-    [self.delegate didLocationGet:currentLocation];
+    self.completionHandler(currentLocation);
     
     NSLog(@"Lat: %f Long: %f", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude);
+    
+    [self stopLocating];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"%@",error);
 }
 
 -(void)startLocating
@@ -53,5 +62,6 @@
     [self.locationManager stopUpdatingLocation];
     self.locationManager = nil;
 }
+
 
 @end

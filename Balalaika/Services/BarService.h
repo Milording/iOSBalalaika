@@ -12,13 +12,7 @@
 #import "ConnectionService.h"
 
 
-@interface BarService : NSObject<ConnectionServiceProtocol>
+@interface BarService : NSObject<BarServiceProtocol>
 
-@property (nonatomic, strong) id<BarServiceProtocol> delegate;
-
--(instancetype)initWithService:(ConnectionService *)connectionService;
--(void)addPremiumSong:(NSString *)songId;
-
--(void)setDefaultPlaylist;
 
 @end

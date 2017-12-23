@@ -11,6 +11,6 @@
 
 @protocol LocationServiceProtocol <NSObject>
 
--(void)didLocationGet:(CLLocation *)location;
+-(void)getCurrentLocation:(void (^)(CLLocation *))completionHandler;
 
 @end

@@ -13,9 +13,9 @@
 @interface ConnectionService : NSObject
 
 @property (nonatomic, strong) id<ConnectionServiceProtocol> delegate;
-
-- (void)startDefaultPlaylist;
--(void)addPremiumSong:(NSString *)songId;
--(void)getActualPlaylist;
+//
+//- (void)startDefaultPlaylist;
+//-(void)addPremiumSong:(NSString *)songId;
+//-(void)getActualPlaylist;
 
 @end

@@ -8,27 +8,34 @@
 
 #import "BarService.h"
 #import <SignalR.h>
-#import "ConnectionService.h"
+#import <Objection.h>
+#import "ConnectionServiceProtocol.h"
 
 @interface BarService()
 
-@property (nonatomic, strong) ConnectionService *connectionService;
+@property id target;
+@property SEL playlistChangedSelector;
+
+@property (nonatomic, strong) id<ConnectionServiceProtocol> connectionService;
 
 @end
 
 @implementation BarService
+objection_requires(@"connectionService")
 
--(instancetype)initWithService:(ConnectionService *)connectionService
+-(instancetype)init
 {
     if(self = [super init])
     {
-        self.connectionService = connectionService;
+        [[JSObjection defaultInjector]injectDependencies:self];
         
-        self.connectionService.delegate = self;
-        
-        //[self setDefaultPlaylist];
     }
     return self;
+}
+
+-(void)setDefaultPlaylist
+{
+    [self.connectionService startDefaultPlaylist];
 }
 
 -(void)addPremiumSong:(NSString *)songId
@@ -36,15 +43,14 @@
     [self.connectionService addPremiumSong:songId];
 }
 
--(void)setDefaultPlaylist
-{
-    [self.connectionService startDefaultPlaylist];
-    
+- (void)onPlaylistChanged:(Playlist *)updatedPlaylist target:(id)target selector:(SEL)selector {
+    self.target = target;
+    self.playlistChangedSelector = selector;
 }
 
 - (void)rawPlaylistDidChange:(NSString *)playlistRawData
 {
-    [self.delegate currentPlaylistDidChange:playlistRawData];
+//    [self.delegate currentPlaylistDidChange:playlistRawData];
 }
 
 @end
