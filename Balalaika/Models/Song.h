@@ -10,6 +10,6 @@
 
 @interface Song : NSObject
 
-@property (nonatomic, strong) NSString *id;
+@property (nonatomic, copy) NSString *id;
 
 @end

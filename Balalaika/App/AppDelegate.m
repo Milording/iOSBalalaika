@@ -12,6 +12,7 @@
 #import "ConnectionService.h"
 #import "LoginView.h"
 #import "LocationService.h"
+#import "BarLocationService.h"
 
 @interface AppDelegate ()
 
@@ -21,15 +22,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
+    // Base services initialization
     ConnectionService *connectionService = [ConnectionService new];
-    BarService *barService = [[BarService alloc]initWithService:connectionService];
     LocationService *locationService = [LocationService new];
     
+    // High level services initiailization
+    BarService *barService = [[BarService alloc]initWithService:connectionService];
+    BarLocationService *barLocationService = [[BarLocationService alloc]initWithServices:locationService];
     
     self.window = 	[UIWindow new];
-    LoginViewModel *vm = [[LoginViewModel alloc]initWithProtocol:barService locationService:locationService];
+    LoginViewModel *vm = [[LoginViewModel alloc]initWithProtocol:barLocationService];
     
     LoginView *loginView = [LoginView new];
     loginView.viewModel = vm;
@@ -55,7 +58,7 @@
                 if (error != nil) {
                     // Replace this implementation with code to handle the error appropriately.
                     // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                    
+
                     /*
                      Typical reasons for an error here include:
                      * The parent directory does not exist, cannot be created, or disallows writing.
@@ -70,7 +73,7 @@
             }];
         }
     }
-    
+
     return _persistentContainer;
 }
 

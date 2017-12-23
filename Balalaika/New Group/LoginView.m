@@ -42,6 +42,12 @@
     self.connectionStatus = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2+50, 200, 30)];
     self.connectionStatus.textAlignment =NSTextAlignmentCenter;
     self.connectionStatus.textColor = [UIColor darkGrayColor];
+    self.connectionStatus.text = @"Test";
+    
+    self.connectionStatus = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2+100, 200, 30)];
+    self.connectionStatus.textAlignment =NSTextAlignmentCenter;
+    self.connectionStatus.textColor = [UIColor blueColor];
+    self.connectionStatus.text = @"Test";
     
     self.locationLoadingView = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-50,self.view.frame.size.height/2+150,50,50)];
     self.locationLoadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
@@ -50,12 +56,12 @@
     self.createPlaylistButton = [[UIButton alloc]initWithFrame:CGRectMake(40, 100, 180, 40)];
     [self.createPlaylistButton setTitle:@"Create Default Playlist" forState:UIControlStateNormal];
     [self.createPlaylistButton setTitleColor:[UIColor redColor] forState:(UIControlState)UIControlStateNormal];
-    [self.createPlaylistButton addTarget:self action:@selector(createPlaylist) forControlEvents:UIControlEventTouchDown];
+//    [self.createPlaylistButton addTarget:self action:@selector(createPlaylist) forControlEvents:UIControlEventTouchDown];
     
     self.getActualPlaylistButton = [[UIButton alloc]initWithFrame:CGRectMake(40,180,180,40)];
     [self.getActualPlaylistButton setTitle:@"Add premium song" forState:UIControlStateNormal];
     [self.getActualPlaylistButton setTitleColor:[UIColor redColor] forState:(UIControlState)UIControlStateNormal];
-    [self.getActualPlaylistButton addTarget:self action:@selector(getActualPlaylist) forControlEvents:UIControlEventTouchDown];
+//    [self.getActualPlaylistButton addTarget:self action:@selector(getActualPlaylist) forControlEvents:UIControlEventTouchDown];
     
     self.nextPageButton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-50, 110, 80, 30)];
     [self.nextPageButton setTitle:@"Дальше" forState:UIControlStateNormal];
@@ -72,19 +78,8 @@
 
 -(void)bindUI
 {
-    RAC(self, self.actualPlaylist.text) = RACObserve(self, self.viewModel.currentPlaylist);
     RAC(self, self.connectionStatus.text) = RACObserve(self, self.viewModel.connectionStatus);
+    RAC(self, self.welcomeLabel.text) = RACObserve(self, self.viewModel.barTitle);
 }
-
--(void)createPlaylist
-{
-    [self.viewModel startDefaultPlaylist];
-}
-
--(void)getActualPlaylist
-{
-    [self.viewModel addPremiumSong:@"11222223"];
-}
-
 
 @end

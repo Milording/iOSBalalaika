@@ -7,19 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BarServiceProtocol.h"
-#import "LocationServiceProtocol.h"
+#import "BarLocationService.h"
 @class BarService;
 @class LocationService;
 
-@interface LoginViewModel : NSObject<BarServiceProtocol, LocationServiceProtocol>
+@interface LoginViewModel : NSObject
 
--(instancetype)initWithProtocol:(BarService *)barService locationService:(LocationService *)locationService;
--(void)startDefaultPlaylist;
--(void)addPremiumSong:(NSString *)songId;
+-(instancetype)initWithProtocol:(BarLocationService *)barLocationService;
 
-@property (nonatomic, strong) NSString *currentPlaylist;
-@property (nonatomic, strong) NSString *connectionStatus;
+@property (nonatomic, copy) NSString *barTitle;
+@property (nonatomic, copy) NSString *currentPlaylist;
+@property (nonatomic, copy) NSString *connectionStatus;
 @property (nonatomic) bool isLoading;
 
 

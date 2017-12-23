@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import "LocationServiceProtocol.h"
+#import "Bar.h"
+@class LocationService;
 
 @interface BarLocationService : NSObject <LocationServiceProtocol>
 
--(void)checkCurrentBarLocation:(void (^)(NSString *))completionHandler;
+-(instancetype)initWithServices:(LocationService *)locationService;
+
+-(void)getCurrentBarTitle:(void (^)(Bar *))completionHandler;
 
 @end

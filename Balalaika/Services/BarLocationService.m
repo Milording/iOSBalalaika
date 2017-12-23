@@ -8,14 +8,15 @@
 
 #import "BarLocationService.h"
 #import "LocationService.h"
+#import "Bar.h"
 
 @interface BarLocationService()
 
-@property (nonatomic, strong) NSMutableDictionary<CLLocation *, NSString *> *barSet;
+@property (nonatomic, strong) NSMutableSet *barSet;
 @property (nonatomic, strong) CLLocation *lastLocation;
 @property (nonatomic, strong) LocationService *locationService;
 
-@property (nonatomic, copy) void (^completionHandler)(NSString *);
+@property (nonatomic, copy) void (^completionHandler)(Bar *);
 
 @end
 
@@ -39,32 +40,37 @@
     double latitude = 37.332331;
     double longitude = -122.031219;
     CLLocation *sbergileLocation =  [[CLLocation alloc]initWithLatitude:latitude longitude:longitude];
-    [self.barSet setObject:@"Дорогая, я попал в Sbergile" forKey:sbergileLocation];
+    
+    self.barSet = [[NSMutableSet alloc]initWithCapacity:10];
+    Bar *sbergile = [[Bar alloc]init];
+    sbergile.title =@"Дорогая, я попал в Sbergile";
+    sbergile.exactLocation = sbergileLocation;
+    
+    [self.barSet addObject:sbergile];
+    
 }
 
--(NSString *)checkBarFor:(CLLocation *)userLocation
+-(Bar *)checkBarFor:(CLLocation *)userLocation
 {
-    if(self.lastLocation)
+    for (Bar *bar in self.barSet)
     {
-        for (CLLocation* location in self.barSet.allKeys)
+        CLLocationDegrees minLatitude =  bar.exactLocation.coordinate.latitude-1;
+        CLLocationDegrees maxLatitude = bar.exactLocation.coordinate.latitude+1;
+        
+        CLLocationDegrees minLongitude = bar.exactLocation.coordinate.longitude-1;
+        CLLocationDegrees maxLongitude = bar.exactLocation.coordinate.longitude+1;
+        
+        if((userLocation.coordinate.latitude > minLatitude || userLocation.coordinate.latitude < maxLatitude) &&
+          (userLocation.coordinate.longitude > minLongitude || userLocation.coordinate.longitude < maxLongitude))
         {
-            CLLocationDegrees minLatitude =  location.coordinate.latitude-1;
-            CLLocationDegrees maxLatitude = location.coordinate.latitude+1;
-            
-            CLLocationDegrees minLongitude = location.coordinate.longitude-1;
-            CLLocationDegrees maxLongitude = location.coordinate.longitude+1;
-            
-            if((userLocation.coordinate.latitude > minLatitude || userLocation.coordinate.latitude < maxLatitude) &&
-               (userLocation.coordinate.longitude > minLongitude || userLocation.coordinate.longitude < maxLongitude))
-            {
-                return self.barSet[location];
-            }
+            return bar;
         }
     }
+    
     return nil;
 }
 
--(void)checkCurrentBarLocation:(void (^)(NSString *))completionHandler
+-(void)getCurrentBarTitle:(void (^)(Bar *))completionHandler
 {
     self.completionHandler = completionHandler;
     
@@ -72,8 +78,8 @@
 }
 
 - (void)didLocationGet:(CLLocation *)location {
-    NSString *barTitle = [self checkBarFor:location];
-    self.completionHandler(barTitle);
+    Bar *bar = [self checkBarFor:location];
+    self.completionHandler(bar);
     
     [self.locationService stopLocating];
 }
