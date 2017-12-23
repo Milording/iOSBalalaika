@@ -18,7 +18,7 @@
 @property (nonatomic, copy) NSString *barTitle;
 @property (nonatomic, copy) NSString *currentPlaylist;
 @property (nonatomic, copy) NSString *connectionStatus;
-@property (nonatomic) bool isLoading;
+@property (nonatomic, strong) NSNumber *isLoading;
 
 
 
