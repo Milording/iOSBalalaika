@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5D0C615F1FE5C5A700E7434D /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C615E1FE5C5A700E7434D /* LoginView.m */; };
+		5D0DF8751FE44F0500B20417 /* BarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF8741FE44F0500B20417 /* BarService.m */; };
+		5D0DF8781FE4506800B20417 /* ConnectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF8771FE4506800B20417 /* ConnectionService.m */; };
+		5D0DF87C1FE5AE4600B20417 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF87B1FE5AE4600B20417 /* Song.m */; };
+		5D0DF87F1FE5AE8D00B20417 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF87E1FE5AE8D00B20417 /* Playlist.m */; };
+		5D2EEF711FE84C92007F28F7 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF701FE84C92007F28F7 /* LocationService.m */; };
+		5D2EEF761FE9A34D007F28F7 /* BarLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */; };
+		5D742DED1FEE6E2E00E88E7F /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DEC1FEE6E2E00E88E7F /* Bar.m */; };
+		5DB585501FE1909200E674B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5854F1FE1909200E674B9 /* AppDelegate.m */; };
+		5DB585531FE1909200E674B9 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB585521FE1909200E674B9 /* LoginViewModel.m */; };
+		5DB585561FE1909200E674B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DB585541FE1909200E674B9 /* Main.storyboard */; };
+		5DB585591FE1909200E674B9 /* Balalaika.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DB585571FE1909200E674B9 /* Balalaika.xcdatamodeld */; };
+		5DB5855B1FE1909200E674B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DB5855A1FE1909200E674B9 /* Assets.xcassets */; };
+		5DB5855E1FE1909200E674B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DB5855C1FE1909200E674B9 /* LaunchScreen.storyboard */; };
+		5DB585611FE1909200E674B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB585601FE1909200E674B9 /* main.m */; };
+		804A42FC9187860978184ECD /* libPods-Balalaika.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4C3A6BB9F445CE6A3E0D0B /* libPods-Balalaika.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5D0C615B1FE5B10400E7434D /* BarServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarServiceProtocol.h; sourceTree = "<group>"; };
+		5D0C615D1FE5C5A700E7434D /* LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		5D0C615E1FE5C5A700E7434D /* LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		5D0DF8731FE44F0500B20417 /* BarService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarService.h; sourceTree = "<group>"; };
+		5D0DF8741FE44F0500B20417 /* BarService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarService.m; sourceTree = "<group>"; };
+		5D0DF8761FE4506800B20417 /* ConnectionService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectionService.h; sourceTree = "<group>"; };
+		5D0DF8771FE4506800B20417 /* ConnectionService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectionService.m; sourceTree = "<group>"; };
+		5D0DF8791FE4513500B20417 /* ConnectionServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectionServiceProtocol.h; sourceTree = "<group>"; };
+		5D0DF87A1FE5AE4600B20417 /* Song.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
+		5D0DF87B1FE5AE4600B20417 /* Song.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
+		5D0DF87D1FE5AE8D00B20417 /* Playlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
+		5D0DF87E1FE5AE8D00B20417 /* Playlist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
+		5D2EEF6F1FE84C92007F28F7 /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
+		5D2EEF701FE84C92007F28F7 /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
+		5D2EEF721FE86384007F28F7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5D2EEF731FE9799F007F28F7 /* LocationServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationServiceProtocol.h; sourceTree = "<group>"; };
+		5D2EEF741FE9A34D007F28F7 /* BarLocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarLocationService.h; sourceTree = "<group>"; };
+		5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarLocationService.m; sourceTree = "<group>"; };
+		5D742DEB1FEE6E2E00E88E7F /* Bar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bar.h; sourceTree = "<group>"; };
+		5D742DEC1FEE6E2E00E88E7F /* Bar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
+		5DB5854B1FE1909200E674B9 /* Balalaika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Balalaika.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DB5854E1FE1909200E674B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5DB5854F1FE1909200E674B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5DB585511FE1909200E674B9 /* LoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
+		5DB585521FE1909200E674B9 /* LoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
+		5DB585551FE1909200E674B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5DB585581FE1909200E674B9 /* Balalaika.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Balalaika.xcdatamodel; sourceTree = "<group>"; };
+		5DB5855A1FE1909200E674B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5DB5855D1FE1909200E674B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5DB5855F1FE1909200E674B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DB585601FE1909200E674B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		76B52C7C19CCEBD371421C59 /* Pods-Balalaika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balalaika.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Balalaika/Pods-Balalaika.debug.xcconfig"; sourceTree = "<group>"; };
+		7E4C3A6BB9F445CE6A3E0D0B /* libPods-Balalaika.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Balalaika.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8DA7329C10306938BB982D4 /* Pods-Balalaika.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balalaika.release.xcconfig"; path = "Pods/Target Support Files/Pods-Balalaika/Pods-Balalaika.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5DB585481FE1909100E674B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				804A42FC9187860978184ECD /* libPods-Balalaika.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		207D55C298E56B5A5F25621A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D2EEF721FE86384007F28F7 /* CoreLocation.framework */,
+				7E4C3A6BB9F445CE6A3E0D0B /* libPods-Balalaika.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5037ED710C2BB35335CDBE99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				76B52C7C19CCEBD371421C59 /* Pods-Balalaika.debug.xcconfig */,
+				E8DA7329C10306938BB982D4 /* Pods-Balalaika.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5D0C615C1FE5BE8900E7434D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5DB5854E1FE1909200E674B9 /* AppDelegate.h */,
+				5DB5854F1FE1909200E674B9 /* AppDelegate.m */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5D0DF86F1FE4499200B20417 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5D0DF8731FE44F0500B20417 /* BarService.h */,
+				5D0DF8741FE44F0500B20417 /* BarService.m */,
+				5D0C615B1FE5B10400E7434D /* BarServiceProtocol.h */,
+				5D0DF8761FE4506800B20417 /* ConnectionService.h */,
+				5D0DF8771FE4506800B20417 /* ConnectionService.m */,
+				5D0DF8791FE4513500B20417 /* ConnectionServiceProtocol.h */,
+				5D2EEF6F1FE84C92007F28F7 /* LocationService.h */,
+				5D2EEF701FE84C92007F28F7 /* LocationService.m */,
+				5D2EEF731FE9799F007F28F7 /* LocationServiceProtocol.h */,
+				5D2EEF741FE9A34D007F28F7 /* BarLocationService.h */,
+				5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5D0DF8701FE4499F00B20417 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5D0DF87A1FE5AE4600B20417 /* Song.h */,
+				5D0DF87B1FE5AE4600B20417 /* Song.m */,
+				5D0DF87D1FE5AE8D00B20417 /* Playlist.h */,
+				5D0DF87E1FE5AE8D00B20417 /* Playlist.m */,
+				5D742DEB1FEE6E2E00E88E7F /* Bar.h */,
+				5D742DEC1FEE6E2E00E88E7F /* Bar.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5D0DF8711FE449AE00B20417 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5DB585511FE1909200E674B9 /* LoginViewModel.h */,
+				5DB585521FE1909200E674B9 /* LoginViewModel.m */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5D742DEE1FEE8DB700E88E7F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5D0C615D1FE5C5A700E7434D /* LoginView.h */,
+				5D0C615E1FE5C5A700E7434D /* LoginView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5DB585421FE1909100E674B9 = {
+			isa = PBXGroup;
+			children = (
+				5DB5854D1FE1909200E674B9 /* Balalaika */,
+				5DB5854C1FE1909200E674B9 /* Products */,
+				5037ED710C2BB35335CDBE99 /* Pods */,
+				207D55C298E56B5A5F25621A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5DB5854C1FE1909200E674B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5DB5854B1FE1909200E674B9 /* Balalaika.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5DB5854D1FE1909200E674B9 /* Balalaika */ = {
+			isa = PBXGroup;
+			children = (
+				5D742DEE1FEE8DB700E88E7F /* Views */,
+				5D0C615C1FE5BE8900E7434D /* App */,
+				5D0DF8711FE449AE00B20417 /* ViewModels */,
+				5D0DF86F1FE4499200B20417 /* Services */,
+				5D0DF8701FE4499F00B20417 /* Models */,
+				5DB585541FE1909200E674B9 /* Main.storyboard */,
+				5DB5855A1FE1909200E674B9 /* Assets.xcassets */,
+				5DB5855C1FE1909200E674B9 /* LaunchScreen.storyboard */,
+				5DB5855F1FE1909200E674B9 /* Info.plist */,
+				5DB585601FE1909200E674B9 /* main.m */,
+				5DB585571FE1909200E674B9 /* Balalaika.xcdatamodeld */,
+			);
+			path = Balalaika;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5DB5854A1FE1909100E674B9 /* Balalaika */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DB585641FE1909200E674B9 /* Build configuration list for PBXNativeTarget "Balalaika" */;
+			buildPhases = (
+				5251EA0D9000555031BCBF37 /* [CP] Check Pods Manifest.lock */,
+				5DB585471FE1909100E674B9 /* Sources */,
+				5DB585481FE1909100E674B9 /* Frameworks */,
+				5DB585491FE1909100E674B9 /* Resources */,
+				9AC1CB4723D8C9EDA12F306B /* [CP] Embed Pods Frameworks */,
+				40AA8F207AAA542DE4787218 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Balalaika;
+			productName = Balalaika;
+			productReference = 5DB5854B1FE1909200E674B9 /* Balalaika.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5DB585431FE1909100E674B9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = milording;
+				TargetAttributes = {
+					5DB5854A1FE1909100E674B9 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5DB585461FE1909100E674B9 /* Build configuration list for PBXProject "Balalaika" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5DB585421FE1909100E674B9;
+			productRefGroup = 5DB5854C1FE1909200E674B9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5DB5854A1FE1909100E674B9 /* Balalaika */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5DB585491FE1909100E674B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DB5855E1FE1909200E674B9 /* LaunchScreen.storyboard in Resources */,
+				5DB5855B1FE1909200E674B9 /* Assets.xcassets in Resources */,
+				5DB585561FE1909200E674B9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40AA8F207AAA542DE4787218 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Balalaika/Pods-Balalaika-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5251EA0D9000555031BCBF37 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Balalaika-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AC1CB4723D8C9EDA12F306B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Balalaika/Pods-Balalaika-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5DB585471FE1909100E674B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D0DF87C1FE5AE4600B20417 /* Song.m in Sources */,
+				5DB585531FE1909200E674B9 /* LoginViewModel.m in Sources */,
+				5D0DF8781FE4506800B20417 /* ConnectionService.m in Sources */,
+				5D0C615F1FE5C5A700E7434D /* LoginView.m in Sources */,
+				5DB585591FE1909200E674B9 /* Balalaika.xcdatamodeld in Sources */,
+				5DB585611FE1909200E674B9 /* main.m in Sources */,
+				5D2EEF711FE84C92007F28F7 /* LocationService.m in Sources */,
+				5DB585501FE1909200E674B9 /* AppDelegate.m in Sources */,
+				5D0DF8751FE44F0500B20417 /* BarService.m in Sources */,
+				5D742DED1FEE6E2E00E88E7F /* Bar.m in Sources */,
+				5D0DF87F1FE5AE8D00B20417 /* Playlist.m in Sources */,
+				5D2EEF761FE9A34D007F28F7 /* BarLocationService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5DB585541FE1909200E674B9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5DB585551FE1909200E674B9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5DB5855C1FE1909200E674B9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5DB5855D1FE1909200E674B9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5DB585621FE1909200E674B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5DB585631FE1909200E674B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5DB585651FE1909200E674B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76B52C7C19CCEBD371421C59 /* Pods-Balalaika.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2NWXSZH4LH;
+				INFOPLIST_FILE = Balalaika/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lord.Balalaika;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5DB585661FE1909200E674B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8DA7329C10306938BB982D4 /* Pods-Balalaika.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2NWXSZH4LH;
+				INFOPLIST_FILE = Balalaika/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lord.Balalaika;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5DB585461FE1909100E674B9 /* Build configuration list for PBXProject "Balalaika" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DB585621FE1909200E674B9 /* Debug */,
+				5DB585631FE1909200E674B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DB585641FE1909200E674B9 /* Build configuration list for PBXNativeTarget "Balalaika" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DB585651FE1909200E674B9 /* Debug */,
+				5DB585661FE1909200E674B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5DB585571FE1909200E674B9 /* Balalaika.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5DB585581FE1909200E674B9 /* Balalaika.xcdatamodel */,
+			);
+			currentVersion = 5DB585581FE1909200E674B9 /* Balalaika.xcdatamodel */;
+			path = Balalaika.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 5DB585431FE1909100E674B9 /* Project object */;
+}
