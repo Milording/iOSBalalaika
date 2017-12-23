@@ -44,24 +44,14 @@
     self.connectionStatus.textColor = [UIColor darkGrayColor];
     self.connectionStatus.text = @"Test";
     
-    self.connectionStatus = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2+100, 200, 30)];
-    self.connectionStatus.textAlignment =NSTextAlignmentCenter;
-    self.connectionStatus.textColor = [UIColor blueColor];
-    self.connectionStatus.text = @"Test";
+    self.welcomeLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-150, self.view.frame.size.height/2+100, 300, 30)];
+    self.welcomeLabel.textAlignment =NSTextAlignmentCenter;
+    self.welcomeLabel.textColor = [UIColor blueColor];
+    self.welcomeLabel.text = @"Test";
     
     self.locationLoadingView = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-50,self.view.frame.size.height/2+150,50,50)];
     self.locationLoadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self.locationLoadingView startAnimating];
-    
-    self.createPlaylistButton = [[UIButton alloc]initWithFrame:CGRectMake(40, 100, 180, 40)];
-    [self.createPlaylistButton setTitle:@"Create Default Playlist" forState:UIControlStateNormal];
-    [self.createPlaylistButton setTitleColor:[UIColor redColor] forState:(UIControlState)UIControlStateNormal];
-//    [self.createPlaylistButton addTarget:self action:@selector(createPlaylist) forControlEvents:UIControlEventTouchDown];
-    
-    self.getActualPlaylistButton = [[UIButton alloc]initWithFrame:CGRectMake(40,180,180,40)];
-    [self.getActualPlaylistButton setTitle:@"Add premium song" forState:UIControlStateNormal];
-    [self.getActualPlaylistButton setTitleColor:[UIColor redColor] forState:(UIControlState)UIControlStateNormal];
-//    [self.getActualPlaylistButton addTarget:self action:@selector(getActualPlaylist) forControlEvents:UIControlEventTouchDown];
     
     self.nextPageButton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-50, 110, 80, 30)];
     [self.nextPageButton setTitle:@"Дальше" forState:UIControlStateNormal];
@@ -70,6 +60,7 @@
     self.actualPlaylist = [[UILabel alloc]initWithFrame:CGRectMake(40, 220, 180, 60)];
     
     [self.view addSubview:self.locationIcon];
+    [self.view addSubview:self.welcomeLabel];
     [self.view addSubview:self.connectionStatus];
     [self.view addSubview:self.locationLoadingView];
     [self.view addSubview:self.nextPageButton];
@@ -80,6 +71,14 @@
 {
     RAC(self, self.connectionStatus.text) = RACObserve(self, self.viewModel.connectionStatus);
     RAC(self, self.welcomeLabel.text) = RACObserve(self, self.viewModel.barTitle);
+    
+    [RACObserve(self, self.viewModel.isLoading) subscribeNext:^(id x) {
+        NSNumber *isLoading = (NSNumber *)x;
+        if([isLoading boolValue])
+            [self.locationLoadingView startAnimating];
+        else
+            [self.locationLoadingView stopAnimating];
+    }];
 }
 
 @end

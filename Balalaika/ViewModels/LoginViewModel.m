@@ -33,12 +33,12 @@
 -(void)getCurrentBar
 {
     self.connectionStatus = @"Checking location...";
-    self.isLoading = YES;
+    self.isLoading = [NSNumber numberWithBool:YES];
     
     [self.barLocationService getCurrentBarTitle:^(Bar *bar) {
-        //self.connectionStatus = @"";
+        self.connectionStatus = @"Location has been found";
         self.barTitle = bar.title;
-        self.isLoading=NO;
+        self.isLoading=[NSNumber numberWithBool:NO];
     }];
 }
 
