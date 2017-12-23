@@ -141,14 +141,13 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		5D0DF8721FE449B300B20417 /* Views */ = {
+		5D742DEE1FEE8DB700E88E7F /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				5D0C615D1FE5C5A700E7434D /* LoginView.h */,
 				5D0C615E1FE5C5A700E7434D /* LoginView.m */,
 			);
-			name = Views;
-			path = "New Group";
+			path = Views;
 			sourceTree = "<group>";
 		};
 		5DB585421FE1909100E674B9 = {
@@ -172,8 +171,8 @@
 		5DB5854D1FE1909200E674B9 /* Balalaika */ = {
 			isa = PBXGroup;
 			children = (
+				5D742DEE1FEE8DB700E88E7F /* Views */,
 				5D0C615C1FE5BE8900E7434D /* App */,
-				5D0DF8721FE449B300B20417 /* Views */,
 				5D0DF8711FE449AE00B20417 /* ViewModels */,
 				5D0DF86F1FE4499200B20417 /* Services */,
 				5D0DF8701FE4499F00B20417 /* Models */,
