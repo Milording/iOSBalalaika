@@ -12,7 +12,7 @@
 #import "ConnectionService.h"
 
 
-@interface BarService : NSObject<BarServiceProtocol>
+@interface BarService : NSObject< BarServiceProtocol>
 
 
 @end

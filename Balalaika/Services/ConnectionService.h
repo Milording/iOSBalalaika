@@ -10,10 +10,8 @@
 #import <SignalR.h>
 #import "ConnectionServiceProtocol.h"
 
-@interface ConnectionService : NSObject
+@interface ConnectionService : NSObject<ConnectionServiceProtocol>
 
-@property (nonatomic, strong) id<ConnectionServiceProtocol> delegate;
-//
 //- (void)startDefaultPlaylist;
 //-(void)addPremiumSong:(NSString *)songId;
 //-(void)getActualPlaylist;

@@ -11,6 +11,9 @@
 
 @interface ConnectionService()
 
+@property (nonatomic, strong) id target;
+@property SEL rawPlaylistChangedSelector;
+
 @property (nonatomic, strong) SRHubConnection *hub;
 @property (nonatomic, strong) SRHubProxy *chat;
 
@@ -25,7 +28,10 @@
         _hub = [SRHubConnection connectionWithURLString:@"http://balalaikaalpha.azurewebsites.net/signalr"];
         _chat = [_hub createHubProxy:@"BarHub"];
         
-        [_chat on:@"playlistUpdated" perform:self selector:@selector(playlistUpdated)];
+        [_chat on:@"playlistUpdated" perform:self selector:@selector(playlistUpdated:)];
+        
+        [self startDefaultPlaylist];
+        [self addPremiumSong:@"11"];
         
         [_hub start];
         
@@ -33,9 +39,9 @@
     return self;
 }
 
--(void)playlistUpdated
+-(void)playlistUpdated:(NSString *)response
 {
-    [self getActualPlaylist];
+    [self.target performSelector:self.rawPlaylistChangedSelector withObject:response];
 }
 
 -(void)addPremiumSong:(NSString *)songId
@@ -46,14 +52,20 @@
 -(void)getActualPlaylist
 {
     [self.chat invoke:@"GetActualPlaylist" withArgs:[NSArray new] completionHandler:^(id response, NSError *error) {
-        [self.delegate rawPlaylistDidChange:response];
+        
     }];
 }
 
 - (void)startDefaultPlaylist {
     [self.chat invoke:@"StartDefaultPlaylist" withArgs:[NSArray new] completionHandler:^(id response, NSError *error) {
-        [self.delegate rawPlaylistDidChange:response];
+        NSLog(@"Default playlist has been set");
     }];
 }
+
+- (void)onRawPlaylistChanged:(id)perform selector:(SEL)selector {
+    self.target = perform;
+    self.rawPlaylistChangedSelector = selector;
+}
+
 
 @end

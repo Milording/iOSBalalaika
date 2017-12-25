@@ -12,7 +12,7 @@
 
 @protocol BarServiceProtocol <NSObject>
 
--(void)onPlaylistChanged:(Playlist *)updatedPlaylist target:(id)target selector:(SEL)selector;
+-(void)onPlaylistChanged:(id)perform selector:(SEL)selector;
 
 -(void)addPremiumSong:(NSString *)songId;
 

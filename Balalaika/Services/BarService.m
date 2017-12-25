@@ -29,6 +29,8 @@ objection_requires(@"connectionService")
     {
         [[JSObjection defaultInjector]injectDependencies:self];
         
+        [self.connectionService onRawPlaylistChanged:self selector:@selector(rawPlaylistDidChange:)];
+        
     }
     return self;
 }
@@ -43,14 +45,15 @@ objection_requires(@"connectionService")
     [self.connectionService addPremiumSong:songId];
 }
 
-- (void)onPlaylistChanged:(Playlist *)updatedPlaylist target:(id)target selector:(SEL)selector {
+- (void)onPlaylistChanged:(id)target selector:(SEL)selector {
     self.target = target;
     self.playlistChangedSelector = selector;
 }
 
 - (void)rawPlaylistDidChange:(NSString *)playlistRawData
 {
-//    [self.delegate currentPlaylistDidChange:playlistRawData];
+    [self.target performSelector:self.playlistChangedSelector withObject:playlistRawData];
 }
+
 
 @end
