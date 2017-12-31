@@ -8,12 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewModel.h"
-#import "BarService.h"
 #import "LoginView.h"
-#import "LocationService.h"
-#import "BarLocationService.h"
-#import "PlaylistViewModel.h"
-#import "PlaylistView.h"
 #import <Objection.h>
 #import "ObjectionModule.h"
 
@@ -27,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // Objection configuration
-    JSObjectionInjector *injector = [JSObjection createInjector:[[ObjectionModule alloc]init]];
+    JSObjectionInjector *injector = [JSObjection createInjector:[ObjectionModule new]];
     [JSObjection setDefaultInjector:injector];
 
     

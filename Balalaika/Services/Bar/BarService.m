@@ -13,10 +13,8 @@
 
 @interface BarService()
 
-
 @property (nonatomic, strong) id<ConnectionServiceProtocol> connectionService;
 @property (nonatomic, copy) void (^completionHandler)(NSString *);
-
 
 @end
 

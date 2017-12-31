@@ -7,13 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BarLocationService.h"
-@class BarService;
-@class LocationService;
 
 @interface LoginViewModel : NSObject
-
-//-(instancetype)initWithProtocol:(BarLocationService *)barLocationService;
 
 @property (nonatomic, copy) NSString *barTitle;
 @property (nonatomic, copy) NSString *currentPlaylist;

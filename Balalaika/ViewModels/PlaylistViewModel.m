@@ -7,8 +7,8 @@
 //
 
 #import "PlaylistViewModel.h"
-#import <Objection.h>
 #import "BarServiceProtocol.h"
+#import <Objection.h>
 
 @interface PlaylistViewModel()
 
@@ -22,8 +22,8 @@ objection_requires(@"barService")
 
 - (instancetype)init
 {
-    self = [super init];
-    if (self) {
+    if(self = [super init])
+    {
         [[JSObjection defaultInjector]injectDependencies:self];
         
         [self.barService onPlaylistChanged:^(NSString *response) {

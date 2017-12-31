@@ -20,14 +20,13 @@
 
 -(void)configure
 {
+    // Base services
+    [self bindClass:[ConnectionService class] toProtocol:@protocol(ConnectionServiceProtocol)];
+    [self bindClass:[LocationService class] toProtocol:@protocol(LocationServiceProtocol)];
     
     // High level services
     [self bindClass:[BarService class] toProtocol:@protocol(BarServiceProtocol)];
     [self bindClass:[BarLocationService class] toProtocol:@protocol(BarLocationServiceProtocol)];
-    
-    // Base services
-    [self bindClass:[ConnectionService class] toProtocol:@protocol(ConnectionServiceProtocol)];
-    [self bindClass:[LocationService class] toProtocol:@protocol(LocationServiceProtocol)];
 }
 
 @end
