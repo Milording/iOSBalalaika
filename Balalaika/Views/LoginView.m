@@ -9,6 +9,7 @@
 #import "LoginView.h"
 #import <ReactiveObjC.h>
 #import "PlaylistView.h"
+#import "PlaylistViewModel.h"
 
 @interface LoginView ()
 
@@ -72,7 +73,19 @@
 
 -(void)goAsAdmin
 {
-    [self.navigationController pushViewController:[PlaylistView new] animated:YES];
+    PlaylistView *playlistView = [self createView];
+    
+    [self.navigationController pushViewController:playlistView animated:YES];
+}
+
+-(PlaylistView *)createView
+{
+    PlaylistViewModel *playlistVm = [PlaylistViewModel new];
+    PlaylistView *playlistView = [PlaylistView new];
+    playlistView.viewModel = playlistVm;
+    playlistView.title = @"Music";
+    
+    return playlistView;
 }
 
 -(void)bindUI

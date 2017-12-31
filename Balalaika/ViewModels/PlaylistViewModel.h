@@ -10,4 +10,6 @@
 
 @interface PlaylistViewModel : NSObject
 
+-(void)addPremiumSong;
+
 @end

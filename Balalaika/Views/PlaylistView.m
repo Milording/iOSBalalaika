@@ -7,8 +7,11 @@
 //
 
 #import "PlaylistView.h"
+#import "PlaylistViewModel.h"
 
 @interface PlaylistView ()
+
+@property (nonatomic, strong) UIButton *addSongButton;
 
 @end
 
@@ -23,9 +26,19 @@
 
 -(void)initUI
 {
-    [self setTitle:@"Music"];
-    
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.addSongButton = [[UIButton alloc]initWithFrame:CGRectMake(50, 100, 150, 50)];
+    [self.addSongButton setTitle:@"Add test song" forState:UIControlStateNormal];
+    [self.addSongButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.addSongButton addTarget:self action:@selector(addPremiumSong) forControlEvents:UIControlEventTouchDown];
+    
+    [self.view addSubview:self.addSongButton];
+}
+
+-(void)addPremiumSong
+{
+    [self.viewModel addPremiumSong];
 }
 
 @end

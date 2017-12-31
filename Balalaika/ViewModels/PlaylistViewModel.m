@@ -26,7 +26,9 @@ objection_requires(@"barService")
     if (self) {
         [[JSObjection defaultInjector]injectDependencies:self];
         
-        [self.barService onPlaylistChanged:self selector:@selector(playListDidGet)];
+        [self.barService onPlaylistChanged:^(NSString *response) {
+            NSLog(@"%@",response);
+        }];
     }
     return self;
 }
@@ -34,6 +36,11 @@ objection_requires(@"barService")
 -(void)playListDidGet:(NSString *)playlist
 {
     NSLog(@"%@",playlist);
+}
+
+-(void)addPremiumSong
+{
+    [self.barService addPremiumSong:@"999912"];
 }
 
 @end

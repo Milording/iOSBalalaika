@@ -15,6 +15,6 @@
 -(void)getActualPlaylist;
 
 @required
--(void)onRawPlaylistChanged:(id)perform selector:(SEL)selector;
+-(void)onRawPlaylistChanged:(void (^)(NSString *))completionHandler;
 
 @end

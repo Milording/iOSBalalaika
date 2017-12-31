@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "LoginViewModel.h"
 #import "BarService.h"
-#import "ConnectionService.h"
 #import "LoginView.h"
 #import "LocationService.h"
 #import "BarLocationService.h"
@@ -37,17 +36,11 @@
     LoginViewModel *loginVm = [LoginViewModel new];
     LoginView *loginView = [LoginView new];
     loginView.viewModel = loginVm;
-    loginView.title=@"Finding";
-    
-    PlaylistViewModel *playlistVm = [[PlaylistViewModel alloc]init];
-    PlaylistView *playlistView = [[PlaylistView alloc]init];
-    playlistView.viewModel = playlistVm;
-    
+    loginView.title=@"Location";
+        
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:loginView];
     //[nav addChildViewController:playlistView];
     //[nav pushViewController:playlistView animated:YES];
-    
-    
     
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];

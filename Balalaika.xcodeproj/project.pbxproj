@@ -116,18 +116,8 @@
 		5D0DF86F1FE4499200B20417 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5D0DF8731FE44F0500B20417 /* BarService.h */,
-				5D0DF8741FE44F0500B20417 /* BarService.m */,
-				5D0C615B1FE5B10400E7434D /* BarServiceProtocol.h */,
-				5D0DF8761FE4506800B20417 /* ConnectionService.h */,
-				5D0DF8771FE4506800B20417 /* ConnectionService.m */,
-				5D0DF8791FE4513500B20417 /* ConnectionServiceProtocol.h */,
-				5D2EEF6F1FE84C92007F28F7 /* LocationService.h */,
-				5D2EEF701FE84C92007F28F7 /* LocationService.m */,
-				5D2EEF731FE9799F007F28F7 /* LocationServiceProtocol.h */,
-				5D2EEF741FE9A34D007F28F7 /* BarLocationService.h */,
-				5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */,
-				5D742DF81FEEB19100E88E7F /* BarLocationServiceProtocol.h */,
+				5D426AC41FF94AC60014B978 /* Bar */,
+				5D426AC51FF94AD40014B978 /* Location */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -154,6 +144,32 @@
 				5D742DF31FEE90F000E88E7F /* PlaylistViewModel.m */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5D426AC41FF94AC60014B978 /* Bar */ = {
+			isa = PBXGroup;
+			children = (
+				5D0DF8731FE44F0500B20417 /* BarService.h */,
+				5D0DF8741FE44F0500B20417 /* BarService.m */,
+				5D0C615B1FE5B10400E7434D /* BarServiceProtocol.h */,
+				5D0DF8761FE4506800B20417 /* ConnectionService.h */,
+				5D0DF8771FE4506800B20417 /* ConnectionService.m */,
+				5D0DF8791FE4513500B20417 /* ConnectionServiceProtocol.h */,
+			);
+			path = Bar;
+			sourceTree = "<group>";
+		};
+		5D426AC51FF94AD40014B978 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				5D2EEF6F1FE84C92007F28F7 /* LocationService.h */,
+				5D2EEF701FE84C92007F28F7 /* LocationService.m */,
+				5D2EEF731FE9799F007F28F7 /* LocationServiceProtocol.h */,
+				5D2EEF741FE9A34D007F28F7 /* BarLocationService.h */,
+				5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */,
+				5D742DF81FEEB19100E88E7F /* BarLocationServiceProtocol.h */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		5D742DEE1FEE8DB700E88E7F /* Views */ = {

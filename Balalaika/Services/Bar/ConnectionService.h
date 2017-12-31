@@ -12,8 +12,4 @@
 
 @interface ConnectionService : NSObject<ConnectionServiceProtocol>
 
-//- (void)startDefaultPlaylist;
-//-(void)addPremiumSong:(NSString *)songId;
-//-(void)getActualPlaylist;
-
 @end

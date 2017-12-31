@@ -13,10 +13,10 @@
 
 @interface BarService()
 
-@property id target;
-@property SEL playlistChangedSelector;
 
 @property (nonatomic, strong) id<ConnectionServiceProtocol> connectionService;
+@property (nonatomic, copy) void (^completionHandler)(NSString *);
+
 
 @end
 
@@ -29,7 +29,9 @@ objection_requires(@"connectionService")
     {
         [[JSObjection defaultInjector]injectDependencies:self];
         
-        [self.connectionService onRawPlaylistChanged:self selector:@selector(rawPlaylistDidChange:)];
+        [self.connectionService onRawPlaylistChanged:^(NSString *bar) {
+            self.completionHandler(bar);
+        }];
         
     }
     return self;
@@ -45,14 +47,8 @@ objection_requires(@"connectionService")
     [self.connectionService addPremiumSong:songId];
 }
 
-- (void)onPlaylistChanged:(id)target selector:(SEL)selector {
-    self.target = target;
-    self.playlistChangedSelector = selector;
-}
-
-- (void)rawPlaylistDidChange:(NSString *)playlistRawData
-{
-    [self.target performSelector:self.playlistChangedSelector withObject:playlistRawData];
+- (void)onPlaylistChanged:(void (^)(NSString *))completionHandler{
+    self.completionHandler = completionHandler;
 }
 
 

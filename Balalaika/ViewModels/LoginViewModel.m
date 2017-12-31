@@ -11,7 +11,6 @@
 #import <SignalR.h>
 #import "BarLocationService.h"
 #import <Objection.h>
-#import "ConnectionService.h"
 
 @interface LoginViewModel ()
 
@@ -27,9 +26,6 @@ objection_requires(@"barLocationService")
     if(self = [super init])
     {
         [[JSObjection defaultInjector]injectDependencies:self];
-        
-        ConnectionService *connection = [ConnectionService new];
-        
         
         [self getCurrentBar];
     }

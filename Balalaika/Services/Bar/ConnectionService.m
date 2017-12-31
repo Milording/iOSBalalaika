@@ -11,14 +11,13 @@
 
 @interface ConnectionService()
 
-@property (nonatomic, strong) id target;
-@property SEL rawPlaylistChangedSelector;
 
 @property (nonatomic, strong) SRHubConnection *hub;
 @property (nonatomic, strong) SRHubProxy *chat;
+@property (nonatomic, strong) void (^completionHandler)(NSString *);
+@property (nonatomic, copy) void (^playListHandler)(NSString *);
 
--(void)onRawPlaylistHandler:(void (^)(NSString *))completionHandler;
-
+@property (nonatomic, copy) NSString *testStroke;
 @end
 
 @implementation ConnectionService
@@ -27,23 +26,20 @@
 {
     if(self = [super init])
     {
-        _hub = [SRHubConnection connectionWithURLString:@"http://balalaikaalpha.azurewebsites.net/signalr"];
+        _hub = [SRHubConnection connectionWithURLString:@"http://balalaikaalpha.azurewebsites.net/"];
         _chat = [_hub createHubProxy:@"BarHub"];
         
-        [_chat on:@"playlistUpdated" perform:self selector:@selector(playlistUpdated:)];
-        
-        [self startDefaultPlaylist];
-        [self addPremiumSong:@"11"];
+        //[_chat on:@"playlistUpdated" perform:self selector:@selector(playlistUpdated:)];
+        [self.chat on:@"playlistUpdated" perform:self selector:@selector(playlistUpdated:)];
         
         [_hub start];
-        
     }
     return self;
 }
 
 -(void)playlistUpdated:(NSString *)response
 {
-    [self.target performSelector:self.rawPlaylistChangedSelector withObject:response];
+    self.playListHandler(response);
 }
 
 -(void)addPremiumSong:(NSString *)songId
@@ -64,10 +60,8 @@
     }];
 }
 
-- (void)onRawPlaylistChanged:(id)perform selector:(SEL)selector {
-    self.target = perform;
-    self.rawPlaylistChangedSelector = selector;
+- (void)onRawPlaylistChanged:(void (^)(NSString *))completionHandler {
+    self.playListHandler = completionHandler;
+    self.testStroke = @"I'm your test";
 }
-
-
 @end
