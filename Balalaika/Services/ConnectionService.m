@@ -14,6 +14,8 @@
 @property (nonatomic, strong) SRHubConnection *hub;
 @property (nonatomic, strong) SRHubProxy *chat;
 
+-(void)onRawPlaylistHandler:(void (^)(NSString *))completionHandler;
+
 @end
 
 @implementation ConnectionService

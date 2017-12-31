@@ -18,5 +18,8 @@
 
 @required
 -(void)rawPlaylistDidChange:(NSString *)playlistRawData;
+-(void)onRawPlaylistChanged:(id)perform selector:(SEL)selector;
+-(void)onRawPlaylistHandler:(void (^)(NSString *))completionHandler;
+
 
 @end

@@ -10,4 +10,9 @@
 
 @implementation PlaylistViewModel
 
+-(instancetype)init
+{
+    return self;
+}
+
 @end

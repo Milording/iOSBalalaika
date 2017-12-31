@@ -17,6 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self initUI];
+    
+}
+
+-(void)initUI
+{
+    [self setTitle:@"Music"];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 @end

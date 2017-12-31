@@ -72,7 +72,7 @@
 
 -(void)goAsAdmin
 {
-    
+    [self.navigationController pushViewController:[PlaylistView new] animated:YES];
 }
 
 -(void)bindUI
