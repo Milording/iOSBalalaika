@@ -14,10 +14,9 @@
 @property (nonatomic, strong) SRHubConnection *hub;
 @property (nonatomic, strong) SRHubProxy *chat;
 
-@property (nonatomic, strong) void (^completionHandler)(NSString *);
-@property (nonatomic, copy) void (^playListHandler)(NSString *);
+@property (nonatomic, strong) void (^playlistDidGetHandler)(NSString *);
+@property (nonatomic, copy) void (^playlistUpdatedHandler)(NSString *);
 
-@property (nonatomic, copy) NSString *testStroke;
 @end
 
 @implementation ConnectionService
@@ -39,7 +38,7 @@
 
 -(void)playlistUpdated:(NSString *)response
 {
-    self.playListHandler(response);
+    self.playlistUpdatedHandler(response);
 }
 
 -(void)addPremiumSong:(NSString *)songId
@@ -50,7 +49,7 @@
 -(void)getActualPlaylist
 {
     [self.chat invoke:@"GetActualPlaylist" withArgs:[NSArray new] completionHandler:^(id response, NSError *error) {
-        
+        self.playlistDidGetHandler(response);
     }];
 }
 
@@ -61,7 +60,13 @@
 }
 
 - (void)onRawPlaylistChanged:(void (^)(NSString *))completionHandler {
-    self.playListHandler = completionHandler;
-    self.testStroke = @"I'm your test";
+    self.playlistUpdatedHandler = completionHandler;
+    
 }
+
+-(void)onCurrentPlaylistDidGet:(void (^)(NSString *))completionHandler
+{
+    self.playlistDidGetHandler = completionHandler;
+}
+
 @end

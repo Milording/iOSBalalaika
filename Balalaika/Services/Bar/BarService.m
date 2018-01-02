@@ -15,7 +15,9 @@
 @interface BarService()
 
 @property (nonatomic, strong) id<ConnectionServiceProtocol> connectionService;
-@property (nonatomic, copy) void (^completionHandler)(NSString *);
+
+@property (nonatomic, copy) void (^playlistUpdatedHandler)(NSString *);
+@property (nonatomic, copy) void (^playlistDidGetHandler)(NSString *);
 
 @end
 
@@ -28,8 +30,11 @@
     {
         _connectionService = [[JSObjection defaultInjector]getObject:[ConnectionService class]];
         
-        [self.connectionService onRawPlaylistChanged:^(NSString *bar) {
-            self.completionHandler(bar);
+        [self.connectionService onRawPlaylistChanged:^(NSString *rawPlaylist) {
+            self.playlistUpdatedHandler(rawPlaylist);
+        }];
+        [self.connectionService onCurrentPlaylistDidGet:^(NSString *currentPlaylist) {
+            self.playlistDidGetHandler(currentPlaylist);
         }];
         
     }
@@ -47,8 +52,19 @@
 }
 
 - (void)onPlaylistChanged:(void (^)(NSString *))completionHandler{
-    self.completionHandler = completionHandler;
+    self.playlistUpdatedHandler = completionHandler;
 }
+
+- (void)onCurrentPlaylistDidGet:(void (^)(NSString *))completionHandler {
+    self.playlistDidGetHandler = completionHandler;
+}
+
+- (void)getActualPlaylist {
+    [self.connectionService getActualPlaylist];
+}
+
+
+
 
 
 @end

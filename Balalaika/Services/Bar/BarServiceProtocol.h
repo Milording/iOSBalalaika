@@ -13,9 +13,11 @@
 
 
 -(void)addPremiumSong:(NSString *)songId;
-
+-(void)getActualPlaylist;
 -(void)setDefaultPlaylist;
 
 -(void)onPlaylistChanged:(void (^)(NSString *))completionHandler;
+-(void)onCurrentPlaylistDidGet:(void (^)(NSString *))completionHandler;
+
 
 @end

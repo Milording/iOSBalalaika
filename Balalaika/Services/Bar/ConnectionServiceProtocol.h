@@ -16,5 +16,6 @@
 
 @required
 -(void)onRawPlaylistChanged:(void (^)(NSString *))completionHandler;
+-(void)onCurrentPlaylistDidGet:(void (^)(NSString *))completionHandler;
 
 @end

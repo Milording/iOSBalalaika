@@ -28,6 +28,9 @@ objection_requires(@"barService")
         [self.barService onPlaylistChanged:^(NSString *response) {
             self.rawPlaylist = response;
         }];
+        [self.barService onCurrentPlaylistDidGet:^(NSString *response) {
+            self.rawPlaylist = response;
+        }];
     }
     return self;
 }
@@ -39,7 +42,7 @@ objection_requires(@"barService")
 
 -(void)addPremiumSong
 {
-    [self.barService get :@"999912"];
+    [self.barService getActualPlaylist];
 }
 
 @end
