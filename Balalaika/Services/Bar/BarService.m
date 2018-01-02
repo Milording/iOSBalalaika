@@ -10,6 +10,7 @@
 #import <SignalR.h>
 #import <Objection.h>
 #import "ConnectionServiceProtocol.h"
+#include "ConnectionService.h"
 
 @interface BarService()
 
@@ -19,13 +20,13 @@
 @end
 
 @implementation BarService
-objection_requires(@"connectionService")
+//objection_requires(@"connectionService")
 
 -(instancetype)init
 {
     if(self = [super init])
     {
-        [[JSObjection defaultInjector]injectDependencies:self];
+        _connectionService = [[JSObjection defaultInjector]getObject:[ConnectionService class]];
         
         [self.connectionService onRawPlaylistChanged:^(NSString *bar) {
             self.completionHandler(bar);

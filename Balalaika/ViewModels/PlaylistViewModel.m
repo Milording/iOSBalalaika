@@ -12,7 +12,6 @@
 
 @interface PlaylistViewModel()
 
-@property (nonatomic, strong) NSString *rawPlaylist;
 @property id<BarServiceProtocol> barService;
 
 @end
@@ -27,7 +26,7 @@ objection_requires(@"barService")
         [[JSObjection defaultInjector]injectDependencies:self];
         
         [self.barService onPlaylistChanged:^(NSString *response) {
-            NSLog(@"%@",response);
+            self.rawPlaylist = response;
         }];
     }
     return self;
@@ -40,7 +39,7 @@ objection_requires(@"barService")
 
 -(void)addPremiumSong
 {
-    [self.barService addPremiumSong:@"999912"];
+    [self.barService get :@"999912"];
 }
 
 @end

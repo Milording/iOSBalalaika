@@ -14,6 +14,7 @@
 		5D0DF87F1FE5AE8D00B20417 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF87E1FE5AE8D00B20417 /* Playlist.m */; };
 		5D2EEF711FE84C92007F28F7 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF701FE84C92007F28F7 /* LocationService.m */; };
 		5D2EEF761FE9A34D007F28F7 /* BarLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */; };
+		5D426AC91FFBEFD80014B978 /* SoundCloudService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D426AC81FFBEFD80014B978 /* SoundCloudService.m */; };
 		5D742DED1FEE6E2E00E88E7F /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DEC1FEE6E2E00E88E7F /* Bar.m */; };
 		5D742DF11FEE90AC00E88E7F /* PlaylistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DF01FEE90AC00E88E7F /* PlaylistView.m */; };
 		5D742DF41FEE90F000E88E7F /* PlaylistViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DF31FEE90F000E88E7F /* PlaylistViewModel.m */; };
@@ -47,6 +48,9 @@
 		5D2EEF731FE9799F007F28F7 /* LocationServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationServiceProtocol.h; sourceTree = "<group>"; };
 		5D2EEF741FE9A34D007F28F7 /* BarLocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarLocationService.h; sourceTree = "<group>"; };
 		5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarLocationService.m; sourceTree = "<group>"; };
+		5D426AC71FFBEFD80014B978 /* SoundCloudService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundCloudService.h; sourceTree = "<group>"; };
+		5D426AC81FFBEFD80014B978 /* SoundCloudService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundCloudService.m; sourceTree = "<group>"; };
+		5D426ACA1FFBEFF90014B978 /* SoundCloudServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundCloudServiceProtocol.h; sourceTree = "<group>"; };
 		5D742DEB1FEE6E2E00E88E7F /* Bar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bar.h; sourceTree = "<group>"; };
 		5D742DEC1FEE6E2E00E88E7F /* Bar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
 		5D742DEF1FEE90AC00E88E7F /* PlaylistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistView.h; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 			children = (
 				5D426AC41FF94AC60014B978 /* Bar */,
 				5D426AC51FF94AD40014B978 /* Location */,
+				5D426AC61FFBEFA70014B978 /* SoundCloud */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -170,6 +175,16 @@
 				5D742DF81FEEB19100E88E7F /* BarLocationServiceProtocol.h */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		5D426AC61FFBEFA70014B978 /* SoundCloud */ = {
+			isa = PBXGroup;
+			children = (
+				5D426AC71FFBEFD80014B978 /* SoundCloudService.h */,
+				5D426AC81FFBEFD80014B978 /* SoundCloudService.m */,
+				5D426ACA1FFBEFF90014B978 /* SoundCloudServiceProtocol.h */,
+			);
+			path = SoundCloud;
 			sourceTree = "<group>";
 		};
 		5D742DEE1FEE8DB700E88E7F /* Views */ = {
@@ -359,6 +374,7 @@
 				5D0DF87F1FE5AE8D00B20417 /* Playlist.m in Sources */,
 				5D742DF41FEE90F000E88E7F /* PlaylistViewModel.m in Sources */,
 				5D2EEF761FE9A34D007F28F7 /* BarLocationService.m in Sources */,
+				5D426AC91FFBEFD80014B978 /* SoundCloudService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

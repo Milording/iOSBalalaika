@@ -11,9 +11,9 @@
 
 @interface ConnectionService()
 
-
 @property (nonatomic, strong) SRHubConnection *hub;
 @property (nonatomic, strong) SRHubProxy *chat;
+
 @property (nonatomic, strong) void (^completionHandler)(NSString *);
 @property (nonatomic, copy) void (^playListHandler)(NSString *);
 

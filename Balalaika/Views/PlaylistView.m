@@ -6,12 +6,16 @@
 //  Copyright © 2017 milording. All rights reserved.
 //
 
+#import <ReactiveObjC.h>
+
 #import "PlaylistView.h"
 #import "PlaylistViewModel.h"
 
 @interface PlaylistView ()
 
 @property (nonatomic, strong) UIButton *addSongButton;
+
+@property (nonatomic, strong) UILabel *actualPlaylist;
 
 @end
 
@@ -21,6 +25,7 @@
     [super viewDidLoad];
     
     [self initUI];
+    [self bindUI];
     
 }
 
@@ -33,7 +38,18 @@
     [self.addSongButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.addSongButton addTarget:self action:@selector(addPremiumSong) forControlEvents:UIControlEventTouchDown];
     
+    self.actualPlaylist = [[UILabel alloc]initWithFrame:CGRectMake(100, 250, 150, 50)];
+    self.actualPlaylist.textAlignment =NSTextAlignmentCenter;
+    self.actualPlaylist.textColor = [UIColor blackColor];
+    [self.actualPlaylist setText:@"OOOKAY??!"];
+
     [self.view addSubview:self.addSongButton];
+    [self.view addSubview:self.actualPlaylist];
+}
+
+-(void)bindUI
+{
+    RAC(self, self.actualPlaylist.text) = RACObserve(self, self.viewModel.rawPlaylist);
 }
 
 -(void)addPremiumSong

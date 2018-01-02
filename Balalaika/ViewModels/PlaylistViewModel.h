@@ -10,6 +10,8 @@
 
 @interface PlaylistViewModel : NSObject
 
+@property (nonatomic, strong) NSString *rawPlaylist;
+
 -(void)addPremiumSong;
 
 @end

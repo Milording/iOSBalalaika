@@ -25,7 +25,6 @@
     JSObjectionInjector *injector = [JSObjection createInjector:[ObjectionModule new]];
     [JSObjection setDefaultInjector:injector];
 
-    
     self.window = 	[UIWindow new];
     
     LoginViewModel *loginVm = [LoginViewModel new];

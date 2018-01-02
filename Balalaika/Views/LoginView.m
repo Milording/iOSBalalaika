@@ -13,10 +13,6 @@
 
 @interface LoginView ()
 
-@property (nonatomic, strong) UIButton *createPlaylistButton;
-@property (nonatomic, strong) UIButton *getActualPlaylistButton;
-@property (nonatomic, strong) UILabel *actualPlaylist;
-
 @property (nonatomic, strong) UIImageView *locationIcon;
 @property (nonatomic, strong) UILabel *connectionStatus;
 @property (nonatomic, strong) UIActivityIndicatorView *locationLoadingView;
@@ -60,8 +56,6 @@
     [self.adminButton setTitle:@"Admin" forState:UIControlStateNormal];
     [self.adminButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [self.adminButton addTarget:self action:@selector(goAsAdmin) forControlEvents:UIControlEventTouchDown];
-    
-    self.actualPlaylist = [[UILabel alloc]initWithFrame:CGRectMake(40, 220, 180, 60)];
     
     [self.view addSubview:self.locationIcon];
     [self.view addSubview:self.welcomeLabel];
