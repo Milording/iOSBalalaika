@@ -7,6 +7,8 @@
 //
 
 #import "ObjectionModule.h"
+#import "BarService.h"
+#import "BarServiceProtocol.h"
 #import "BarLocationServiceProtocol.h"
 #import "BarLocationService.h"
 #import "ConnectionService.h"
@@ -23,6 +25,7 @@
     [self bindClass:[LocationService class] toProtocol:@protocol(LocationServiceProtocol)];
     
     // High level services
+    [self bindClass:[BarService class] toProtocol:@protocol(BarServiceProtocol)];
     [self bindClass:[BarLocationService class] toProtocol:@protocol(BarLocationServiceProtocol)];
 }
 

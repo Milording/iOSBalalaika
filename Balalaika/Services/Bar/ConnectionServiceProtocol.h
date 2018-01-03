@@ -10,13 +10,12 @@
 
 @protocol ConnectionServiceProtocol
 
-@property (nonatomic, strong) id<ConnectionServiceProtocol> delegate;
-
 -(void)startDefaultPlaylist;
 -(void)addPremiumSong:(NSString *)songId;
 -(void)getActualPlaylist;
 
 @required
--(void)rawPlaylistDidChange:(NSString *)playlistRawData;
+-(void)onRawPlaylistChanged:(void (^)(NSString *))completionHandler;
+-(void)onCurrentPlaylistDidGet:(void (^)(NSString *))completionHandler;
 
 @end

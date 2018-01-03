@@ -21,13 +21,13 @@
 @end
 
 @implementation BarLocationService
-objection_requires(@"locationService")
+//objection_requires(@"locationService")
 
 -(instancetype)init
 {
     if(self == [super init])
     {
-        [[JSObjection defaultInjector]injectDependencies:self];
+        _locationService = [[JSObjection defaultInjector]getObject:[LocationService class]];
         
         [self initBarLocations];
     }

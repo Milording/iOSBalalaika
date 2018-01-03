@@ -9,12 +9,9 @@
 #import "LoginView.h"
 #import <ReactiveObjC.h>
 #import "PlaylistView.h"
+#import "PlaylistViewModel.h"
 
 @interface LoginView ()
-
-@property (nonatomic, strong) UIButton *createPlaylistButton;
-@property (nonatomic, strong) UIButton *getActualPlaylistButton;
-@property (nonatomic, strong) UILabel *actualPlaylist;
 
 @property (nonatomic, strong) UIImageView *locationIcon;
 @property (nonatomic, strong) UILabel *connectionStatus;
@@ -60,8 +57,6 @@
     [self.adminButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [self.adminButton addTarget:self action:@selector(goAsAdmin) forControlEvents:UIControlEventTouchDown];
     
-    self.actualPlaylist = [[UILabel alloc]initWithFrame:CGRectMake(40, 220, 180, 60)];
-    
     [self.view addSubview:self.locationIcon];
     [self.view addSubview:self.welcomeLabel];
     [self.view addSubview:self.connectionStatus];
@@ -72,7 +67,19 @@
 
 -(void)goAsAdmin
 {
+    PlaylistView *playlistView = [self createView];
     
+    [self.navigationController pushViewController:playlistView animated:YES];
+}
+
+-(PlaylistView *)createView
+{
+    PlaylistViewModel *playlistVm = [PlaylistViewModel new];
+    PlaylistView *playlistView = [PlaylistView new];
+    playlistView.viewModel = playlistVm;
+    playlistView.title = @"Music";
+    
+    return playlistView;
 }
 
 -(void)bindUI

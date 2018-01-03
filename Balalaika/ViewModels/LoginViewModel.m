@@ -7,9 +7,8 @@
 //
 
 #import "LoginViewModel.h"
-#import "BarService.h"
-#import <SignalR.h>
 #import "BarLocationService.h"
+#import <SignalR.h>
 #import <Objection.h>
 
 @interface LoginViewModel ()

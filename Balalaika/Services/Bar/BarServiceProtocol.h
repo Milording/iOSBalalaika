@@ -8,14 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "Playlist.h"
-#import "ConnectionService.h"
 
 @protocol BarServiceProtocol <NSObject>
 
--(void)onPlaylistChanged:(Playlist *)updatedPlaylist target:(id)target selector:(SEL)selector;
 
 -(void)addPremiumSong:(NSString *)songId;
-
+-(void)getActualPlaylist;
 -(void)setDefaultPlaylist;
+
+-(void)onPlaylistChanged:(void (^)(NSString *))completionHandler;
+-(void)onCurrentPlaylistDidGet:(void (^)(NSString *))completionHandler;
+
 
 @end

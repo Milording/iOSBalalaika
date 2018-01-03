@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class PlaylistViewModel;
 
-@interface PlaylistView : UIViewController
+@interface PlaylistView : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) PlaylistViewModel *viewModel;
 
