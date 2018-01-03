@@ -7,7 +7,42 @@
 //
 
 #import "PlaylistViewModel.h"
+#import "BarServiceProtocol.h"
+#import <Objection.h>
+
+@interface PlaylistViewModel()
+
+@property id<BarServiceProtocol> barService;
+
+@end
 
 @implementation PlaylistViewModel
+objection_requires(@"barService")
+
+- (instancetype)init
+{
+    if(self = [super init])
+    {
+        [[JSObjection defaultInjector]injectDependencies:self];
+        
+        [self.barService onPlaylistChanged:^(NSString *response) {
+            self.rawPlaylist = response;
+        }];
+        [self.barService onCurrentPlaylistDidGet:^(NSString *response) {
+            self.rawPlaylist = response;
+        }];
+    }
+    return self;
+}
+
+-(void)playListDidGet:(NSString *)playlist
+{
+    NSLog(@"%@",playlist);
+}
+
+-(void)addPremiumSong
+{
+    [self.barService getActualPlaylist];
+}
 
 @end

@@ -14,6 +14,8 @@
 		5D0DF87F1FE5AE8D00B20417 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF87E1FE5AE8D00B20417 /* Playlist.m */; };
 		5D2EEF711FE84C92007F28F7 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF701FE84C92007F28F7 /* LocationService.m */; };
 		5D2EEF761FE9A34D007F28F7 /* BarLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */; };
+		5D426AC91FFBEFD80014B978 /* SoundCloudService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D426AC81FFBEFD80014B978 /* SoundCloudService.m */; };
+		5D426ACE1FFD7CD90014B978 /* PlaylistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D426ACD1FFD7CD90014B978 /* PlaylistTableViewCell.m */; };
 		5D742DED1FEE6E2E00E88E7F /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DEC1FEE6E2E00E88E7F /* Bar.m */; };
 		5D742DF11FEE90AC00E88E7F /* PlaylistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DF01FEE90AC00E88E7F /* PlaylistView.m */; };
 		5D742DF41FEE90F000E88E7F /* PlaylistViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DF31FEE90F000E88E7F /* PlaylistViewModel.m */; };
@@ -47,6 +49,11 @@
 		5D2EEF731FE9799F007F28F7 /* LocationServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationServiceProtocol.h; sourceTree = "<group>"; };
 		5D2EEF741FE9A34D007F28F7 /* BarLocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarLocationService.h; sourceTree = "<group>"; };
 		5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarLocationService.m; sourceTree = "<group>"; };
+		5D426AC71FFBEFD80014B978 /* SoundCloudService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundCloudService.h; sourceTree = "<group>"; };
+		5D426AC81FFBEFD80014B978 /* SoundCloudService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundCloudService.m; sourceTree = "<group>"; };
+		5D426ACA1FFBEFF90014B978 /* SoundCloudServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundCloudServiceProtocol.h; sourceTree = "<group>"; };
+		5D426ACC1FFD7CD90014B978 /* PlaylistTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistTableViewCell.h; sourceTree = "<group>"; };
+		5D426ACD1FFD7CD90014B978 /* PlaylistTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaylistTableViewCell.m; sourceTree = "<group>"; };
 		5D742DEB1FEE6E2E00E88E7F /* Bar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bar.h; sourceTree = "<group>"; };
 		5D742DEC1FEE6E2E00E88E7F /* Bar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
 		5D742DEF1FEE90AC00E88E7F /* PlaylistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistView.h; sourceTree = "<group>"; };
@@ -116,18 +123,9 @@
 		5D0DF86F1FE4499200B20417 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5D0DF8731FE44F0500B20417 /* BarService.h */,
-				5D0DF8741FE44F0500B20417 /* BarService.m */,
-				5D0C615B1FE5B10400E7434D /* BarServiceProtocol.h */,
-				5D0DF8761FE4506800B20417 /* ConnectionService.h */,
-				5D0DF8771FE4506800B20417 /* ConnectionService.m */,
-				5D0DF8791FE4513500B20417 /* ConnectionServiceProtocol.h */,
-				5D2EEF6F1FE84C92007F28F7 /* LocationService.h */,
-				5D2EEF701FE84C92007F28F7 /* LocationService.m */,
-				5D2EEF731FE9799F007F28F7 /* LocationServiceProtocol.h */,
-				5D2EEF741FE9A34D007F28F7 /* BarLocationService.h */,
-				5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */,
-				5D742DF81FEEB19100E88E7F /* BarLocationServiceProtocol.h */,
+				5D426AC41FF94AC60014B978 /* Bar */,
+				5D426AC51FF94AD40014B978 /* Location */,
+				5D426AC61FFBEFA70014B978 /* SoundCloud */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -156,9 +154,55 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		5D426AC41FF94AC60014B978 /* Bar */ = {
+			isa = PBXGroup;
+			children = (
+				5D0DF8731FE44F0500B20417 /* BarService.h */,
+				5D0DF8741FE44F0500B20417 /* BarService.m */,
+				5D0C615B1FE5B10400E7434D /* BarServiceProtocol.h */,
+				5D0DF8761FE4506800B20417 /* ConnectionService.h */,
+				5D0DF8771FE4506800B20417 /* ConnectionService.m */,
+				5D0DF8791FE4513500B20417 /* ConnectionServiceProtocol.h */,
+			);
+			path = Bar;
+			sourceTree = "<group>";
+		};
+		5D426AC51FF94AD40014B978 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				5D2EEF6F1FE84C92007F28F7 /* LocationService.h */,
+				5D2EEF701FE84C92007F28F7 /* LocationService.m */,
+				5D2EEF731FE9799F007F28F7 /* LocationServiceProtocol.h */,
+				5D2EEF741FE9A34D007F28F7 /* BarLocationService.h */,
+				5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */,
+				5D742DF81FEEB19100E88E7F /* BarLocationServiceProtocol.h */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		5D426AC61FFBEFA70014B978 /* SoundCloud */ = {
+			isa = PBXGroup;
+			children = (
+				5D426AC71FFBEFD80014B978 /* SoundCloudService.h */,
+				5D426AC81FFBEFD80014B978 /* SoundCloudService.m */,
+				5D426ACA1FFBEFF90014B978 /* SoundCloudServiceProtocol.h */,
+			);
+			path = SoundCloud;
+			sourceTree = "<group>";
+		};
+		5D426ACB1FFD7CBB0014B978 /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				5D426ACC1FFD7CD90014B978 /* PlaylistTableViewCell.h */,
+				5D426ACD1FFD7CD90014B978 /* PlaylistTableViewCell.m */,
+			);
+			path = TableViews;
+			sourceTree = "<group>";
+		};
 		5D742DEE1FEE8DB700E88E7F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5D426ACB1FFD7CBB0014B978 /* TableViews */,
 				5D0C615D1FE5C5A700E7434D /* LoginView.h */,
 				5D0C615E1FE5C5A700E7434D /* LoginView.m */,
 				5D742DEF1FEE90AC00E88E7F /* PlaylistView.h */,
@@ -340,9 +384,11 @@
 				5DB585501FE1909200E674B9 /* AppDelegate.m in Sources */,
 				5D0DF8751FE44F0500B20417 /* BarService.m in Sources */,
 				5D742DED1FEE6E2E00E88E7F /* Bar.m in Sources */,
+				5D426ACE1FFD7CD90014B978 /* PlaylistTableViewCell.m in Sources */,
 				5D0DF87F1FE5AE8D00B20417 /* Playlist.m in Sources */,
 				5D742DF41FEE90F000E88E7F /* PlaylistViewModel.m in Sources */,
 				5D2EEF761FE9A34D007F28F7 /* BarLocationService.m in Sources */,
+				5D426AC91FFBEFD80014B978 /* SoundCloudService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

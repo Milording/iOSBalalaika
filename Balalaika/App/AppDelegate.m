@@ -8,13 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewModel.h"
-#import "BarService.h"
-#import "ConnectionService.h"
 #import "LoginView.h"
-#import "LocationService.h"
-#import "BarLocationService.h"
-#import "PlaylistViewModel.h"
-#import "PlaylistView.h"
 #import <Objection.h>
 #import "ObjectionModule.h"
 
@@ -28,26 +22,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // Objection configuration
-    JSObjectionInjector *injector = [JSObjection createInjector:[[ObjectionModule alloc]init]];
+    JSObjectionInjector *injector = [JSObjection createInjector:[ObjectionModule new]];
     [JSObjection setDefaultInjector:injector];
 
-    
     self.window = 	[UIWindow new];
     
     LoginViewModel *loginVm = [LoginViewModel new];
     LoginView *loginView = [LoginView new];
     loginView.viewModel = loginVm;
-    loginView.title=@"Finding";
-    
-    PlaylistViewModel *playlistVm = [[PlaylistViewModel alloc]init];
-    PlaylistView *playlistView = [[PlaylistView alloc]init];
-    playlistView.viewModel = playlistVm;
-    
+    loginView.title=@"Location";
+        
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:loginView];
     //[nav addChildViewController:playlistView];
     //[nav pushViewController:playlistView animated:YES];
-    
-    
     
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
