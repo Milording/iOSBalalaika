@@ -43,7 +43,7 @@
     
     self.barSet = [[NSMutableSet alloc]initWithCapacity:10];
     Bar *sbergile = [Bar new];
-    sbergile.title =@"Дорогая, я попал в Sbergile";
+    sbergile.title =@"Дорогая, я попал в\nSbergile";
     sbergile.exactLocation = sbergileLocation;
     
     [self.barSet addObject:sbergile];

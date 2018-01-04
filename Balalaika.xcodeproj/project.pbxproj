@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D05A5041FFEB31100634B98 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05A5031FFEB31100634B98 /* Constants.m */; };
+		5D05A5071FFECEDA00634B98 /* TT Masters Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5D05A5061FFECED900634B98 /* TT Masters Bold.otf */; };
 		5D0C615F1FE5C5A700E7434D /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C615E1FE5C5A700E7434D /* LoginView.m */; };
 		5D0DF8751FE44F0500B20417 /* BarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF8741FE44F0500B20417 /* BarService.m */; };
 		5D0DF8781FE4506800B20417 /* ConnectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF8771FE4506800B20417 /* ConnectionService.m */; };
@@ -31,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D05A5021FFEB31100634B98 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		5D05A5031FFEB31100634B98 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		5D05A5061FFECED900634B98 /* TT Masters Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Masters Bold.otf"; sourceTree = "<group>"; };
 		5D0C615B1FE5B10400E7434D /* BarServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarServiceProtocol.h; sourceTree = "<group>"; };
 		5D0C615D1FE5C5A700E7434D /* LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		5D0C615E1FE5C5A700E7434D /* LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
@@ -109,6 +114,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5D05A5051FFECE9800634B98 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5D05A5061FFECED900634B98 /* TT Masters Bold.otf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		5D0C615C1FE5BE8900E7434D /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +129,8 @@
 				5DB5854F1FE1909200E674B9 /* AppDelegate.m */,
 				5D742DF51FEEB0B400E88E7F /* ObjectionModule.h */,
 				5D742DF61FEEB0B400E88E7F /* ObjectionModule.m */,
+				5D05A5021FFEB31100634B98 /* Constants.h */,
+				5D05A5031FFEB31100634B98 /* Constants.m */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -232,6 +247,7 @@
 		5DB5854D1FE1909200E674B9 /* Balalaika */ = {
 			isa = PBXGroup;
 			children = (
+				5D05A5051FFECE9800634B98 /* Resources */,
 				5D0C615C1FE5BE8900E7434D /* App */,
 				5D742DEE1FEE8DB700E88E7F /* Views */,
 				5D0DF8711FE449AE00B20417 /* ViewModels */,
@@ -310,6 +326,7 @@
 			files = (
 				5DB5855E1FE1909200E674B9 /* LaunchScreen.storyboard in Resources */,
 				5DB5855B1FE1909200E674B9 /* Assets.xcassets in Resources */,
+				5D05A5071FFECEDA00634B98 /* TT Masters Bold.otf in Resources */,
 				5DB585561FE1909200E674B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +406,7 @@
 				5D742DF41FEE90F000E88E7F /* PlaylistViewModel.m in Sources */,
 				5D2EEF761FE9A34D007F28F7 /* BarLocationService.m in Sources */,
 				5D426AC91FFBEFD80014B978 /* SoundCloudService.m in Sources */,
+				5D05A5041FFEB31100634B98 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

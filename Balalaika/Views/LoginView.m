@@ -10,6 +10,8 @@
 #import <ReactiveObjC.h>
 #import "PlaylistView.h"
 #import "PlaylistViewModel.h"
+#import "Constants.h"
+#import <Masonry.h>
 
 @interface LoginView ()
 
@@ -18,7 +20,9 @@
 @property (nonatomic, strong) UIActivityIndicatorView *locationLoadingView;
 
 @property (nonatomic, strong) UILabel *welcomeLabel;
-@property (nonatomic, strong) UIButton *adminButton;
+@property (nonatomic, strong) UIButton *enterButton;
+
+@property (nonatomic, strong) UIImageView *animatedImageView;
 
 @end
 
@@ -33,48 +37,67 @@
 
 -(void)initUI
 {
-    
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.locationIcon = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/2, 50, 50)];
+    self.animatedImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
+    self.animatedImageView.image = [UIImage animatedImageNamed:@"giphy-" duration:1.0f];
+    self.animatedImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.animatedImageView.animationDuration = 1.0f;
+    self.animatedImageView.animationRepeatCount=10;
+    [self.animatedImageView startAnimating];
+    [self.view addSubview:self.animatedImageView];
     
-    self.connectionStatus = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2+50, 200, 30)];
-    self.connectionStatus.textAlignment =NSTextAlignmentCenter;
-    self.connectionStatus.textColor = [UIColor darkGrayColor];
-    self.connectionStatus.text = @"Test";
+    self.connectionStatus = [UILabel new];
+    self.connectionStatus.textColor = AMBlueColor;
+    self.connectionStatus.text = @"Определение местоположения";
+    self.connectionStatus.textAlignment = NSTextAlignmentCenter;
     
-    self.welcomeLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-150, self.view.frame.size.height/2+70, 300, 30)];
-    self.welcomeLabel.textAlignment =NSTextAlignmentCenter;
-    self.welcomeLabel.textColor = [UIColor blueColor];
-    self.welcomeLabel.text = @"Test";
-    
-    self.locationLoadingView = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-50,self.view.frame.size.height/2+150,50,50)];
+    [self.view addSubview:self.connectionStatus];
+    [self.connectionStatus mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.top.equalTo(@215);
+    }];
+
+    self.locationLoadingView = [UIActivityIndicatorView new];
     self.locationLoadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self.locationLoadingView startAnimating];
     
-    self.adminButton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-150, self.view.frame.size.height/2+140, 300, 30)];
-    [self.adminButton setTitle:@"Admin" forState:UIControlStateNormal];
-    [self.adminButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
-    [self.adminButton addTarget:self action:@selector(goAsAdmin) forControlEvents:UIControlEventTouchDown];
-    
-    
-    UIImageView *animatedImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
-    animatedImageView.image = [UIImage animatedImageNamed:@"giphy-" duration:1.0f];
-    animatedImageView.contentMode = UIViewContentModeScaleAspectFill;
-    animatedImageView.animationDuration = 1.0f;
-    animatedImageView.animationRepeatCount=10;
-    [animatedImageView startAnimating];
-    [self.view addSubview:animatedImageView]; 
-    
-    [self.view addSubview:self.locationIcon];
-    [self.view addSubview:self.welcomeLabel];
-    [self.view addSubview:self.connectionStatus];
     [self.view addSubview:self.locationLoadingView];
-    [self.view addSubview:self.adminButton];
+    [self.locationLoadingView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.top.equalTo(self.connectionStatus.mas_bottom).offset(36);
+    }];
+    
+    self.welcomeLabel = [UILabel new];
+    self.welcomeLabel.font = [UIFont fontWithName:@"TTMasters-Bold" size:36];
+    self.welcomeLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.welcomeLabel.textAlignment = NSTextAlignmentCenter;
+    self.welcomeLabel.numberOfLines = 0;
+    self.welcomeLabel.textColor = [UIColor whiteColor];
+    self.welcomeLabel.text = @"Название бара";
+
+    [self.view addSubview:self.welcomeLabel];
+    [self.welcomeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.top.equalTo(@200);
+    }];
+
+
+    self.enterButton = [UIButton new];
+    [self.enterButton setTitle:@"Войти" forState:UIControlStateNormal];
+    [self.enterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.enterButton setBackgroundColor:AMBlueColor];
+    [self.enterButton addTarget:self action:@selector(goAsAdmin) forControlEvents:UIControlEventTouchDown];
+    self.enterButton.layer.cornerRadius=5;
     
     
-    
-    
+    [self.view addSubview:self.enterButton];
+    [self.enterButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@100); make.height.equalTo(@42);
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.top.equalTo(self.welcomeLabel.mas_bottom).offset(100);
+        make.bottom.offset(-160);
+    }];
 }
 
 -(void)goAsAdmin
@@ -102,9 +125,19 @@
     [RACObserve(self, self.viewModel.isLoading) subscribeNext:^(id x) {
         NSNumber *isLoading = (NSNumber *)x;
         if([isLoading boolValue])
+        {
             [self.locationLoadingView startAnimating];
+            self.welcomeLabel.hidden = YES;
+            self.animatedImageView.hidden = YES;
+            self.connectionStatus.hidden = NO;
+        }
         else
+        {
             [self.locationLoadingView stopAnimating];
+            self.welcomeLabel.hidden = NO;
+            self.animatedImageView.hidden = NO;
+            self.connectionStatus.hidden = YES;
+        }
     }];
 }
 
