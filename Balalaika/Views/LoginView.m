@@ -57,11 +57,23 @@
     [self.adminButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [self.adminButton addTarget:self action:@selector(goAsAdmin) forControlEvents:UIControlEventTouchDown];
     
+    
+    UIImageView *animatedImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
+    animatedImageView.image = [UIImage animatedImageNamed:@"giphy-" duration:1.0f];
+    animatedImageView.contentMode = UIViewContentModeScaleAspectFill;
+    animatedImageView.animationDuration = 1.0f;
+    animatedImageView.animationRepeatCount=10;
+    [animatedImageView startAnimating];
+    [self.view addSubview:animatedImageView]; 
+    
     [self.view addSubview:self.locationIcon];
     [self.view addSubview:self.welcomeLabel];
     [self.view addSubview:self.connectionStatus];
     [self.view addSubview:self.locationLoadingView];
     [self.view addSubview:self.adminButton];
+    
+    
+    
     
 }
 
