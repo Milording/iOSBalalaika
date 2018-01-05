@@ -49,7 +49,7 @@
     
     self.connectionStatus = [UILabel new];
     self.connectionStatus.textColor = AMBlueColor;
-    self.connectionStatus.text = @"Определение местоположения";
+    self.connectionStatus.text = @"Поиск бара";
     self.connectionStatus.textAlignment = NSTextAlignmentCenter;
     
     [self.view addSubview:self.connectionStatus];
@@ -85,6 +85,7 @@
 
     self.enterButton = [UIButton new];
     [self.enterButton setTitle:@"Войти" forState:UIControlStateNormal];
+    self.enterButton.titleLabel.font = [UIFont boldSystemFontOfSize:20];
     [self.enterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.enterButton setBackgroundColor:AMBlueColor];
     [self.enterButton addTarget:self action:@selector(goAsAdmin) forControlEvents:UIControlEventTouchDown];
@@ -93,10 +94,11 @@
     
     [self.view addSubview:self.enterButton];
     [self.enterButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@100); make.height.equalTo(@42);
+        make.left.equalTo(@24); make.right.equalTo(@-24);
+        make.height.equalTo(@54);
         make.centerX.equalTo(self.view.mas_centerX);
         make.top.equalTo(self.welcomeLabel.mas_bottom).offset(100);
-        make.bottom.offset(-160);
+        make.bottom.offset(-60);
     }];
 }
 
@@ -130,6 +132,7 @@
             self.welcomeLabel.hidden = YES;
             self.animatedImageView.hidden = YES;
             self.connectionStatus.hidden = NO;
+            self.enterButton.hidden = YES;
         }
         else
         {
@@ -137,6 +140,7 @@
             self.welcomeLabel.hidden = NO;
             self.animatedImageView.hidden = NO;
             self.connectionStatus.hidden = YES;
+            self.enterButton.hidden = NO;
         }
     }];
 }

@@ -37,6 +37,8 @@
 -(void)initBarLocations
 {
     // Sbergile Location
+    
+    // TODO: Set the location of office
     double latitude = 37.332331;
     double longitude = -122.031219;
     CLLocation *sbergileLocation =  [[CLLocation alloc]initWithLatitude:latitude longitude:longitude];
