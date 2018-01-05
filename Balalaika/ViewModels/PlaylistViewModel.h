@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Playlist;
 
 @interface PlaylistViewModel : NSObject
 
 @property (nonatomic, strong) NSString *rawPlaylist;
+@property (nonatomic, strong) Playlist *popularPlaylist;
 
 -(void)addPremiumSong;
 

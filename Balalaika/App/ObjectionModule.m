@@ -15,6 +15,8 @@
 #import "ConnectionServiceProtocol.h"
 #import "LocationService.h"
 #import "LocationServiceProtocol.h"
+#import "StreamingService.h"
+#import "StreamingServiceProtocol.h"
 
 @implementation ObjectionModule
 
@@ -23,6 +25,7 @@
     // Base services
     [self bindClass:[ConnectionService class] toProtocol:@protocol(ConnectionServiceProtocol)];
     [self bindClass:[LocationService class] toProtocol:@protocol(LocationServiceProtocol)];
+    [self bindClass:[StreamingService class] toProtocol:@protocol(StreamingServiceProtocol)];
     
     // High level services
     [self bindClass:[BarService class] toProtocol:@protocol(BarServiceProtocol)];
