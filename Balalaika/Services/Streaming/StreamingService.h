@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SoundCloudServiceProtocol.h"
+#import "StreamingServiceProtocol.h"
 
-@interface SoundCloudService : NSObject<SoundCloudServiceProtocol>
+@interface StreamingService : NSObject<StreamingServiceProtocol>
 
 
 

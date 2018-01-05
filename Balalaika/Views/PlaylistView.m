@@ -11,11 +11,13 @@
 #import "PlaylistView.h"
 #import "PlaylistViewModel.h"
 #import "PlaylistTableViewCell.h"
+#import "Playlist.h"
+#import "Song.h"
 
 @interface PlaylistView ()
 
 @property (nonatomic, strong) UIButton *addSongButton;
-@property (nonatomic, strong) UILabel *actualPlaylist;
+@property (nonatomic, strong) Playlist *popularPlaylist;
 
 @property (nonatomic, strong) UITableView *playlistTableView;
 
@@ -40,13 +42,7 @@
     [self.addSongButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.addSongButton addTarget:self action:@selector(addPremiumSong) forControlEvents:UIControlEventTouchDown];
     
-    self.actualPlaylist = [[UILabel alloc]initWithFrame:CGRectMake(100, 250, 150, 50)];
-    self.actualPlaylist.textAlignment =NSTextAlignmentCenter;
-    self.actualPlaylist.textColor = [UIColor blackColor];
-    [self.actualPlaylist setText:@"OOOKAY??!"];
-
     [self.view addSubview:self.addSongButton];
-    [self.view addSubview:self.actualPlaylist];
     
     [self initTableView];
 }
@@ -65,7 +61,18 @@
 
 -(void)bindUI
 {
-    RAC(self, self.actualPlaylist.text) = RACObserve(self, self.viewModel.rawPlaylist);
+    RAC(self, self.popularPlaylist) = RACObserve(self, self.viewModel.popularPlaylist);
+    
+    [RACObserve(self, self.viewModel.popularPlaylist) subscribeNext:^(id x) {
+        if(x)
+        {
+            self.popularPlaylist = x;
+            
+            [self.playlistTableView reloadData];
+        }
+    
+    }];
+    
 }
 
 -(void)addPremiumSong
@@ -81,7 +88,10 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    if(self.popularPlaylist)
+        return self.popularPlaylist.songList.count;
+    else
+        return 2;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -93,9 +103,13 @@
     {
         cell = [[PlaylistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    cell.artistLabel.text = @"Boards of Canada - Geoggadi";
-    cell.songLabel.text = @"Music is Math";
-    cell.timeLabel.text = @"5:23";
+    
+    Song *song = [self.popularPlaylist.songList objectAtIndex:indexPath.row];
+    cell.artistLabel.text = song.artist;
+    cell.songLabel.text = song.title;
+    int minutes = (int)song.duration/60;
+    int seconds = song.duration%60;
+    cell.timeLabel.text = [NSString stringWithFormat:@"%d:%.02d",minutes, seconds];
     
     return cell;
 }
@@ -105,7 +119,7 @@
     return 76;
 }
 
-#pragma mark - UITableViewDelegatew
+#pragma mark - UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"Selected....");

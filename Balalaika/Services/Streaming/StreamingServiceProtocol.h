@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Playlist;
 
-@protocol SoundCloudServiceProtocol <NSObject>
+@protocol StreamingServiceProtocol <NSObject>
 
-
+-(void)getPopularPlaylist:(void (^)(Playlist *))completionHandler;
 
 @end

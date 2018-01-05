@@ -10,4 +10,14 @@
 
 @implementation Playlist
 
+-(instancetype)init
+{
+    if(self == [super init])
+    {
+        self.songList = [NSMutableArray new];
+    }
+    return self;
+    
+    
+}
 @end
