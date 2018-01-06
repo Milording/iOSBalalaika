@@ -26,6 +26,8 @@
 
 @implementation PlaylistView
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -36,13 +38,6 @@
 -(void)initUI
 {
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    self.addSongButton = [[UIButton alloc]initWithFrame:CGRectMake(50, 100, 150, 50)];
-    [self.addSongButton setTitle:@"Add test song" forState:UIControlStateNormal];
-    [self.addSongButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.addSongButton addTarget:self action:@selector(addPremiumSong) forControlEvents:UIControlEventTouchDown];
-    
-    [self.view addSubview:self.addSongButton];
     
     [self initTableView];
 }
@@ -58,6 +53,8 @@
     
     [self.view addSubview:self.playlistTableView];
 }
+
+#pragma mark - Binding
 
 -(void)bindUI
 {
@@ -83,10 +80,8 @@
     
 }
 
--(void)addPremiumSong
-{
-    [self.viewModel addPremiumSong];
-}
+#pragma mark - Private Methods
+
 
 #pragma mark - UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

@@ -20,6 +20,8 @@
 @implementation LoginViewModel
 objection_requires(@"barLocationService")
 
+#pragma mark - Lifecycle
+
 -(instancetype)init
 {
     if(self = [super init])
@@ -30,6 +32,8 @@ objection_requires(@"barLocationService")
     }
     return self;
 }
+
+#pragma mark - Private Methods
 
 -(void)getCurrentBar
 {

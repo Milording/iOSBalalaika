@@ -12,19 +12,19 @@
 
 @implementation StreamingService
 
--(NSURLSession *)getUrlSession
+#pragma mark - Lifecycle
+
+-(instancetype)init
 {
-    static NSURLSession *session = nil;
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-                        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-                        session = [NSURLSession sessionWithConfiguration:configuration];
-    });
-    
-    return session;
+    if(self == [super init])
+    {
+    }
+    return self;
 }
 
+#pragma mark - Protocol Public Methods
+
+//TODO: Refactor this piece of shit
 - (void)getPopularPlaylist:(void (^)(Playlist *))completionHandler {
     
     Playlist *playlist = [Playlist new];
@@ -67,6 +67,21 @@
     }];
     
     [task resume];
+}
+
+#pragma mark - Private Methods
+
+-(NSURLSession *)getUrlSession
+{
+    static NSURLSession *session = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+                        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+                        session = [NSURLSession sessionWithConfiguration:configuration];
+    });
+    
+    return session;
 }
 
 @end

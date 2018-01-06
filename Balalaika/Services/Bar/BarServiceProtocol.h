@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Playlist.h"
+@class Playlist;
 
 @protocol BarServiceProtocol <NSObject>
-
 
 -(void)addPremiumSong:(NSString *)songId;
 -(void)getActualPlaylist;
@@ -18,6 +17,5 @@
 
 -(void)onPlaylistChanged:(void (^)(NSString *))completionHandler;
 -(void)onCurrentPlaylistDidGet:(void (^)(NSString *))completionHandler;
-
 
 @end

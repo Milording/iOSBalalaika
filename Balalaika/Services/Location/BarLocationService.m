@@ -23,6 +23,8 @@
 @implementation BarLocationService
 //objection_requires(@"locationService")
 
+#pragma mark - Lifecycle
+
 -(instancetype)init
 {
     if(self == [super init])
@@ -33,6 +35,21 @@
     }
     return self;
 }
+
+
+#pragma mark - Public Methods
+
+-(void)getCurrentBarTitle:(void (^)(Bar *))completionHandler
+{
+    self.completionHandler = completionHandler;
+    
+    [self.locationService getCurrentLocation:^(CLLocation *location) {
+        Bar *bar = [self checkBarFor:location];
+        self.completionHandler(bar);
+    }];
+}
+
+#pragma mark - Private Methods
 
 -(void)initBarLocations
 {
@@ -62,23 +79,13 @@
         CLLocationDegrees maxLongitude = bar.exactLocation.coordinate.longitude+1;
         
         if((userLocation.coordinate.latitude > minLatitude || userLocation.coordinate.latitude < maxLatitude) &&
-          (userLocation.coordinate.longitude > minLongitude || userLocation.coordinate.longitude < maxLongitude))
+           (userLocation.coordinate.longitude > minLongitude || userLocation.coordinate.longitude < maxLongitude))
         {
             return bar;
         }
     }
     
     return nil;
-}
-
--(void)getCurrentBarTitle:(void (^)(Bar *))completionHandler
-{
-    self.completionHandler = completionHandler;
-    
-    [self.locationService getCurrentLocation:^(CLLocation *location) {
-        Bar *bar = [self checkBarFor:location];
-        self.completionHandler(bar);
-    }];
 }
 
 @end

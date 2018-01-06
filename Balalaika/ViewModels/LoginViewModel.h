@@ -15,7 +15,4 @@
 @property (nonatomic, copy) NSString *connectionStatus;
 @property (nonatomic, strong) NSNumber *isLoading;
 
-
-
 @end
-

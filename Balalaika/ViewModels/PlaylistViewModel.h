@@ -14,6 +14,4 @@
 @property (nonatomic, strong) NSString *rawPlaylist;
 @property (nonatomic, strong) Playlist *popularPlaylist;
 
--(void)addPremiumSong;
-
 @end

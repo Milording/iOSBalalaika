@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "BarServiceProtocol.h"
 
-
 @interface BarService : NSObject<BarServiceProtocol>
-
 
 @end

@@ -17,6 +17,8 @@
 
 @implementation LocationService 
 
+#pragma mark - Lifecycle
+
 -(instancetype)init
 {
     if(self = [super init])
@@ -31,11 +33,14 @@
     return self;
 }
 
+#pragma mark - Protocol Public Methods
 
 - (void)getCurrentLocation:(void (^)(CLLocation *))completionHandler {
     self.completionHandler = completionHandler;
     [self startLocating];
 }
+
+#pragma mark - CLLocationManagerDelegate
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
@@ -51,6 +56,8 @@
 {
     NSLog(@"%@",error);
 }
+
+#pragma mark - Private Methods
 
 -(void)startLocating
 {

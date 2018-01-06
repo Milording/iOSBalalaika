@@ -8,7 +8,6 @@
 
 #import "ConnectionService.h"
 
-
 @interface ConnectionService()
 
 @property (nonatomic, strong) SRHubConnection *hub;
@@ -21,6 +20,8 @@
 
 @implementation ConnectionService
 
+#pragma mark - Lifecycle
+
 -(instancetype)init
 {
     if(self = [super init])
@@ -28,7 +29,6 @@
         _hub = [SRHubConnection connectionWithURLString:@"http://balalaikaalpha.azurewebsites.net/"];
         _chat = [_hub createHubProxy:@"BarHub"];
         
-        //[_chat on:@"playlistUpdated" perform:self selector:@selector(playlistUpdated:)];
         [self.chat on:@"playlistUpdated" perform:self selector:@selector(playlistUpdated:)];
         
         [_hub start];
@@ -36,22 +36,7 @@
     return self;
 }
 
--(void)playlistUpdated:(NSString *)response
-{
-    self.playlistUpdatedHandler(response);
-}
-
--(void)addPremiumSong:(NSString *)songId
-{
-    [self.chat invoke:@"AddPremiumSong" withArgs:@[songId] completionHandler:nil];
-}
-              
--(void)getActualPlaylist
-{
-    [self.chat invoke:@"GetActualPlaylist" withArgs:[NSArray new] completionHandler:^(id response, NSError *error) {
-        self.playlistDidGetHandler(response);
-    }];
-}
+#pragma mark - Protocol Public Methods
 
 - (void)startDefaultPlaylist {
     [self.chat invoke:@"StartDefaultPlaylist" withArgs:[NSArray new] completionHandler:^(id response, NSError *error) {
@@ -59,14 +44,34 @@
     }];
 }
 
-- (void)onRawPlaylistChanged:(void (^)(NSString *))completionHandler {
+-(void)addPremiumSong:(NSString *)songId
+{
+    [self.chat invoke:@"AddPremiumSong" withArgs:@[songId] completionHandler:nil];
+}
+
+-(void)getActualPlaylist
+{
+    [self.chat invoke:@"GetActualPlaylist" withArgs:[NSArray new] completionHandler:^(id response, NSError *error) {
+        self.playlistDidGetHandler(response);
+    }];
+}
+
+#pragma mark - Protocol Completion Methods
+
+- (void)onRawPlaylistChanged:(void (^)(NSString *))completionHandler
+{
     self.playlistUpdatedHandler = completionHandler;
-    
 }
 
 -(void)onCurrentPlaylistDidGet:(void (^)(NSString *))completionHandler
 {
     self.playlistDidGetHandler = completionHandler;
 }
+
+-(void)playlistUpdated:(NSString *)response
+{
+    self.playlistUpdatedHandler(response);
+}
+
 
 @end
