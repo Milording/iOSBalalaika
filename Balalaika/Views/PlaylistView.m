@@ -13,6 +13,7 @@
 #import "PlaylistTableViewCell.h"
 #import "Playlist.h"
 #import "Song.h"
+#import <Masonry.h>
 
 @interface PlaylistView ()
 
@@ -21,6 +22,8 @@
 
 @property (nonatomic, strong) UITableView *playlistTableView;
 @property (nonatomic, strong) UIImageView *animatedImageView;
+
+@property (nonatomic, strong) UISearchBar *searchBar;
 
 @end
 
@@ -44,24 +47,23 @@
     
     [self.view addSubview:self.addSongButton];
     
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"Добавить" style:UIBarButtonItemStylePlain target:self action:nil ];
+    self.navigationItem.rightBarButtonItem = addButton;
+    self.searchBar = [UISearchBar new];
+    
+    [self.view addSubview:self.searchBar];
+    [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        //make.left.equalTo(@24); make.right.equalTo(@-24);
+        make.top.equalTo(@64);
+        make.width.equalTo(self.view.mas_width);
+        make.height.equalTo(@50);
+        //make.height.equalTo(@54);
+        make.centerX.equalTo(self.view.mas_centerX);
+        //make.top.equalTo(self.welcomeLabel.mas_bottom).offset(100);
+    }];
+
     [self initTableView];
-}
-
--(void)initTableView
-{
-    self.playlistTableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
-    
-    self.playlistTableView.delegate = self;
-    self.playlistTableView.dataSource = self;
-    
-    self.playlistTableView.backgroundColor = [UIColor whiteColor];
-    
-    [self.view addSubview:self.playlistTableView];
-}
-
--(void)bindUI
-{
-    RAC(self, self.popularPlaylist) = RACObserve(self, self.viewModel.popularPlaylist);
     
     self.animatedImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
     self.animatedImageView.image = [UIImage animatedImageNamed:@"giphy-downsized-" duration:1.0f];
@@ -70,6 +72,30 @@
     self.animatedImageView.animationRepeatCount=10;
     [self.animatedImageView startAnimating];
     [self.view addSubview:self.animatedImageView];
+}
+
+-(void)initTableView
+{
+    self.playlistTableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
+    
+    
+    self.playlistTableView.delegate = self;
+    self.playlistTableView.dataSource = self;
+    
+    self.playlistTableView.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:self.playlistTableView];
+    [self.playlistTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@114);
+        make.bottom.equalTo(@0);
+        make.width.equalTo(self.view.mas_width);
+    }];
+}
+
+-(void)bindUI
+{
+    RAC(self, self.popularPlaylist) = RACObserve(self, self.viewModel.popularPlaylist);
+    
     
     [RACObserve(self, self.viewModel.popularPlaylist) subscribeNext:^(id x) {
         if(x)
