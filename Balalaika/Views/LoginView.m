@@ -35,7 +35,7 @@
     [self bindUI];
 }
 
--(void)initUI
+- (void)initUI
 {
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -81,7 +81,6 @@
         make.centerX.equalTo(self.view.mas_centerX);
         make.top.equalTo(@200);
     }];
-
 
     self.enterButton = [UIButton new];
     [self.enterButton setTitle:@"Войти" forState:UIControlStateNormal];

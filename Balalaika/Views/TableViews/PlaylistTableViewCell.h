@@ -17,6 +17,9 @@ static NSString* const kCellTitleMain = @"CellWithTitleMain";
 @property (nonatomic, strong) UILabel *artistLabel;
 @property (nonatomic, strong) UILabel *songLabel;
 @property (nonatomic, strong) UILabel *timeLabel;
+
 @property (nonatomic, strong) UIImageView *coverImage;
+
+-(void)setImage;
 
 @end

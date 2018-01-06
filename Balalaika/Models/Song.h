@@ -13,6 +13,7 @@
 @property (nonatomic, copy) NSString *songId;
 @property (nonatomic, copy) NSString *artist;
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *thumb;
 @property (nonatomic) NSInteger duration;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "PlaylistTableViewCell.h"
+#import <Masonry.h>
 
 @interface PlaylistTableViewCell()
 
@@ -26,35 +27,53 @@
         self.songLabel = [UILabel new];
         self.songLabel.textColor = [UIColor blackColor];
         
+        [self addSubview:self.songLabel];
+        [self.songLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.mas_centerX);
+            make.centerY.equalTo(self.mas_top).offset(20);
+            make.left.equalTo(@84);
+        }];
+        
         self.artistLabel = [UILabel new];
         [self.artistLabel  setTextColor:self.grayColor];
+        
+        [self addSubview:self.artistLabel];
+        [self.artistLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.mas_centerX);
+            make.centerY.equalTo(self.mas_bottom).offset(-20);
+            make.left.equalTo(@84);
+        }];
         
         self.timeLabel = [UILabel new];
         [self.timeLabel setTextColor:self.grayColor];
         
-        
-        self.songLabel.frame = CGRectMake(84, 12, 157, 20);
-        self.artistLabel.frame = CGRectMake(84, 46, 157, 18);
-        self.timeLabel.frame = CGRectMake(271, 29, 51, 18);
-        
-        
-        [self addSubview:self.songLabel];
-        [self addSubview:self.artistLabel];
         [self addSubview:self.timeLabel];
+        [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.mas_right);
+            make.right.equalTo(@48);
+            make.centerY.equalTo(self.mas_centerY);
+        }];
+        
+
     }
     return self;
+}
+
+-(void)setImage
+{
+    [self addSubview:self.coverImage];
+    [self.coverImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.mas_left).offset(38);
+        make.height.equalTo(@64);
+        make.width.equalTo(@64);
+        //make.right.equalTo(@48);
+        make.centerY.equalTo(self.mas_centerY);
+    }];
 }
 
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    
-    
-    //[self setNeedsLayout];
-    //[self layoutIfNeeded];
-    
-    //self.songLabel.preferredMaxLayoutWidth = CGRectGetWidth(self.songLabel.frame);
-    //self.artistLabel.preferredMaxLayoutWidth = CGRectGetWidth(self.artistLabel.frame);
 }
 
 - (void)awakeFromNib {

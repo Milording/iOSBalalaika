@@ -56,6 +56,8 @@
                     song.artist = item[@"user"][@"username"];
                 }
                 
+                song.thumb = item[@"thumb"];
+                
                 [playlist.songList addObject:song];
                 NSLog(@"Item: %@", item[@"title"]);
             }
