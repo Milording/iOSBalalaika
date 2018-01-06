@@ -20,6 +20,7 @@
 @property (nonatomic, strong) Playlist *popularPlaylist;
 
 @property (nonatomic, strong) UITableView *playlistTableView;
+@property (nonatomic, strong) UIImageView *animatedImageView;
 
 @end
 
@@ -30,7 +31,6 @@
     
     [self initUI];
     [self bindUI];
-    
 }
 
 -(void)initUI
@@ -63,14 +63,22 @@
 {
     RAC(self, self.popularPlaylist) = RACObserve(self, self.viewModel.popularPlaylist);
     
+    self.animatedImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
+    self.animatedImageView.image = [UIImage animatedImageNamed:@"giphy-downsized-" duration:1.0f];
+    self.animatedImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.animatedImageView.animationDuration = 1.0f;
+    self.animatedImageView.animationRepeatCount=10;
+    [self.animatedImageView startAnimating];
+    [self.view addSubview:self.animatedImageView];
+    
     [RACObserve(self, self.viewModel.popularPlaylist) subscribeNext:^(id x) {
         if(x)
         {
             self.popularPlaylist = x;
             
+            self.animatedImageView.hidden = YES;
             [self.playlistTableView reloadData];
         }
-    
     }];
     
 }
@@ -89,9 +97,13 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(self.popularPlaylist)
+    {
         return self.popularPlaylist.songList.count;
+    }
     else
-        return 2;
+    {
+        return 0;
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,8 +111,7 @@
     static NSString *cellIdentifier = @"SongCell";
     
     PlaylistTableViewCell *cell = (PlaylistTableViewCell *)[self.playlistTableView dequeueReusableHeaderFooterViewWithIdentifier:cellIdentifier];
-    if(cell==nil)
-    {
+    if(cell==nil) {
         cell = [[PlaylistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
@@ -109,7 +120,13 @@
     cell.songLabel.text = song.title;
     int minutes = (int)song.duration/60;
     int seconds = song.duration%60;
+    
     cell.timeLabel.text = [NSString stringWithFormat:@"%d:%.02d",minutes, seconds];
+    
+    UIImage *coverImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:song.thumb]]];
+    cell.coverImage = [[UIImageView alloc]initWithImage:coverImage];
+    [cell setImage];
+    
     
     return cell;
 }
