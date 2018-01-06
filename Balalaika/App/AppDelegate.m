@@ -18,6 +18,7 @@
 
 @implementation AppDelegate
 
+#pragma mark - Lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -42,7 +43,8 @@
     return YES;
 }
 
-#pragma mark - Core Data stack
+#pragma mark - Core Data Stack
+//TODO: Move CoreData into another service
 
 @synthesize persistentContainer = _persistentContainer;
 

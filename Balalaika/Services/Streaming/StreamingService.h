@@ -11,6 +11,4 @@
 
 @interface StreamingService : NSObject<StreamingServiceProtocol>
 
-
-
 @end

@@ -15,6 +15,7 @@
 
 @interface BarLocationService : NSObject <BarLocationServiceProtocol>
 
+//TODO: Check for reason
 -(void)getCurrentBarTitle:(void (^)(Bar *))completionHandler;
 
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+//TODO: Make static const
 #define AMBlueColor [UIColor colorWithRed:(51.0/255.0) green:(125.0/255.0) blue:(246.0/255.0) alpha:1]
 
 @interface Constants : NSObject

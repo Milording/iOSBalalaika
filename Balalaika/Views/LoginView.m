@@ -28,7 +28,10 @@
 
 @implementation LoginView
 
-- (void)viewDidLoad {
+#pragma mark - Lifecycle
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     [self initUI];
@@ -101,22 +104,7 @@
     }];
 }
 
--(void)goAsAdmin
-{
-    PlaylistView *playlistView = [self createView];
-    
-    [self.navigationController pushViewController:playlistView animated:YES];
-}
-
--(PlaylistView *)createView
-{
-    PlaylistViewModel *playlistVm = [PlaylistViewModel new];
-    PlaylistView *playlistView = [PlaylistView new];
-    playlistView.viewModel = playlistVm;
-    playlistView.title = @"Music";
-    
-    return playlistView;
-}
+#pragma mark - Binding
 
 -(void)bindUI
 {
@@ -143,5 +131,25 @@
         }
     }];
 }
+
+#pragma mark - Private Methods
+
+-(void)goAsAdmin
+{
+    PlaylistView *playlistView = [self createView];
+    
+    [self.navigationController pushViewController:playlistView animated:YES];
+}
+
+-(PlaylistView *)createView
+{
+    PlaylistViewModel *playlistVm = [PlaylistViewModel new];
+    PlaylistView *playlistView = [PlaylistView new];
+    playlistView.viewModel = playlistVm;
+    playlistView.title = @"Music";
+    
+    return playlistView;
+}
+
 
 @end

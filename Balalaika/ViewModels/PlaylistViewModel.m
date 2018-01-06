@@ -21,6 +21,8 @@
 @implementation PlaylistViewModel
 objection_requires(@"barService", @"streamingService")
 
+#pragma mark - Lifecycle
+
 - (instancetype)init
 {
     if(self = [super init])
@@ -41,14 +43,11 @@ objection_requires(@"barService", @"streamingService")
     return self;
 }
 
+#pragma mark - Private Methods
+
 -(void)playListDidGet:(NSString *)playlist
 {
     NSLog(@"%@",playlist);
-}
-
--(void)addPremiumSong
-{
-    [self.barService getActualPlaylist];
 }
 
 @end

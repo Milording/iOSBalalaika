@@ -24,6 +24,8 @@
 @implementation BarService
 //objection_requires(@"connectionService")
 
+#pragma mark - Lifecycle
+
 -(instancetype)init
 {
     if(self = [super init])
@@ -41,15 +43,23 @@
     return self;
 }
 
--(void)setDefaultPlaylist
-{
-    [self.connectionService startDefaultPlaylist];
-}
+#pragma mark - Protocol Public Methods
 
 -(void)addPremiumSong:(NSString *)songId
 {
     [self.connectionService addPremiumSong:songId];
 }
+
+- (void)getActualPlaylist {
+    [self.connectionService getActualPlaylist];
+}
+
+-(void)setDefaultPlaylist
+{
+    [self.connectionService startDefaultPlaylist];
+}
+
+#pragma mark - Protocol Completion Methods
 
 - (void)onPlaylistChanged:(void (^)(NSString *))completionHandler{
     self.playlistUpdatedHandler = completionHandler;
@@ -58,13 +68,6 @@
 - (void)onCurrentPlaylistDidGet:(void (^)(NSString *))completionHandler {
     self.playlistDidGetHandler = completionHandler;
 }
-
-- (void)getActualPlaylist {
-    [self.connectionService getActualPlaylist];
-}
-
-
-
 
 
 @end
