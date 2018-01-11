@@ -7,29 +7,29 @@
 //
 
 #import "ObjectionModule.h"
-#import "BarService.h"
-#import "BarServiceProtocol.h"
-#import "BarLocationServiceProtocol.h"
-#import "BarLocationService.h"
-#import "ConnectionService.h"
-#import "ConnectionServiceProtocol.h"
-#import "LocationService.h"
-#import "LocationServiceProtocol.h"
-#import "StreamingService.h"
-#import "StreamingServiceProtocol.h"
+#import "MLDBarService.h"
+#import "MLDBarServiceProtocol.h"
+#import "MLDBarLocationServiceProtocol.h"
+#import "MLDBarLocationService.h"
+#import "MLDConnectionService.h"
+#import "MLDConnectionServiceProtocol.h"
+#import "MLDLocationService.h"
+#import "MLDLocationServiceProtocol.h"
+#import "MLDStreamingService.h"
+#import "MLDStreamingServiceProtocol.h"
 
 @implementation ObjectionModule
 
 -(void)configure
 {
     // Base services
-    [self bindClass:[ConnectionService class] toProtocol:@protocol(ConnectionServiceProtocol)];
-    [self bindClass:[LocationService class] toProtocol:@protocol(LocationServiceProtocol)];
-    [self bindClass:[StreamingService class] toProtocol:@protocol(StreamingServiceProtocol)];
+    [self bindClass:[MLDConnectionService class] toProtocol:@protocol(MLDConnectionServiceProtocol)];
+    [self bindClass:[MLDLocationService class] toProtocol:@protocol(MLDLocationServiceProtocol)];
+    [self bindClass:[MLDStreamingService class] toProtocol:@protocol(MLDStreamingServiceProtocol)];
     
     // High level services
-    [self bindClass:[BarService class] toProtocol:@protocol(BarServiceProtocol)];
-    [self bindClass:[BarLocationService class] toProtocol:@protocol(BarLocationServiceProtocol)];
+    [self bindClass:[MLDBarService class] toProtocol:@protocol(MLDBarServiceProtocol)];
+    [self bindClass:[MLDBarLocationService class] toProtocol:@protocol(MLDBarLocationServiceProtocol)];
 }
 
 @end

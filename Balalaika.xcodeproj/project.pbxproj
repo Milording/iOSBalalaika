@@ -9,28 +9,28 @@
 /* Begin PBXBuildFile section */
 		5D05A5041FFEB31100634B98 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05A5031FFEB31100634B98 /* Constants.m */; };
 		5D05A5071FFECEDA00634B98 /* TT Masters Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5D05A5061FFECED900634B98 /* TT Masters Bold.otf */; };
-		5D0C615F1FE5C5A700E7434D /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C615E1FE5C5A700E7434D /* LoginView.m */; };
-		5D0DF8751FE44F0500B20417 /* BarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF8741FE44F0500B20417 /* BarService.m */; };
-		5D0DF8781FE4506800B20417 /* ConnectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF8771FE4506800B20417 /* ConnectionService.m */; };
-		5D0DF87C1FE5AE4600B20417 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF87B1FE5AE4600B20417 /* Song.m */; };
-		5D0DF87F1FE5AE8D00B20417 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF87E1FE5AE8D00B20417 /* Playlist.m */; };
-		5D2EEF711FE84C92007F28F7 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF701FE84C92007F28F7 /* LocationService.m */; };
-		5D2EEF761FE9A34D007F28F7 /* BarLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */; };
-		5D426AC91FFBEFD80014B978 /* StreamingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D426AC81FFBEFD80014B978 /* StreamingService.m */; };
+		5D0C615F1FE5C5A700E7434D /* MLDLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C615E1FE5C5A700E7434D /* MLDLoginView.m */; };
+		5D0DF8751FE44F0500B20417 /* MLDBarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF8741FE44F0500B20417 /* MLDBarService.m */; };
+		5D0DF8781FE4506800B20417 /* MLDConnectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF8771FE4506800B20417 /* MLDConnectionService.m */; };
+		5D0DF87C1FE5AE4600B20417 /* MLDSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF87B1FE5AE4600B20417 /* MLDSong.m */; };
+		5D0DF87F1FE5AE8D00B20417 /* MLDPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DF87E1FE5AE8D00B20417 /* MLDPlaylist.m */; };
+		5D2EEF711FE84C92007F28F7 /* MLDLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF701FE84C92007F28F7 /* MLDLocationService.m */; };
+		5D2EEF761FE9A34D007F28F7 /* MLDBarLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF751FE9A34D007F28F7 /* MLDBarLocationService.m */; };
+		5D426AC91FFBEFD80014B978 /* MLDStreamingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D426AC81FFBEFD80014B978 /* MLDStreamingService.m */; };
 		5D426ACE1FFD7CD90014B978 /* PlaylistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D426ACD1FFD7CD90014B978 /* PlaylistTableViewCell.m */; };
-		5D742DED1FEE6E2E00E88E7F /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DEC1FEE6E2E00E88E7F /* Bar.m */; };
-		5D742DF11FEE90AC00E88E7F /* PlaylistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DF01FEE90AC00E88E7F /* PlaylistView.m */; };
-		5D742DF41FEE90F000E88E7F /* PlaylistViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DF31FEE90F000E88E7F /* PlaylistViewModel.m */; };
+		5D742DED1FEE6E2E00E88E7F /* MLDBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DEC1FEE6E2E00E88E7F /* MLDBar.m */; };
+		5D742DF11FEE90AC00E88E7F /* MLDPlaylistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DF01FEE90AC00E88E7F /* MLDPlaylistView.m */; };
+		5D742DF41FEE90F000E88E7F /* MLDPlaylistViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DF31FEE90F000E88E7F /* MLDPlaylistViewModel.m */; };
 		5D742DF71FEEB0B400E88E7F /* ObjectionModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DF61FEEB0B400E88E7F /* ObjectionModule.m */; };
 		5DB585501FE1909200E674B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5854F1FE1909200E674B9 /* AppDelegate.m */; };
-		5DB585531FE1909200E674B9 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB585521FE1909200E674B9 /* LoginViewModel.m */; };
+		5DB585531FE1909200E674B9 /* MLDLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB585521FE1909200E674B9 /* MLDLoginViewModel.m */; };
 		5DB585561FE1909200E674B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DB585541FE1909200E674B9 /* Main.storyboard */; };
 		5DB585591FE1909200E674B9 /* Balalaika.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DB585571FE1909200E674B9 /* Balalaika.xcdatamodeld */; };
 		5DB5855B1FE1909200E674B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DB5855A1FE1909200E674B9 /* Assets.xcassets */; };
 		5DB5855E1FE1909200E674B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DB5855C1FE1909200E674B9 /* LaunchScreen.storyboard */; };
 		5DB585611FE1909200E674B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB585601FE1909200E674B9 /* main.m */; };
-		5DED170820031BA9004EE6C8 /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED170720031BA9004EE6C8 /* SearchView.m */; };
-		5DED170B20031E40004EE6C8 /* SearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED170A20031E40004EE6C8 /* SearchViewModel.m */; };
+		5DED170820031BA9004EE6C8 /* MLDSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED170720031BA9004EE6C8 /* MLDSearchView.m */; };
+		5DED170B20031E40004EE6C8 /* MLDSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED170A20031E40004EE6C8 /* MLDSearchViewModel.m */; };
 		804A42FC9187860978184ECD /* libPods-Balalaika.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4C3A6BB9F445CE6A3E0D0B /* libPods-Balalaika.a */; };
 /* End PBXBuildFile section */
 
@@ -38,53 +38,53 @@
 		5D05A5021FFEB31100634B98 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		5D05A5031FFEB31100634B98 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		5D05A5061FFECED900634B98 /* TT Masters Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Masters Bold.otf"; sourceTree = "<group>"; };
-		5D0C615B1FE5B10400E7434D /* BarServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarServiceProtocol.h; sourceTree = "<group>"; };
-		5D0C615D1FE5C5A700E7434D /* LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
-		5D0C615E1FE5C5A700E7434D /* LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
-		5D0DF8731FE44F0500B20417 /* BarService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarService.h; sourceTree = "<group>"; };
-		5D0DF8741FE44F0500B20417 /* BarService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarService.m; sourceTree = "<group>"; };
-		5D0DF8761FE4506800B20417 /* ConnectionService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectionService.h; sourceTree = "<group>"; };
-		5D0DF8771FE4506800B20417 /* ConnectionService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectionService.m; sourceTree = "<group>"; };
-		5D0DF8791FE4513500B20417 /* ConnectionServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectionServiceProtocol.h; sourceTree = "<group>"; };
-		5D0DF87A1FE5AE4600B20417 /* Song.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
-		5D0DF87B1FE5AE4600B20417 /* Song.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
-		5D0DF87D1FE5AE8D00B20417 /* Playlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
-		5D0DF87E1FE5AE8D00B20417 /* Playlist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
-		5D2EEF6F1FE84C92007F28F7 /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
-		5D2EEF701FE84C92007F28F7 /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
+		5D0C615B1FE5B10400E7434D /* MLDBarServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDBarServiceProtocol.h; sourceTree = "<group>"; };
+		5D0C615D1FE5C5A700E7434D /* MLDLoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDLoginView.h; sourceTree = "<group>"; };
+		5D0C615E1FE5C5A700E7434D /* MLDLoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDLoginView.m; sourceTree = "<group>"; };
+		5D0DF8731FE44F0500B20417 /* MLDBarService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDBarService.h; sourceTree = "<group>"; };
+		5D0DF8741FE44F0500B20417 /* MLDBarService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDBarService.m; sourceTree = "<group>"; };
+		5D0DF8761FE4506800B20417 /* MLDConnectionService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDConnectionService.h; sourceTree = "<group>"; };
+		5D0DF8771FE4506800B20417 /* MLDConnectionService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDConnectionService.m; sourceTree = "<group>"; };
+		5D0DF8791FE4513500B20417 /* MLDConnectionServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDConnectionServiceProtocol.h; sourceTree = "<group>"; };
+		5D0DF87A1FE5AE4600B20417 /* MLDSong.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDSong.h; sourceTree = "<group>"; };
+		5D0DF87B1FE5AE4600B20417 /* MLDSong.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDSong.m; sourceTree = "<group>"; };
+		5D0DF87D1FE5AE8D00B20417 /* MLDPlaylist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDPlaylist.h; sourceTree = "<group>"; };
+		5D0DF87E1FE5AE8D00B20417 /* MLDPlaylist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDPlaylist.m; sourceTree = "<group>"; };
+		5D2EEF6F1FE84C92007F28F7 /* MLDLocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDLocationService.h; sourceTree = "<group>"; };
+		5D2EEF701FE84C92007F28F7 /* MLDLocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDLocationService.m; sourceTree = "<group>"; };
 		5D2EEF721FE86384007F28F7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		5D2EEF731FE9799F007F28F7 /* LocationServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationServiceProtocol.h; sourceTree = "<group>"; };
-		5D2EEF741FE9A34D007F28F7 /* BarLocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarLocationService.h; sourceTree = "<group>"; };
-		5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarLocationService.m; sourceTree = "<group>"; };
-		5D426AC71FFBEFD80014B978 /* StreamingService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StreamingService.h; sourceTree = "<group>"; };
-		5D426AC81FFBEFD80014B978 /* StreamingService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StreamingService.m; sourceTree = "<group>"; };
-		5D426ACA1FFBEFF90014B978 /* StreamingServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StreamingServiceProtocol.h; sourceTree = "<group>"; };
+		5D2EEF731FE9799F007F28F7 /* MLDLocationServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDLocationServiceProtocol.h; sourceTree = "<group>"; };
+		5D2EEF741FE9A34D007F28F7 /* MLDBarLocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDBarLocationService.h; sourceTree = "<group>"; };
+		5D2EEF751FE9A34D007F28F7 /* MLDBarLocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDBarLocationService.m; sourceTree = "<group>"; };
+		5D426AC71FFBEFD80014B978 /* MLDStreamingService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDStreamingService.h; sourceTree = "<group>"; };
+		5D426AC81FFBEFD80014B978 /* MLDStreamingService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDStreamingService.m; sourceTree = "<group>"; };
+		5D426ACA1FFBEFF90014B978 /* MLDStreamingServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDStreamingServiceProtocol.h; sourceTree = "<group>"; };
 		5D426ACC1FFD7CD90014B978 /* PlaylistTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistTableViewCell.h; sourceTree = "<group>"; };
 		5D426ACD1FFD7CD90014B978 /* PlaylistTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaylistTableViewCell.m; sourceTree = "<group>"; };
-		5D742DEB1FEE6E2E00E88E7F /* Bar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bar.h; sourceTree = "<group>"; };
-		5D742DEC1FEE6E2E00E88E7F /* Bar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
-		5D742DEF1FEE90AC00E88E7F /* PlaylistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistView.h; sourceTree = "<group>"; };
-		5D742DF01FEE90AC00E88E7F /* PlaylistView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaylistView.m; sourceTree = "<group>"; };
-		5D742DF21FEE90F000E88E7F /* PlaylistViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistViewModel.h; sourceTree = "<group>"; };
-		5D742DF31FEE90F000E88E7F /* PlaylistViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaylistViewModel.m; sourceTree = "<group>"; };
+		5D742DEB1FEE6E2E00E88E7F /* MLDBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDBar.h; sourceTree = "<group>"; };
+		5D742DEC1FEE6E2E00E88E7F /* MLDBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDBar.m; sourceTree = "<group>"; };
+		5D742DEF1FEE90AC00E88E7F /* MLDPlaylistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDPlaylistView.h; sourceTree = "<group>"; };
+		5D742DF01FEE90AC00E88E7F /* MLDPlaylistView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDPlaylistView.m; sourceTree = "<group>"; };
+		5D742DF21FEE90F000E88E7F /* MLDPlaylistViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDPlaylistViewModel.h; sourceTree = "<group>"; };
+		5D742DF31FEE90F000E88E7F /* MLDPlaylistViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDPlaylistViewModel.m; sourceTree = "<group>"; };
 		5D742DF51FEEB0B400E88E7F /* ObjectionModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectionModule.h; sourceTree = "<group>"; };
 		5D742DF61FEEB0B400E88E7F /* ObjectionModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectionModule.m; sourceTree = "<group>"; };
-		5D742DF81FEEB19100E88E7F /* BarLocationServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarLocationServiceProtocol.h; sourceTree = "<group>"; };
+		5D742DF81FEEB19100E88E7F /* MLDBarLocationServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDBarLocationServiceProtocol.h; sourceTree = "<group>"; };
 		5DB5854B1FE1909200E674B9 /* Balalaika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Balalaika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DB5854E1FE1909200E674B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5DB5854F1FE1909200E674B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5DB585511FE1909200E674B9 /* LoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
-		5DB585521FE1909200E674B9 /* LoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
+		5DB585511FE1909200E674B9 /* MLDLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDLoginViewModel.h; sourceTree = "<group>"; };
+		5DB585521FE1909200E674B9 /* MLDLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDLoginViewModel.m; sourceTree = "<group>"; };
 		5DB585551FE1909200E674B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DB585581FE1909200E674B9 /* Balalaika.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Balalaika.xcdatamodel; sourceTree = "<group>"; };
 		5DB5855A1FE1909200E674B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DB5855D1FE1909200E674B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DB5855F1FE1909200E674B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DB585601FE1909200E674B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5DED170620031BA9004EE6C8 /* SearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
-		5DED170720031BA9004EE6C8 /* SearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
-		5DED170920031E40004EE6C8 /* SearchViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewModel.h; sourceTree = "<group>"; };
-		5DED170A20031E40004EE6C8 /* SearchViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewModel.m; sourceTree = "<group>"; };
+		5DED170620031BA9004EE6C8 /* MLDSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDSearchView.h; sourceTree = "<group>"; };
+		5DED170720031BA9004EE6C8 /* MLDSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDSearchView.m; sourceTree = "<group>"; };
+		5DED170920031E40004EE6C8 /* MLDSearchViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDSearchViewModel.h; sourceTree = "<group>"; };
+		5DED170A20031E40004EE6C8 /* MLDSearchViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDSearchViewModel.m; sourceTree = "<group>"; };
 		76B52C7C19CCEBD371421C59 /* Pods-Balalaika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balalaika.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Balalaika/Pods-Balalaika.debug.xcconfig"; sourceTree = "<group>"; };
 		7E4C3A6BB9F445CE6A3E0D0B /* libPods-Balalaika.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Balalaika.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DA7329C10306938BB982D4 /* Pods-Balalaika.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balalaika.release.xcconfig"; path = "Pods/Target Support Files/Pods-Balalaika/Pods-Balalaika.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,12 +154,12 @@
 		5D0DF8701FE4499F00B20417 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5D0DF87A1FE5AE4600B20417 /* Song.h */,
-				5D0DF87B1FE5AE4600B20417 /* Song.m */,
-				5D0DF87D1FE5AE8D00B20417 /* Playlist.h */,
-				5D0DF87E1FE5AE8D00B20417 /* Playlist.m */,
-				5D742DEB1FEE6E2E00E88E7F /* Bar.h */,
-				5D742DEC1FEE6E2E00E88E7F /* Bar.m */,
+				5D0DF87A1FE5AE4600B20417 /* MLDSong.h */,
+				5D0DF87B1FE5AE4600B20417 /* MLDSong.m */,
+				5D0DF87D1FE5AE8D00B20417 /* MLDPlaylist.h */,
+				5D0DF87E1FE5AE8D00B20417 /* MLDPlaylist.m */,
+				5D742DEB1FEE6E2E00E88E7F /* MLDBar.h */,
+				5D742DEC1FEE6E2E00E88E7F /* MLDBar.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,12 +167,12 @@
 		5D0DF8711FE449AE00B20417 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				5DB585511FE1909200E674B9 /* LoginViewModel.h */,
-				5DB585521FE1909200E674B9 /* LoginViewModel.m */,
-				5D742DF21FEE90F000E88E7F /* PlaylistViewModel.h */,
-				5D742DF31FEE90F000E88E7F /* PlaylistViewModel.m */,
-				5DED170920031E40004EE6C8 /* SearchViewModel.h */,
-				5DED170A20031E40004EE6C8 /* SearchViewModel.m */,
+				5DB585511FE1909200E674B9 /* MLDLoginViewModel.h */,
+				5DB585521FE1909200E674B9 /* MLDLoginViewModel.m */,
+				5D742DF21FEE90F000E88E7F /* MLDPlaylistViewModel.h */,
+				5D742DF31FEE90F000E88E7F /* MLDPlaylistViewModel.m */,
+				5DED170920031E40004EE6C8 /* MLDSearchViewModel.h */,
+				5DED170A20031E40004EE6C8 /* MLDSearchViewModel.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -180,12 +180,12 @@
 		5D426AC41FF94AC60014B978 /* Bar */ = {
 			isa = PBXGroup;
 			children = (
-				5D0DF8731FE44F0500B20417 /* BarService.h */,
-				5D0DF8741FE44F0500B20417 /* BarService.m */,
-				5D0C615B1FE5B10400E7434D /* BarServiceProtocol.h */,
-				5D0DF8761FE4506800B20417 /* ConnectionService.h */,
-				5D0DF8771FE4506800B20417 /* ConnectionService.m */,
-				5D0DF8791FE4513500B20417 /* ConnectionServiceProtocol.h */,
+				5D0DF8731FE44F0500B20417 /* MLDBarService.h */,
+				5D0DF8741FE44F0500B20417 /* MLDBarService.m */,
+				5D0C615B1FE5B10400E7434D /* MLDBarServiceProtocol.h */,
+				5D0DF8761FE4506800B20417 /* MLDConnectionService.h */,
+				5D0DF8771FE4506800B20417 /* MLDConnectionService.m */,
+				5D0DF8791FE4513500B20417 /* MLDConnectionServiceProtocol.h */,
 			);
 			path = Bar;
 			sourceTree = "<group>";
@@ -193,12 +193,12 @@
 		5D426AC51FF94AD40014B978 /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				5D2EEF6F1FE84C92007F28F7 /* LocationService.h */,
-				5D2EEF701FE84C92007F28F7 /* LocationService.m */,
-				5D2EEF731FE9799F007F28F7 /* LocationServiceProtocol.h */,
-				5D2EEF741FE9A34D007F28F7 /* BarLocationService.h */,
-				5D2EEF751FE9A34D007F28F7 /* BarLocationService.m */,
-				5D742DF81FEEB19100E88E7F /* BarLocationServiceProtocol.h */,
+				5D2EEF6F1FE84C92007F28F7 /* MLDLocationService.h */,
+				5D2EEF701FE84C92007F28F7 /* MLDLocationService.m */,
+				5D2EEF731FE9799F007F28F7 /* MLDLocationServiceProtocol.h */,
+				5D2EEF741FE9A34D007F28F7 /* MLDBarLocationService.h */,
+				5D2EEF751FE9A34D007F28F7 /* MLDBarLocationService.m */,
+				5D742DF81FEEB19100E88E7F /* MLDBarLocationServiceProtocol.h */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -206,9 +206,9 @@
 		5D426AC61FFBEFA70014B978 /* Streaming */ = {
 			isa = PBXGroup;
 			children = (
-				5D426AC71FFBEFD80014B978 /* StreamingService.h */,
-				5D426AC81FFBEFD80014B978 /* StreamingService.m */,
-				5D426ACA1FFBEFF90014B978 /* StreamingServiceProtocol.h */,
+				5D426AC71FFBEFD80014B978 /* MLDStreamingService.h */,
+				5D426AC81FFBEFD80014B978 /* MLDStreamingService.m */,
+				5D426ACA1FFBEFF90014B978 /* MLDStreamingServiceProtocol.h */,
 			);
 			path = Streaming;
 			sourceTree = "<group>";
@@ -226,12 +226,12 @@
 			isa = PBXGroup;
 			children = (
 				5D426ACB1FFD7CBB0014B978 /* TableViews */,
-				5D0C615D1FE5C5A700E7434D /* LoginView.h */,
-				5D0C615E1FE5C5A700E7434D /* LoginView.m */,
-				5D742DEF1FEE90AC00E88E7F /* PlaylistView.h */,
-				5D742DF01FEE90AC00E88E7F /* PlaylistView.m */,
-				5DED170620031BA9004EE6C8 /* SearchView.h */,
-				5DED170720031BA9004EE6C8 /* SearchView.m */,
+				5D0C615D1FE5C5A700E7434D /* MLDLoginView.h */,
+				5D0C615E1FE5C5A700E7434D /* MLDLoginView.m */,
+				5D742DEF1FEE90AC00E88E7F /* MLDPlaylistView.h */,
+				5D742DF01FEE90AC00E88E7F /* MLDPlaylistView.m */,
+				5DED170620031BA9004EE6C8 /* MLDSearchView.h */,
+				5DED170720031BA9004EE6C8 /* MLDSearchView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,25 +399,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D0DF87C1FE5AE4600B20417 /* Song.m in Sources */,
-				5DB585531FE1909200E674B9 /* LoginViewModel.m in Sources */,
-				5D0DF8781FE4506800B20417 /* ConnectionService.m in Sources */,
-				5D0C615F1FE5C5A700E7434D /* LoginView.m in Sources */,
+				5D0DF87C1FE5AE4600B20417 /* MLDSong.m in Sources */,
+				5DB585531FE1909200E674B9 /* MLDLoginViewModel.m in Sources */,
+				5D0DF8781FE4506800B20417 /* MLDConnectionService.m in Sources */,
+				5D0C615F1FE5C5A700E7434D /* MLDLoginView.m in Sources */,
 				5DB585591FE1909200E674B9 /* Balalaika.xcdatamodeld in Sources */,
-				5D742DF11FEE90AC00E88E7F /* PlaylistView.m in Sources */,
-				5DED170B20031E40004EE6C8 /* SearchViewModel.m in Sources */,
-				5DED170820031BA9004EE6C8 /* SearchView.m in Sources */,
+				5D742DF11FEE90AC00E88E7F /* MLDPlaylistView.m in Sources */,
+				5DED170B20031E40004EE6C8 /* MLDSearchViewModel.m in Sources */,
+				5DED170820031BA9004EE6C8 /* MLDSearchView.m in Sources */,
 				5DB585611FE1909200E674B9 /* main.m in Sources */,
-				5D2EEF711FE84C92007F28F7 /* LocationService.m in Sources */,
+				5D2EEF711FE84C92007F28F7 /* MLDLocationService.m in Sources */,
 				5D742DF71FEEB0B400E88E7F /* ObjectionModule.m in Sources */,
 				5DB585501FE1909200E674B9 /* AppDelegate.m in Sources */,
-				5D0DF8751FE44F0500B20417 /* BarService.m in Sources */,
-				5D742DED1FEE6E2E00E88E7F /* Bar.m in Sources */,
+				5D0DF8751FE44F0500B20417 /* MLDBarService.m in Sources */,
+				5D742DED1FEE6E2E00E88E7F /* MLDBar.m in Sources */,
 				5D426ACE1FFD7CD90014B978 /* PlaylistTableViewCell.m in Sources */,
-				5D0DF87F1FE5AE8D00B20417 /* Playlist.m in Sources */,
-				5D742DF41FEE90F000E88E7F /* PlaylistViewModel.m in Sources */,
-				5D2EEF761FE9A34D007F28F7 /* BarLocationService.m in Sources */,
-				5D426AC91FFBEFD80014B978 /* StreamingService.m in Sources */,
+				5D0DF87F1FE5AE8D00B20417 /* MLDPlaylist.m in Sources */,
+				5D742DF41FEE90F000E88E7F /* MLDPlaylistViewModel.m in Sources */,
+				5D2EEF761FE9A34D007F28F7 /* MLDBarLocationService.m in Sources */,
+				5D426AC91FFBEFD80014B978 /* MLDStreamingService.m in Sources */,
 				5D05A5041FFEB31100634B98 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
