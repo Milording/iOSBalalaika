@@ -136,20 +136,9 @@
 
 -(void)goAsAdmin
 {
-    PlaylistView *playlistView = [self createView];
+    PlaylistView *playlistView = [PlaylistView new];
     
     [self.navigationController pushViewController:playlistView animated:YES];
 }
-
--(PlaylistView *)createView
-{
-    PlaylistViewModel *playlistVm = [PlaylistViewModel new];
-    PlaylistView *playlistView = [PlaylistView new];
-    playlistView.viewModel = playlistVm;
-    playlistView.title = @"Music";
-    
-    return playlistView;
-}
-
 
 @end

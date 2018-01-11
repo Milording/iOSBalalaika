@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchViewModel.h"
 
-@interface SearchView : UIViewController
+@interface SearchView : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+
+@property (nonatomic, strong) SearchViewModel *viewModel;
 
 @end

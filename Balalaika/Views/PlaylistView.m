@@ -7,13 +7,14 @@
 //
 
 #import <ReactiveObjC.h>
+#import <Masonry.h>
 
 #import "PlaylistView.h"
 #import "PlaylistViewModel.h"
 #import "PlaylistTableViewCell.h"
 #import "Playlist.h"
 #import "Song.h"
-#import <Masonry.h>
+#import "SearchView.h"
 
 @interface PlaylistView ()
 
@@ -22,8 +23,6 @@
 
 @property (nonatomic, strong) UITableView *playlistTableView;
 @property (nonatomic, strong) UIImageView *animatedImageView;
-
-@property (nonatomic, strong) UISearchBar *searchBar;
 
 @end
 
@@ -34,30 +33,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    PlaylistViewModel *playlistVm = [PlaylistViewModel new];
+    self.viewModel = playlistVm;
+    
     [self initUI];
     [self bindUI];
 }
 
 -(void)initUI
 {
+    self.title = @"Music";
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.addSongButton];
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"Добавить" style:UIBarButtonItemStylePlain target:self action:nil ];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"Добавить" style:UIBarButtonItemStylePlain target:self action:@selector(addSong) ];
     self.navigationItem.rightBarButtonItem = addButton;
-    self.searchBar = [UISearchBar new];
     
-    [self.view addSubview:self.searchBar];
-    [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        //make.left.equalTo(@24); make.right.equalTo(@-24);
-        make.top.equalTo(@64);
-        make.width.equalTo(self.view.mas_width);
-        make.height.equalTo(@50);
-        //make.height.equalTo(@54);
-        make.centerX.equalTo(self.view.mas_centerX);
-        //make.top.equalTo(self.welcomeLabel.mas_bottom).offset(100);
-    }];
 
     [self initTableView];
     
@@ -74,7 +67,6 @@
 {
     self.playlistTableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
     
-    
     self.playlistTableView.delegate = self;
     self.playlistTableView.dataSource = self;
     
@@ -82,7 +74,7 @@
     
     [self.view addSubview:self.playlistTableView];
     [self.playlistTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@114);
+        make.top.equalTo(@60);
         make.bottom.equalTo(@0);
         make.width.equalTo(self.view.mas_width);
     }];
@@ -108,6 +100,11 @@
 }
 
 #pragma mark - Private Methods
+-(void)addSong
+{
+    SearchView *searchView = [SearchView new];
+    [self.navigationController pushViewController:searchView animated:YES];
+}
 
 
 #pragma mark - UITableViewDataSource

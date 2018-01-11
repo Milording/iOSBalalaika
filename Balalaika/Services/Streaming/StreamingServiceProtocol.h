@@ -13,4 +13,6 @@
 
 -(void)getPopularPlaylist:(void (^)(Playlist *))completionHandler;
 
+-(void)searchSong:(void (^)(Playlist *playlist))completionHandler query:(NSString *) query;
+
 @end

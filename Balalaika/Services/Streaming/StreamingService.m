@@ -26,7 +26,6 @@
 
 //TODO: Refactor this piece of shit
 - (void)getPopularPlaylist:(void (^)(Playlist *))completionHandler {
-    
     Playlist *playlist = [Playlist new];
     
     NSMutableURLRequest *request = [NSMutableURLRequest new];
@@ -39,24 +38,7 @@
             
             for(NSDictionary *item in parsedJSONArray)
             {
-                Song *song = [Song new];
-                
-                song.duration = [item[@"duration"] integerValue];
-                
-                NSString *artistAndSong = item[@"title"];
-                if([artistAndSong containsString:@" - "])
-                {
-                    NSArray *titleArray = [artistAndSong componentsSeparatedByString:@" - "];
-                    song.artist = titleArray[0];
-                    song.title = titleArray[1];
-                }
-                else
-                {
-                    song.title = item[@"title"];
-                    song.artist = item[@"user"][@"username"];
-                }
-                
-                song.thumb = item[@"thumb"];
+                Song *song = [self deserializeSong:item];
                 
                 [playlist.songList addObject:song];
                 NSLog(@"Item: %@", item[@"title"]);
@@ -69,7 +51,58 @@
     [task resume];
 }
 
+- (void)searchSong:(void (^)(Playlist *))completionHandler query:(NSString *)query {
+    Playlist *playlist = [Playlist new];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest new];
+    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api-v2.hearthis.at/search?t=%@&page=1&count=5", query]]];
+    
+    NSURLSessionDataTask *task = [[self getUrlSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSError *jsonError;
+            NSArray *parsedJSONArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+            
+            for(NSDictionary *item in parsedJSONArray)
+            {
+                Song *song = [self deserializeSong:item];
+                
+                [playlist.songList addObject:song];
+                NSLog(@"Item: %@", item[@"title"]);
+            }
+            
+            completionHandler(playlist);
+        });
+    }];
+    
+    [task resume];
+}
+
+
 #pragma mark - Private Methods
+
+-(Song *)deserializeSong:(NSDictionary *)rawData
+{
+    Song *song = [Song new];
+    
+    song.duration = [rawData[@"duration"] integerValue];
+    
+    NSString *artistAndSong = rawData[@"title"];
+    if([artistAndSong containsString:@" - "])
+    {
+        NSArray *titleArray = [artistAndSong componentsSeparatedByString:@" - "];
+        song.artist = titleArray[0];
+        song.title = titleArray[1];
+    }
+    else
+    {
+        song.title = rawData[@"title"];
+        song.artist = rawData[@"user"][@"username"];
+    }
+    
+    song.thumb = rawData[@"thumb"];
+    
+    return song;
+}
 
 -(NSURLSession *)getUrlSession
 {

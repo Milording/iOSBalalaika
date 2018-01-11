@@ -30,6 +30,7 @@
 		5DB5855E1FE1909200E674B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DB5855C1FE1909200E674B9 /* LaunchScreen.storyboard */; };
 		5DB585611FE1909200E674B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB585601FE1909200E674B9 /* main.m */; };
 		5DED170820031BA9004EE6C8 /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED170720031BA9004EE6C8 /* SearchView.m */; };
+		5DED170B20031E40004EE6C8 /* SearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED170A20031E40004EE6C8 /* SearchViewModel.m */; };
 		804A42FC9187860978184ECD /* libPods-Balalaika.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4C3A6BB9F445CE6A3E0D0B /* libPods-Balalaika.a */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,8 @@
 		5DB585601FE1909200E674B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5DED170620031BA9004EE6C8 /* SearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
 		5DED170720031BA9004EE6C8 /* SearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
+		5DED170920031E40004EE6C8 /* SearchViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewModel.h; sourceTree = "<group>"; };
+		5DED170A20031E40004EE6C8 /* SearchViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewModel.m; sourceTree = "<group>"; };
 		76B52C7C19CCEBD371421C59 /* Pods-Balalaika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balalaika.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Balalaika/Pods-Balalaika.debug.xcconfig"; sourceTree = "<group>"; };
 		7E4C3A6BB9F445CE6A3E0D0B /* libPods-Balalaika.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Balalaika.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DA7329C10306938BB982D4 /* Pods-Balalaika.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balalaika.release.xcconfig"; path = "Pods/Target Support Files/Pods-Balalaika/Pods-Balalaika.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 				5DB585521FE1909200E674B9 /* LoginViewModel.m */,
 				5D742DF21FEE90F000E88E7F /* PlaylistViewModel.h */,
 				5D742DF31FEE90F000E88E7F /* PlaylistViewModel.m */,
+				5DED170920031E40004EE6C8 /* SearchViewModel.h */,
+				5DED170A20031E40004EE6C8 /* SearchViewModel.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 				5D0C615F1FE5C5A700E7434D /* LoginView.m in Sources */,
 				5DB585591FE1909200E674B9 /* Balalaika.xcdatamodeld in Sources */,
 				5D742DF11FEE90AC00E88E7F /* PlaylistView.m in Sources */,
+				5DED170B20031E40004EE6C8 /* SearchViewModel.m in Sources */,
 				5DED170820031BA9004EE6C8 /* SearchView.m in Sources */,
 				5DB585611FE1909200E674B9 /* main.m in Sources */,
 				5D2EEF711FE84C92007F28F7 /* LocationService.m in Sources */,
