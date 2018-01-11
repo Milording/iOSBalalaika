@@ -20,7 +20,7 @@
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) UITableView *searchTableView;
 
-@property (nonatomic, strong) MLDPlaylist *popularPlaylist;
+@property (nonatomic, strong) MLDPlaylist *searchPlaylist;
 
 @property (nonatomic, copy) NSString *searchQuery;
 
@@ -39,6 +39,7 @@
     [self initUI];
     [self bindUI];
     
+    
     _searchBar.delegate = self;
 }
 
@@ -56,16 +57,40 @@
         make.height.equalTo(@50);
         make.centerX.equalTo(self.view.mas_centerX);
     }];
+    
+    [self initTableView];
 }
 
 -(void)bindUI
 {
-    //RACObserve(self, self.searchQuery) = RAC(self, self.viewModel.searchQuery);
+    RACChannelTo(self, self.searchQuery) = RACChannelTo(self, self.viewModel.searchQuery);
+    
+    
+    [RACObserve(self, self.viewModel.searchResultsPlaylist) subscribeNext:^(id x) {
+        if(x)
+        {
+            self.searchPlaylist = x;
+            
+            [self.searchTableView reloadData];
+        }
+    }];
 }
 
 -(void)initTableView
 {
+    self.searchTableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
     
+    self.searchTableView.delegate = self;
+    self.searchTableView.dataSource = self;
+    
+    self.searchTableView.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:self.searchTableView];
+    [self.searchTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@110);
+        make.bottom.equalTo(@0);
+        make.width.equalTo(self.view.mas_width);
+    }];
 }
 
 #pragma mark - UISearchBarDelegate
@@ -90,9 +115,9 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(self.popularPlaylist)
+    if(self.searchPlaylist)
     {
-        return self.popularPlaylist.songList.count;
+        return self.searchPlaylist.songList.count;
     }
     else
     {
@@ -109,7 +134,7 @@
         cell = [[PlaylistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    MLDSong *song = [self.popularPlaylist.songList objectAtIndex:indexPath.row];
+    MLDSong *song = [self.searchPlaylist.songList objectAtIndex:indexPath.row];
     cell.artistLabel.text = song.artist;
     cell.songLabel.text = song.title;
     int minutes = (int)song.duration/60;
@@ -120,7 +145,6 @@
     UIImage *coverImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:song.thumb]]];
     cell.coverImage = [[UIImageView alloc]initWithImage:coverImage];
     [cell setImage];
-    
     
     return cell;
 }

@@ -37,7 +37,7 @@ objection_requires(@"streamingService")
 //            self.searchResultsPlaylist = playlist;
 //        }];
         
-        [RACObserve(self, self.searchQuery) subscribeNext:^(id x) {
+        [RACObserve(self, searchQuery) subscribeNext:^(id x) {
             if(!self.searchQuery)
                 return;
             [self.streamingService searchSong:^(MLDPlaylist *playlist) {
