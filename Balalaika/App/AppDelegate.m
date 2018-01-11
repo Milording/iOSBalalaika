@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "LoginViewModel.h"
-#import "LoginView.h"
+#import "MLDLoginViewModel.h"
+#import "MLDLoginView.h"
 #import <Objection.h>
 #import "ObjectionModule.h"
 
@@ -28,8 +28,8 @@
 
     self.window = 	[UIWindow new];
     
-    LoginViewModel *loginVm = [LoginViewModel new];
-    LoginView *loginView = [LoginView new];
+    MLDLoginViewModel *loginVm = [MLDLoginViewModel new];
+    MLDLoginView *loginView = [MLDLoginView new];
     loginView.viewModel = loginVm;
     loginView.title=@"Location";
         
