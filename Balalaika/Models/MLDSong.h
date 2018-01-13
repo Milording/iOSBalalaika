@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <JSONModel.h>
 
+@protocol MLDSong;
+
 @interface MLDSong : JSONModel
 
-@property (nonatomic, copy) NSString *songId;
 @property (nonatomic, copy) NSString *artist;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *thumb;
