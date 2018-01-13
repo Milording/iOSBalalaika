@@ -17,7 +17,7 @@
 		5D2EEF711FE84C92007F28F7 /* MLDLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF701FE84C92007F28F7 /* MLDLocationService.m */; };
 		5D2EEF761FE9A34D007F28F7 /* MLDBarLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EEF751FE9A34D007F28F7 /* MLDBarLocationService.m */; };
 		5D426AC91FFBEFD80014B978 /* MLDStreamingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D426AC81FFBEFD80014B978 /* MLDStreamingService.m */; };
-		5D426ACE1FFD7CD90014B978 /* PlaylistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D426ACD1FFD7CD90014B978 /* PlaylistTableViewCell.m */; };
+		5D426ACE1FFD7CD90014B978 /* MLDPlaylistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D426ACD1FFD7CD90014B978 /* MLDPlaylistTableViewCell.m */; };
 		5D742DED1FEE6E2E00E88E7F /* MLDBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DEC1FEE6E2E00E88E7F /* MLDBar.m */; };
 		5D742DF11FEE90AC00E88E7F /* MLDPlaylistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DF01FEE90AC00E88E7F /* MLDPlaylistView.m */; };
 		5D742DF41FEE90F000E88E7F /* MLDPlaylistViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D742DF31FEE90F000E88E7F /* MLDPlaylistViewModel.m */; };
@@ -59,8 +59,8 @@
 		5D426AC71FFBEFD80014B978 /* MLDStreamingService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDStreamingService.h; sourceTree = "<group>"; };
 		5D426AC81FFBEFD80014B978 /* MLDStreamingService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDStreamingService.m; sourceTree = "<group>"; };
 		5D426ACA1FFBEFF90014B978 /* MLDStreamingServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDStreamingServiceProtocol.h; sourceTree = "<group>"; };
-		5D426ACC1FFD7CD90014B978 /* PlaylistTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistTableViewCell.h; sourceTree = "<group>"; };
-		5D426ACD1FFD7CD90014B978 /* PlaylistTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaylistTableViewCell.m; sourceTree = "<group>"; };
+		5D426ACC1FFD7CD90014B978 /* MLDPlaylistTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDPlaylistTableViewCell.h; sourceTree = "<group>"; };
+		5D426ACD1FFD7CD90014B978 /* MLDPlaylistTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDPlaylistTableViewCell.m; sourceTree = "<group>"; };
 		5D742DEB1FEE6E2E00E88E7F /* MLDBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDBar.h; sourceTree = "<group>"; };
 		5D742DEC1FEE6E2E00E88E7F /* MLDBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDBar.m; sourceTree = "<group>"; };
 		5D742DEF1FEE90AC00E88E7F /* MLDPlaylistView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDPlaylistView.h; sourceTree = "<group>"; };
@@ -216,8 +216,8 @@
 		5D426ACB1FFD7CBB0014B978 /* TableViews */ = {
 			isa = PBXGroup;
 			children = (
-				5D426ACC1FFD7CD90014B978 /* PlaylistTableViewCell.h */,
-				5D426ACD1FFD7CD90014B978 /* PlaylistTableViewCell.m */,
+				5D426ACC1FFD7CD90014B978 /* MLDPlaylistTableViewCell.h */,
+				5D426ACD1FFD7CD90014B978 /* MLDPlaylistTableViewCell.m */,
 			);
 			path = TableViews;
 			sourceTree = "<group>";
@@ -413,7 +413,7 @@
 				5DB585501FE1909200E674B9 /* AppDelegate.m in Sources */,
 				5D0DF8751FE44F0500B20417 /* MLDBarService.m in Sources */,
 				5D742DED1FEE6E2E00E88E7F /* MLDBar.m in Sources */,
-				5D426ACE1FFD7CD90014B978 /* PlaylistTableViewCell.m in Sources */,
+				5D426ACE1FFD7CD90014B978 /* MLDPlaylistTableViewCell.m in Sources */,
 				5D0DF87F1FE5AE8D00B20417 /* MLDPlaylist.m in Sources */,
 				5D742DF41FEE90F000E88E7F /* MLDPlaylistViewModel.m in Sources */,
 				5D2EEF761FE9A34D007F28F7 /* MLDBarLocationService.m in Sources */,

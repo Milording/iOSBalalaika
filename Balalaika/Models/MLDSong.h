@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JSONModel.h>
 
-@interface MLDSong : NSObject
+@interface MLDSong : JSONModel
 
 @property (nonatomic, copy) NSString *songId;
 @property (nonatomic, copy) NSString *artist;

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class MLDPlaylist;
+@class MLDSong;
 
 @interface MLDSearchViewModel : NSObject
 
@@ -15,5 +16,7 @@
 @property (nonatomic, strong) MLDPlaylist *searchResultsPlaylist;
 
 @property (nonatomic, copy) NSString *searchQuery;
+
+-(void)addPremiumSong:(MLDSong *)song;
 
 @end

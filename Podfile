@@ -10,6 +10,7 @@ target 'Balalaika' do
 pod 'SignalR-ObjC', '~> 2.0'
 pod 'ReactiveObjC', '~> 3.0'
 pod 'Objection', '1.6.1'
+pod ‘JSONModel’
 pod 'Masonry'
 
 end

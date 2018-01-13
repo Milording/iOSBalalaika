@@ -11,15 +11,17 @@
 
 #import "MLDSearchViewModel.h"
 #import "MLDStreamingServiceProtocol.h"
+#import "MLDBarServiceProtocol.h"
 
 @interface MLDSearchViewModel()
 
 @property id<MLDStreamingServiceProtocol> streamingService;
+@property id<MLDBarServiceProtocol> barService;
 
 @end
 
 @implementation MLDSearchViewModel
-objection_requires(@"streamingService")
+objection_requires(@"streamingService", @"barService")
 
 #pragma mark - Lifecycle
 
@@ -33,9 +35,6 @@ objection_requires(@"streamingService")
             self.popularPlaylist = playlist;
         }];
         
-//        [self.streamingService searchSong:^NSString *(MLDPlaylist *playlist) {
-//            self.searchResultsPlaylist = playlist;
-//        }];
         
         [RACObserve(self, searchQuery) subscribeNext:^(id x) {
             if(!self.searchQuery)
@@ -50,7 +49,9 @@ objection_requires(@"streamingService")
     return self;
 }
 
-
-
+-(void)addPremiumSong:(MLDSong *)song
+{
+    [self.barService addPremiumSong:song];
+}
 
 @end

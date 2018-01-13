@@ -1,21 +1,21 @@
 //
-//  PlaylistTableViewCell.m
+//  MLDPlaylistTableViewCell.m
 //  Balalaika
 //
 //  Created by milording on 04/01/2018.
 //  Copyright © 2018 milording. All rights reserved.
 //
 
-#import "PlaylistTableViewCell.h"
+#import "MLDPlaylistTableViewCell.h"
 #import <Masonry.h>
 
-@interface PlaylistTableViewCell()
+@interface MLDPlaylistTableViewCell()
 
 @property (nonatomic, strong) UIColor *grayColor;
 
 @end
 
-@implementation PlaylistTableViewCell
+@implementation MLDPlaylistTableViewCell
 
 #pragma mark - Lifecycle
 

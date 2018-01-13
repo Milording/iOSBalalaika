@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 @class MLDPlaylist;
+@class MLDSong;
 
 @protocol MLDBarServiceProtocol <NSObject>
 
--(void)addPremiumSong:(NSString *)songId;
+-(void)addPremiumSong:(MLDSong *)songId;
 -(void)getActualPlaylist;
 -(void)setDefaultPlaylist;
 

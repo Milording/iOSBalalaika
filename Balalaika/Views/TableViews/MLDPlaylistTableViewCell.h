@@ -1,5 +1,5 @@
 //
-//  PlaylistTableViewCell.h
+//  MLDPlaylistTableViewCell.h
 //  Balalaika
 //
 //  Created by milording on 04/01/2018.
@@ -12,7 +12,7 @@ static NSString* const kCellTitle = @"CellWithTitle";
 static NSString* const kCellTitleMain = @"CellWithTitleMain";
 
 
-@interface PlaylistTableViewCell : UITableViewCell
+@interface MLDPlaylistTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel *artistLabel;
 @property (nonatomic, strong) UILabel *songLabel;
