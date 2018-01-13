@@ -13,7 +13,7 @@
 #import "MLDSearchViewModel.h"
 #import "MLDPlaylist.h"
 #import "MLDSong.h"
-#import "PlaylistTableViewCell.h"
+#import "MLDPlaylistTableViewCell.h"
 
 @interface MLDSearchView ()
 
@@ -87,7 +87,7 @@
     
     [self.view addSubview:self.searchTableView];
     [self.searchTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@110);
+        make.top.equalTo(@116);
         make.bottom.equalTo(@0);
         make.width.equalTo(self.view.mas_width);
     }];
@@ -104,6 +104,13 @@
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     self.searchQuery = searchText;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MLDSong *song = [self.searchPlaylist.songList objectAtIndex:indexPath.row];
+    [self.viewModel addPremiumSong:song];
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -129,9 +136,9 @@
 {
     static NSString *cellIdentifier = @"SongCell";
     
-    PlaylistTableViewCell *cell = (PlaylistTableViewCell *)[self.searchTableView dequeueReusableHeaderFooterViewWithIdentifier:cellIdentifier];
+    MLDPlaylistTableViewCell *cell = (MLDPlaylistTableViewCell *)[self.searchTableView dequeueReusableHeaderFooterViewWithIdentifier:cellIdentifier];
     if(cell==nil) {
-        cell = [[PlaylistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[MLDPlaylistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
     MLDSong *song = [self.searchPlaylist.songList objectAtIndex:indexPath.row];

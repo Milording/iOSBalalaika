@@ -6,11 +6,14 @@
 //  Copyright © 2017 milording. All rights reserved.
 //
 
-#import "MLDBarService.h"
 #import <SignalR.h>
 #import <Objection.h>
+#import <JSONModel.h>
+
+#import "MLDBarService.h"
 #import "MLDConnectionServiceProtocol.h"
-#include "MLDConnectionService.h"
+#import "MLDConnectionService.h"
+#import "MLDSong.h"
 
 @interface MLDBarService()
 
@@ -45,9 +48,11 @@
 
 #pragma mark - Protocol Public Methods
 
--(void)addPremiumSong:(NSString *)songId
+-(void)addPremiumSong:(MLDSong *)songId
 {
-    [self.connectionService addPremiumSong:songId];
+    NSString *jsonString = [songId toJSONString];
+    
+    [self.connectionService addPremiumSong:jsonString];
 }
 
 - (void)getActualPlaylist {
@@ -69,5 +74,6 @@
     self.playlistDidGetHandler = completionHandler;
 }
 
+#pragma mark - Private Methods
 
 @end

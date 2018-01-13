@@ -11,7 +11,7 @@
 
 #import "MLDPlaylistView.h"
 #import "MLDPlaylistViewModel.h"
-#import "PlaylistTableViewCell.h"
+#import "MLDPlaylistTableViewCell.h"
 #import "MLDPlaylist.h"
 #import "MLDSong.h"
 #import "MLDSearchView.h"
@@ -129,9 +129,9 @@
 {
     static NSString *cellIdentifier = @"SongCell";
     
-    PlaylistTableViewCell *cell = (PlaylistTableViewCell *)[self.playlistTableView dequeueReusableHeaderFooterViewWithIdentifier:cellIdentifier];
+    MLDPlaylistTableViewCell *cell = (MLDPlaylistTableViewCell *)[self.playlistTableView dequeueReusableHeaderFooterViewWithIdentifier:cellIdentifier];
     if(cell==nil) {
-        cell = [[PlaylistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[MLDPlaylistTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
     MLDSong *song = [self.popularPlaylist.songList objectAtIndex:indexPath.row];
