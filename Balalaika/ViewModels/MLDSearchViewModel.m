@@ -35,6 +35,9 @@ objection_requires(@"streamingService", @"barService")
             self.popularPlaylist = playlist;
         }];
         
+        [self.barService onPlaylistChanged:^(MLDPlaylist *playlist) {
+            self.searchResultsPlaylist = playlist;
+        }];
         
         [RACObserve(self, searchQuery) subscribeNext:^(id x) {
             if(!self.searchQuery)

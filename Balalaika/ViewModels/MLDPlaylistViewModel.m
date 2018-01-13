@@ -33,10 +33,10 @@ objection_requires(@"barService", @"streamingService")
             self.popularPlaylist = playlist;
         }];
         
-        [self.barService onPlaylistChanged:^(NSString *response) {
-            self.rawPlaylist = response;
+        [self.barService onPlaylistChanged:^(MLDPlaylist *response) {
+            self.popularPlaylist = response;
         }];
-        [self.barService onCurrentPlaylistDidGet:^(NSString *response) {
+        [self.barService onCurrentPlaylistDidGet:^(MLDPlaylist *response) {
             self.rawPlaylist = response;
         }];
     }

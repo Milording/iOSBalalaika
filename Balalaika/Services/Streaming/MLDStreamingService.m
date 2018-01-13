@@ -60,6 +60,8 @@
     NSURLSessionDataTask *task = [[self getUrlSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSError *jsonError;
+            if(!data)
+                return;
             NSArray *parsedJSONArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
             
             for(NSDictionary *item in parsedJSONArray)

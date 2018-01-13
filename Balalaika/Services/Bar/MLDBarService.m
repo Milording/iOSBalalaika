@@ -14,12 +14,13 @@
 #import "MLDConnectionServiceProtocol.h"
 #import "MLDConnectionService.h"
 #import "MLDSong.h"
+#import "MLDPlaylist.h"
 
 @interface MLDBarService()
 
 @property (nonatomic, strong) id<MLDConnectionServiceProtocol> connectionService;
 
-@property (nonatomic, copy) void (^playlistUpdatedHandler)(NSString *);
+@property (nonatomic, copy) void (^playlistUpdatedHandler)(MLDPlaylist *);
 @property (nonatomic, copy) void (^playlistDidGetHandler)(NSString *);
 
 @end
@@ -36,8 +37,29 @@
         _connectionService = [[JSObjection defaultInjector]getObject:[MLDConnectionService class]];
         
         [self.connectionService onRawPlaylistChanged:^(NSString *rawPlaylist) {
-            _playlistUpdatedHandler(rawPlaylist);
+            NSError *error;
+            MLDPlaylist *playlist = [[MLDPlaylist alloc]initWithString:rawPlaylist error:&error];
+            
+//
+//            NSData *rawData = [rawPlaylist dataUsingEncoding:NSUTF8StringEncoding];
+//            MLDPlaylist *playlist = [[MLDPlaylist alloc]init];
+//            NSError *jsonError;
+//            if(!rawData)
+//                return;
+//            NSArray *parsedJSONArray = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingMutableContainers error:&jsonError];
+//
+//            for(NSDictionary *item in parsedJSONArray)
+//            {
+//                MLDSong *song = [self deserializeSong:item[@"songList"]];
+//
+//                [playlist.songList addObject:song];
+//                NSLog(@"Item: %@", item[@"title"]);
+//            }
+            
+            
+            self.playlistUpdatedHandler(playlist);
         }];
+        
         [self.connectionService onCurrentPlaylistDidGet:^(NSString *currentPlaylist) {
             _playlistDidGetHandler(currentPlaylist);
         }];
@@ -66,7 +88,7 @@
 
 #pragma mark - Protocol Completion Methods
 
-- (void)onPlaylistChanged:(void (^)(NSString *))completionHandler{
+- (void)onPlaylistChanged:(void (^)(MLDPlaylist *))completionHandler{
     self.playlistUpdatedHandler = completionHandler;
 }
 
@@ -76,4 +98,27 @@
 
 #pragma mark - Private Methods
 
+-(MLDSong *)deserializeSong:(NSDictionary *)rawData
+{
+    MLDSong *song = [MLDSong new];
+    
+    song.duration = [rawData[@"duration"] integerValue];
+    
+    NSString *artistAndSong = rawData[@"title"];
+    if([artistAndSong containsString:@" - "])
+    {
+        NSArray *titleArray = [artistAndSong componentsSeparatedByString:@" - "];
+        song.artist = titleArray[0];
+        song.title = titleArray[1];
+    }
+    else
+    {
+        song.title = rawData[@"title"];
+        song.artist = rawData[@"user"][@"username"];
+    }
+    
+    song.thumb = rawData[@"thumb"];
+    
+    return song;
+}
 @end

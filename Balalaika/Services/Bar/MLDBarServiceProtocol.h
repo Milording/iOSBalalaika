@@ -16,7 +16,7 @@
 -(void)getActualPlaylist;
 -(void)setDefaultPlaylist;
 
--(void)onPlaylistChanged:(void (^)(NSString *))completionHandler;
--(void)onCurrentPlaylistDidGet:(void (^)(NSString *))completionHandler;
+-(void)onPlaylistChanged:(void (^)(MLDPlaylist *))completionHandler;
+-(void)onCurrentPlaylistDidGet:(void (^)(MLDPlaylist *))completionHandler;
 
 @end

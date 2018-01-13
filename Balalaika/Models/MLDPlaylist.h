@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JSONModel.h>
+#import "MLDSong.h"
+#import "MLDBarServiceProtocol.h"
 
-@interface MLDPlaylist : NSObject
+@interface MLDPlaylist : JSONModel
 
-@property (nonatomic, strong) NSMutableArray *songList;
+@property (nonatomic, retain) NSMutableArray<MLDSong *><MLDSong> *songList;
 
 @end
