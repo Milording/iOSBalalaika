@@ -16,6 +16,6 @@
 @property (nonatomic, copy) NSString *artist;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *thumb;
-@property (nonatomic) NSInteger duration;
+@property (nonatomic, assign) NSInteger duration;
 
 @end

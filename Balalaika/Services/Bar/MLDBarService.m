@@ -39,24 +39,6 @@
         [self.connectionService onRawPlaylistChanged:^(NSString *rawPlaylist) {
             NSError *error;
             MLDPlaylist *playlist = [[MLDPlaylist alloc]initWithString:rawPlaylist error:&error];
-            
-//
-//            NSData *rawData = [rawPlaylist dataUsingEncoding:NSUTF8StringEncoding];
-//            MLDPlaylist *playlist = [[MLDPlaylist alloc]init];
-//            NSError *jsonError;
-//            if(!rawData)
-//                return;
-//            NSArray *parsedJSONArray = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingMutableContainers error:&jsonError];
-//
-//            for(NSDictionary *item in parsedJSONArray)
-//            {
-//                MLDSong *song = [self deserializeSong:item[@"songList"]];
-//
-//                [playlist.songList addObject:song];
-//                NSLog(@"Item: %@", item[@"title"]);
-//            }
-            
-            
             self.playlistUpdatedHandler(playlist);
         }];
         

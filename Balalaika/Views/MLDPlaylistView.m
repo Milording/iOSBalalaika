@@ -28,6 +28,8 @@
 
 @implementation MLDPlaylistView
 
+NSString * const songCellIndentificator = @"SongCell";
+
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad {
@@ -36,11 +38,11 @@
     MLDPlaylistViewModel *playlistVm = [MLDPlaylistViewModel new];
     _viewModel = playlistVm;
     
-    [self initUI];
+    [self createUI];
     [self bindUI];
 }
 
--(void)initUI
+-(void)createUI
 {
     self.title = @"Music";
     
@@ -127,7 +129,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"SongCell";
+    static NSString *cellIdentifier = songCellIndentificator;
     
     MLDPlaylistTableViewCell *cell = (MLDPlaylistTableViewCell *)[self.playlistTableView dequeueReusableHeaderFooterViewWithIdentifier:cellIdentifier];
     if(cell==nil) {
