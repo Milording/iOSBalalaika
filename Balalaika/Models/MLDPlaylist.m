@@ -14,7 +14,7 @@
 {
     if(self == [super init])
     {
-        _songList = [NSMutableArray new];
+        _songList = [NSMutableArray<MLDSong *><MLDSong> new];
     }
     return self;
     

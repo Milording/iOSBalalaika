@@ -34,11 +34,11 @@
 {
     [super viewDidLoad];
     
-    [self initUI];
+    [self createUI];
     [self bindUI];
 }
 
-- (void)initUI
+- (void)createUI
 {
     self.view.backgroundColor = [UIColor whiteColor];
     

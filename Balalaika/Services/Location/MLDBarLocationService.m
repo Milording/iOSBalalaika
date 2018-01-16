@@ -13,7 +13,7 @@
 
 @interface MLDBarLocationService()
 
-@property (nonatomic, strong) NSMutableSet *barSet;
+@property (nonatomic, strong) NSMutableArray *barSet;
 @property (nonatomic, strong) MLDLocationService *locationService;
 
 @property (nonatomic, copy) void (^completionHandler)(MLDBar *);
@@ -60,7 +60,7 @@
     double longitude = -122.031219;
     CLLocation *sbergileLocation =  [[CLLocation alloc]initWithLatitude:latitude longitude:longitude];
     
-    self.barSet = [[NSMutableSet alloc]initWithCapacity:10];
+    self.barSet = [[NSMutableArray alloc]initWithCapacity:10];
     MLDBar *sbergile = [MLDBar new];
     sbergile.title =@"Дорогая, я попал в\nSbergile";
     sbergile.exactLocation = sbergileLocation;

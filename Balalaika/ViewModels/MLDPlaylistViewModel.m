@@ -37,7 +37,7 @@ objection_requires(@"barService", @"streamingService")
             self.popularPlaylist = response;
         }];
         [self.barService onCurrentPlaylistDidGet:^(MLDPlaylist *response) {
-            self.rawPlaylist = response;
+            //self.rawPlaylist = response;
         }];
     }
     return self;

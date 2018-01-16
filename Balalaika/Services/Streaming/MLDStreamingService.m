@@ -12,24 +12,17 @@
 
 @implementation MLDStreamingService
 
-#pragma mark - Lifecycle
-
--(instancetype)init
-{
-    if(self == [super init])
-    {
-    }
-    return self;
-}
+NSString * const popularUrl = @"https://api-v2.hearthis.at/feed/?page=1&count=5&duration=3";
+NSString * const searchUrl = @"https://api-v2.hearthis.at/search?t=%@&page=1&count=5";
 
 #pragma mark - Protocol Public Methods
 
-//TODO: Refactor this piece of shit
+//TODO: Refactor this piece
 - (void)getPopularPlaylist:(void (^)(MLDPlaylist *))completionHandler {
     MLDPlaylist *playlist = [MLDPlaylist new];
     
     NSMutableURLRequest *request = [NSMutableURLRequest new];
-    [request setURL:[NSURL URLWithString:@"https://api-v2.hearthis.at/feed/?page=1&count=5&duration=3"]];
+    [request setURL:[NSURL URLWithString:popularUrl]];
     
     NSURLSessionDataTask *task = [[self getUrlSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -55,7 +48,7 @@
     MLDPlaylist *playlist = [MLDPlaylist new];
     
     NSMutableURLRequest *request = [NSMutableURLRequest new];
-    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api-v2.hearthis.at/search?t=%@&page=1&count=5", query]]];
+    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:searchUrl, query]]];
     
     NSURLSessionDataTask *task = [[self getUrlSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{

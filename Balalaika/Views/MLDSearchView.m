@@ -28,6 +28,8 @@
 
 @implementation MLDSearchView
 
+NSString * const songCellIdentificator = @"SongCell";
+
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad {
@@ -36,14 +38,14 @@
 
     _viewModel = [MLDSearchViewModel new];
     
-    [self initUI];
+    [self createUI];
     [self bindUI];
     
     
     _searchBar.delegate = self;
 }
 
--(void)initUI
+-(void)createUI
 {
     self.title = @"Добавить";
     self.searchBar = [UISearchBar new];
@@ -122,19 +124,12 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(self.searchPlaylist)
-    {
-        return self.searchPlaylist.songList.count;
-    }
-    else
-    {
-        return 0;
-    }
+    return self.searchPlaylist ? self.searchPlaylist.songList.count : 0;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"SongCell";
+    static NSString *cellIdentifier = songCellIdentificator;
     
     MLDPlaylistTableViewCell *cell = (MLDPlaylistTableViewCell *)[self.searchTableView dequeueReusableHeaderFooterViewWithIdentifier:cellIdentifier];
     if(cell==nil) {
