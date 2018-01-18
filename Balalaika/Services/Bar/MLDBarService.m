@@ -9,6 +9,7 @@
 #import <SignalR.h>
 #import <Objection.h>
 #import <JSONModel.h>
+#import <ReactiveObjC.h>
 
 #import "MLDBarService.h"
 #import "MLDConnectionServiceProtocol.h"
@@ -23,6 +24,8 @@
 @property (nonatomic, copy) void (^playlistUpdatedHandler)(MLDPlaylist *);
 @property (nonatomic, copy) void (^playlistDidGetHandler)(MLDPlaylist *);
 
+@property (nonatomic) BOOL isConnected;
+
 @end
 
 @implementation MLDBarService
@@ -36,20 +39,18 @@
     {
         _connectionService = [[JSObjection defaultInjector]getObject:[MLDConnectionService class]];
         
-        [self.connectionService onRawPlaylistChanged:^(NSString *rawPlaylist) {
-            NSError *error;
-            MLDPlaylist *playlist = [[MLDPlaylist alloc]initWithString:rawPlaylist error:&error];
-            self.playlistUpdatedHandler(playlist);
-            
-            _playlistUpdatedHandler(playlist);
+//        [self.connectionService onRawPlaylistChanged:^(NSString *rawPlaylist) {
+//            NSError *error;
+//            MLDPlaylist *playlist = [[MLDPlaylist alloc]initWithString:rawPlaylist error:&error];
+//            self.playlistUpdatedHandler(playlist);
+//
+//            _playlistUpdatedHandler(playlist);
+//        }];
+        
+        [self.connectionService onConnectionEstablished:^{
+            self.isConnected = YES;
         }];
         
-        [self.connectionService onCurrentPlaylistDidGet:^(NSString *currentPlaylist) {
-            NSError *error;
-            MLDPlaylist *playlist = [[MLDPlaylist alloc]initWithString:currentPlaylist error:&error];
-            
-            _playlistDidGetHandler(playlist);
-        }];
         
     }
     return self;
@@ -64,8 +65,26 @@
     [self.connectionService addPremiumSong:jsonString];
 }
 
-- (void)getActualPlaylist {
-    [self.connectionService getActualPlaylist];
+- (void)getActualPlaylist:(void (^)(MLDPlaylist *))actualPlaylistHandler
+{
+    [RACObserve(self, self.isConnected) subscribeNext:^(id x) {
+        NSNumber *val = x;
+        BOOL isConnected = [val boolValue];
+
+        if (isConnected) {
+            [self.connectionService getActualPlaylist:^(NSString * rawPlaylist) {
+
+                NSError *jsonError;
+                @try{
+                    MLDPlaylist *playlist = [[MLDPlaylist alloc]initWithString:rawPlaylist error:&jsonError];
+                    actualPlaylistHandler(playlist);
+                }
+                @catch(NSException *exception){
+                    // Sorry for that shit but I don't have time
+                }
+            }];
+        }
+    }];
 }
 
 -(void)setDefaultPlaylist
@@ -81,6 +100,9 @@
 
 - (void)onCurrentPlaylistDidGet:(void (^)(MLDPlaylist *))completionHandler {
     self.playlistDidGetHandler = completionHandler;
+    [self.connectionService getActualPlaylist:^(NSString * rawPlaylist) {
+        
+    }];
 }
 
 #pragma mark - Private Methods

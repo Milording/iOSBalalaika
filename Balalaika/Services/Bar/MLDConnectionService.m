@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) void (^playlistDidGetHandler)(NSString *);
 @property (nonatomic, copy) void (^playlistUpdatedHandler)(NSString *);
+@property (nonatomic, strong) void (^onConnectionEstablished)(void);
 
 @end
 
@@ -27,6 +28,12 @@
     if(self = [super init])
     {
         _hub = [SRHubConnection connectionWithURLString:@"http://balalaikaalpha.azurewebsites.net/"];
+        
+        __weak MLDConnectionService *self_ = self;
+        [_hub setStarted:^{
+            if(self_.onConnectionEstablished)
+                self_.onConnectionEstablished();
+        }];
         _chat = [_hub createHubProxy:@"BarHub"];
         
         [_chat on:@"playlistUpdated" perform:self selector:@selector(playlistUpdated:)];
@@ -49,10 +56,15 @@
     [self.chat invoke:@"AddPremiumSong" withArgs:@[songId] completionHandler:nil];
 }
 
--(void)getActualPlaylist
+-(void)testGet:(NSString *)get
+{
+    NSLog(@"%@",get);
+}
+
+-(void)getActualPlaylist:(void (^)(NSString *))rawPlaylist
 {
     [self.chat invoke:@"GetActualPlaylist" withArgs:[NSArray new] completionHandler:^(id response, NSError *error) {
-        self.playlistDidGetHandler(response);
+        rawPlaylist(response);
     }];
 }
 
@@ -63,15 +75,14 @@
     self.playlistUpdatedHandler = completionHandler;
 }
 
--(void)onCurrentPlaylistDidGet:(void (^)(NSString *))completionHandler
-{
-    self.playlistDidGetHandler = completionHandler;
-}
-
 -(void)playlistUpdated:(NSString *)response
 {
     self.playlistUpdatedHandler(response);
 }
 
+-(void)onConnectionEstablished:(void (^)(void))completionHandler
+{
+    self.onConnectionEstablished = completionHandler;
+}
 
 @end
