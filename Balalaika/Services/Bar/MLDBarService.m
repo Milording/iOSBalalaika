@@ -21,7 +21,7 @@
 @property (nonatomic, strong) id<MLDConnectionServiceProtocol> connectionService;
 
 @property (nonatomic, copy) void (^playlistUpdatedHandler)(MLDPlaylist *);
-@property (nonatomic, copy) void (^playlistDidGetHandler)(NSString *);
+@property (nonatomic, copy) void (^playlistDidGetHandler)(MLDPlaylist *);
 
 @end
 
@@ -40,28 +40,14 @@
             NSError *error;
             MLDPlaylist *playlist = [[MLDPlaylist alloc]initWithString:rawPlaylist error:&error];
             
-//
-//            NSData *rawData = [rawPlaylist dataUsingEncoding:NSUTF8StringEncoding];
-//            MLDPlaylist *playlist = [[MLDPlaylist alloc]init];
-//            NSError *jsonError;
-//            if(!rawData)
-//                return;
-//            NSArray *parsedJSONArray = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingMutableContainers error:&jsonError];
-//
-//            for(NSDictionary *item in parsedJSONArray)
-//            {
-//                MLDSong *song = [self deserializeSong:item[@"songList"]];
-//
-//                [playlist.songList addObject:song];
-//                NSLog(@"Item: %@", item[@"title"]);
-//            }
-            
-            
-            self.playlistUpdatedHandler(playlist);
+            _playlistUpdatedHandler(playlist);
         }];
         
         [self.connectionService onCurrentPlaylistDidGet:^(NSString *currentPlaylist) {
-            _playlistDidGetHandler(currentPlaylist);
+            NSError *error;
+            MLDPlaylist *playlist = [[MLDPlaylist alloc]initWithString:currentPlaylist error:&error];
+            
+            _playlistDidGetHandler(playlist);
         }];
         
     }
@@ -92,7 +78,7 @@
     self.playlistUpdatedHandler = completionHandler;
 }
 
-- (void)onCurrentPlaylistDidGet:(void (^)(NSString *))completionHandler {
+- (void)onCurrentPlaylistDidGet:(void (^)(MLDPlaylist *))completionHandler {
     self.playlistDidGetHandler = completionHandler;
 }
 
