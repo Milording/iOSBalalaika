@@ -29,16 +29,21 @@ objection_requires(@"barService", @"streamingService")
     {
         [[JSObjection defaultInjector]injectDependencies:self];
         
-        [self.streamingService getPopularPlaylist:^(MLDPlaylist *playlist) {
-            self.popularPlaylist = playlist;
-        }];
+//        [self.streamingService getPopularPlaylist:^(MLDPlaylist *playlist) {
+//            self.popularPlaylist = playlist;
+//        }];
+//        
+//        [self.barService onPlaylistChanged:^(MLDPlaylist *response) {
+//            self.popularPlaylist = response;
+//        }];
         
-        [self.barService onPlaylistChanged:^(MLDPlaylist *response) {
-            self.popularPlaylist = response;
-        }];
+        
         [self.barService onCurrentPlaylistDidGet:^(MLDPlaylist *response) {
             //self.rawPlaylist = response;
         }];
+        
+        
+        [self.barService getActualPlaylist];
     }
     return self;
 }
