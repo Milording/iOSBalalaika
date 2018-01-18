@@ -22,7 +22,10 @@
 
 @property (nonatomic, strong) MLDPlaylist *searchPlaylist;
 
+@property (nonatomic, copy) NSString *typedText;
 @property (nonatomic, copy) NSString *searchQuery;
+
+@property NSTimer *typeTimerDelay;
 
 @end
 
@@ -105,7 +108,21 @@ NSString * const songCellIdentificator = @"SongCell";
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    self.searchQuery = searchText;
+    if(!searchText || [searchText isEqualToString:@""])
+    {
+        [self.typeTimerDelay invalidate];
+        self.typeTimerDelay = nil;
+        return;
+    }
+        
+    self.typedText = searchText;
+    [self.typeTimerDelay invalidate];
+    self.typeTimerDelay = nil;
+    
+    self.typeTimerDelay = [NSTimer scheduledTimerWithTimeInterval:2.0 repeats:NO block:^(NSTimer * _Nonnull timer) {
+        self.searchQuery = searchText;
+    }];
+    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
