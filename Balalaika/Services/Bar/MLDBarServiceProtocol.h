@@ -13,10 +13,9 @@
 @protocol MLDBarServiceProtocol <NSObject>
 
 -(void)addPremiumSong:(MLDSong *)songId;
--(void)getActualPlaylist;
+-(void)getActualPlaylist:(void (^)(MLDPlaylist *))actualPlaylistHandler;;
 -(void)setDefaultPlaylist;
 
 -(void)onPlaylistChanged:(void (^)(MLDPlaylist *))completionHandler;
--(void)onCurrentPlaylistDidGet:(void (^)(MLDPlaylist *))completionHandler;
 
 @end

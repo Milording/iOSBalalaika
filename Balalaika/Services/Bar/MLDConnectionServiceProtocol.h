@@ -12,10 +12,10 @@
 
 -(void)startDefaultPlaylist;
 -(void)addPremiumSong:(NSString *)songId;
--(void)getActualPlaylist;
+-(void)getActualPlaylist:(void (^)(NSString *))rawPlaylist;
 
 @required
 -(void)onRawPlaylistChanged:(void (^)(NSString *))completionHandler;
--(void)onCurrentPlaylistDidGet:(void (^)(NSString *))completionHandler;
+-(void)onConnectionEstablished:(void (^)(void))completionHandler;
 
 @end

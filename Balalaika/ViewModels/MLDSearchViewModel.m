@@ -43,6 +43,12 @@ objection_requires(@"streamingService", @"barService")
             if(!self.searchQuery)
                 return;
             [self.streamingService searchSong:^(MLDPlaylist *playlist) {
+                if(!playlist)
+                {
+                    [self.streamingService getPopularPlaylist:^(MLDPlaylist *popularPlaylist) {
+                        self.searchResultsPlaylist = popularPlaylist;
+                    }];
+                }
                 self.searchResultsPlaylist = playlist;
             } query:self.searchQuery];
         }];
